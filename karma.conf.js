@@ -21,7 +21,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/customevent-polyfill.js',
       'dist/' + buildFile,
       'test/bootstrap.js',
       'test/spec/**/*.spec.js'

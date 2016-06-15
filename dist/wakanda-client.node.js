@@ -1990,7 +1990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			"path": "^0.12.7",
 			"phantomjs": "^1.9.19",
 			"serve-static": "^1.10.2",
-			"ts-loader": "^0.8.1",
+			"ts-loader": "0.8.1",
 			"tslint": "^3.9.0",
 			"tslint-loader": "^2.1.4",
 			"typescript": "^1.8.10",

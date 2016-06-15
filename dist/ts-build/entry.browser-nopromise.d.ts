@@ -2,6 +2,7 @@ import 'core-js/fn/function/bind';
 import 'core-js/fn/array/from';
 import 'core-js/fn/array/is-array';
 import 'core-js/fn/map';
+import './polyfills/customevent-polyfill';
 import WakandaClient from './wakanda-client';
 import { CatalogBaseService } from './data-access/service/base/catalog-base-service';
 import { CollectionBaseService } from './data-access/service/base/collection-base-service';
