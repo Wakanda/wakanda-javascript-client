@@ -41,19 +41,19 @@ export class DirectoryBaseService {
   }
 
   public static currentUser({httpClient}: {httpClient: HttpClient}): Promise<ICurrentUserDBO> {
-    return httpClient.get({
+    return httpClient.post({
       uri: '/$directory/currentUser'
     })
-      .then(res => {
-        let obj = JSON.parse(res.body);
+    .then(res => {
+      let obj = JSON.parse(res.body);
 
-        if (obj.result && obj.result.ID) {
-          return obj.result;
-        }
-        else {
-          return Promise.reject(new Error());
-        }
-      });
+      if (obj.result && obj.result.ID) {
+        return obj.result;
+      }
+      else {
+        return Promise.reject(new Error());
+      }
+    });
   }
 
   public static currentUserBelongsTo({httpClient, group}: ICurrentUserBelongsToParams): Promise<boolean> {

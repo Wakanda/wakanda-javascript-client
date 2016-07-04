@@ -1894,7 +1894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    DirectoryBaseService.currentUser = function (_a) {
 	        var httpClient = _a.httpClient;
-	        return httpClient.get({
+	        return httpClient.post({
 	            uri: '/$directory/currentUser'
 	        })
 	            .then(function (res) {
