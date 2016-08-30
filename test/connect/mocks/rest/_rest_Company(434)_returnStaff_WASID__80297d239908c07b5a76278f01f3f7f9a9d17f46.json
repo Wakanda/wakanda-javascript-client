@@ -1,0 +1,31 @@
+{
+  "requestUrl": "/rest/Company(434)/returnStaff",
+  "contentType": "application/json; charset=UTF-8",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Employee",
+    "__COUNT": 1,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "7008",
+        "__STAMP": 13,
+        "ID": 7008,
+        "lastName": "LUHEJI",
+        "firstName": "HARRY",
+        "salary": 132765,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(434)",
+            "__KEY": "434"
+          }
+        },
+        "salaryProcessed": "4295628.82194972 baht",
+        "employerName": "Bag While Engineering",
+        "photo": null
+      }
+    ]
+  },
+  "headers": {}
+}

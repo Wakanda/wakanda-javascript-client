@@ -41,10 +41,11 @@ export declare class AttributeRelated extends Attribute {
 }
 export declare class AttributeCollection extends Attribute {
     entityType: string;
-    constructor({name, type, readOnly, kind}: {
+    constructor({name, type, readOnly, kind, entityType}: {
         name: string;
         type: string;
         readOnly?: boolean;
         kind: string;
+        entityType: string;
     });
 }

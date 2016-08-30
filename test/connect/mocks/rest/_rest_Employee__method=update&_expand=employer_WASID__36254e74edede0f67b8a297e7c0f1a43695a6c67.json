@@ -1,0 +1,28 @@
+{
+  "requestUrl": "/rest/Employee?$method=update&$expand=employer",
+  "contentType": "application/json; charset=UTF-8",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "7009",
+    "__STAMP": 14,
+    "uri": "/rest/Employee(7009)",
+    "ID": 7009,
+    "lastName": "Smith",
+    "firstName": "John",
+    "salary": 80000,
+    "salaryProcessed": "2588410.3924677256 baht",
+    "employerName": "Bag While Engineering",
+    "employer": {
+      "__KEY": "434",
+      "__STAMP": 13,
+      "ID": 434,
+      "name": "Bag While Engineering",
+      "staff": {
+        "__deferred": {
+          "uri": "/rest/Company(434)/staff?$expand=staff"
+        }
+      }
+    }
+  },
+  "headers": {}
+}

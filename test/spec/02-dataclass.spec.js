@@ -314,7 +314,7 @@ describe('Dataclass API', function() {
     });
 
     it('should have a collectionName property', function () {
-      expect(ds.Employee.collectionName).to.be.equal('EmployeeCollection');
+      expect(ds.Employee.collectionName).to.be.equal('Employees');
     });
 
     it('should have an attributes property', function () {

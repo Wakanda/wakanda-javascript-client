@@ -7,7 +7,7 @@
       {
         "name": "Employee",
         "className": "Employee",
-        "collectionName": "EmployeeCollection",
+        "collectionName": "Employees",
         "scope": "public",
         "dataURI": "/rest/Employee",
         "attributes": [

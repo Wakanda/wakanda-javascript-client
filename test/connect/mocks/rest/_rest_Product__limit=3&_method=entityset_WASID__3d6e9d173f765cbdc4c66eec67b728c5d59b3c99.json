@@ -3,16 +3,16 @@
   "contentType": "application/json; charset=UTF-8",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/55AF9E1A01404210B9C14E8868E5F62D",
+    "__ENTITYSET": "/rest/Product/$entityset/4F78AA76AED24DA1BADD2E4580830DD5",
     "__entityModel": "Product",
     "__COUNT": 26,
     "__SENT": 3,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "1108",
-        "__STAMP": 82,
-        "ID": 1108,
+        "__KEY": "219",
+        "__STAMP": 13,
+        "ID": 219,
         "name": "FooProduct",
         "myBoolean": true,
         "born": null,
@@ -27,9 +27,9 @@
         "myNumber": null
       },
       {
-        "__KEY": "1106",
-        "__STAMP": 87,
-        "ID": 1106,
+        "__KEY": "217",
+        "__STAMP": 11,
+        "ID": 217,
         "name": null,
         "myBoolean": true,
         "born": null,
@@ -38,9 +38,9 @@
         "myNumber": null
       },
       {
-        "__KEY": "1105",
-        "__STAMP": 87,
-        "ID": 1105,
+        "__KEY": "216",
+        "__STAMP": 13,
+        "ID": 216,
         "name": "watermelon true",
         "myBoolean": null,
         "born": null,

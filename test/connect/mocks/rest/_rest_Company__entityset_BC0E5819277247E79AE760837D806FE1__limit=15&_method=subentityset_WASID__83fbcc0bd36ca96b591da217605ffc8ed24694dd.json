@@ -1,0 +1,179 @@
+{
+  "requestUrl": "/rest/Company/$entityset/BC0E5819277247E79AE760837D806FE1?$limit=15&$method=subentityset",
+  "contentType": "application/json; charset=UTF-8",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Company",
+    "__COUNT": 62,
+    "__SENT": 15,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "434",
+        "__STAMP": 13,
+        "ID": 434,
+        "name": "Bag While Engineering",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(434)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "433",
+        "__STAMP": 13,
+        "ID": 433,
+        "name": "Kilo Data Ireland",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(433)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "432",
+        "__STAMP": 13,
+        "ID": 432,
+        "name": "Earth Sable Andloging",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(432)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "431",
+        "__STAMP": 13,
+        "ID": 431,
+        "name": "Mexican Worldwide Fusion",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(431)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "430",
+        "__STAMP": 13,
+        "ID": 430,
+        "name": "Calendar Sable Diffusing Ring",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(430)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "429",
+        "__STAMP": 13,
+        "ID": 429,
+        "name": "Yankee Maxime Oval",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(429)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "428",
+        "__STAMP": 13,
+        "ID": 428,
+        "name": "Alpha Montain Training",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(428)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "427",
+        "__STAMP": 13,
+        "ID": 427,
+        "name": "Video Peter Graphics",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(427)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "426",
+        "__STAMP": 13,
+        "ID": 426,
+        "name": "Bravo Rect Stone",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(426)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "425",
+        "__STAMP": 13,
+        "ID": 425,
+        "name": "Flying Engine Left",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(425)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "424",
+        "__STAMP": 13,
+        "ID": 424,
+        "name": "Curtain Coin Loran",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(424)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "423",
+        "__STAMP": 13,
+        "ID": 423,
+        "name": "Romeo Preview General",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(423)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "422",
+        "__STAMP": 13,
+        "ID": 422,
+        "name": "Oscar Week Tree",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(422)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "421",
+        "__STAMP": 13,
+        "ID": 421,
+        "name": "Fake Address Room",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(421)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "420",
+        "__STAMP": 13,
+        "ID": 420,
+        "name": "Television Year Platinium",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(420)/staff?$expand=staff"
+          }
+        }
+      }
+    ]
+  },
+  "headers": {}
+}

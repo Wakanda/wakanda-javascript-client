@@ -59,10 +59,10 @@ export class AttributeCollection extends Attribute {
 
   public entityType: string;
 
-  constructor({name, type, readOnly, kind}:
-    {name: string, type: string, readOnly?: boolean, kind: string}) {
+  constructor({name, type, readOnly, kind, entityType}:
+    {name: string, type: string, readOnly?: boolean, kind: string, entityType: string}) {
 
     super({name, type, readOnly, kind});
-    this.entityType = type.substring(0, type.length - 10);
+    this.entityType = entityType;
   }
 }

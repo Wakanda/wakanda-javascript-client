@@ -1,7 +1,7 @@
 {
   "requestUrl": "/rest/Employee(404)",
   "contentType": "application/json; charset=UTF-8",
-  "statusCode": 404,
+  "statusCode": 401,
   "data": {
     "__ERROR": [
       {

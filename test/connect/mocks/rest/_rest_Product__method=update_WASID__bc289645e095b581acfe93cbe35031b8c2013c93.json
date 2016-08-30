@@ -1,0 +1,21 @@
+{
+  "requestUrl": "/rest/Product?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "219",
+    "__STAMP": 14,
+    "uri": "/rest/Product(219)",
+    "ID": 219,
+    "name": "Unnamed product",
+    "myBoolean": true,
+    "spec": {
+      "foo": "bar",
+      "number": 1234,
+      "subObject": {
+        "baz": "taz"
+      }
+    }
+  },
+  "headers": {}
+}

@@ -71,10 +71,18 @@ class CatalogBusiness extends AbstractBusiness {
               }));
               break;
             case 'relatedEntities':
-            let attrCollection = new AttributeCollection({
+              let entityType: string;
+              dataClassDBOArray.some((_dataClass) => {
+                if(_dataClass.collectionName === attr.type) {
+                  entityType = _dataClass.name;
+                  return true;
+                }
+              });
+              let attrCollection = new AttributeCollection({
                 name: attr.name,
                 type: attr.type,
-                kind: attr.kind
+                kind: attr.kind,
+                entityType: entityType
               });
               attributes.push(attrCollection);
               this.needDataClass(attrCollection.entityType);

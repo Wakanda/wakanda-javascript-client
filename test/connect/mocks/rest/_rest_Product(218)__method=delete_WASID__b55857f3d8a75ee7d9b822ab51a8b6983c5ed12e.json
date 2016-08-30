@@ -1,0 +1,9 @@
+{
+  "requestUrl": "/rest/Product(218)?$method=delete",
+  "contentType": "application/json; charset=UTF-8",
+  "statusCode": 200,
+  "data": {
+    "ok": true
+  },
+  "headers": {}
+}
