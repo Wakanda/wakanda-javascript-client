@@ -83,6 +83,7 @@ module.exports = function(config) {
     customLaunchers: {
       PhantomJSCustom: {
         base:'PhantomJS',
+        debug: false,
         options: {
           onCallback: function (data) {
             if (data.type === 'clearCookies') {
