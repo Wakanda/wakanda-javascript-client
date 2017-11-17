@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "name": "Wakanda JavaScript",
+  "description": "Wakanda Backend default scaffolding.",
+  "tags": [
+    "wakanda",
+    "JavaScript"
+  ]
+}

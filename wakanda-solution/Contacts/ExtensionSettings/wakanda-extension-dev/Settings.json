@@ -1,0 +1,8 @@
+﻿{
+	"start.setBackend": "true",
+	"start.setMobile": "true",
+	"start.setWeb": "true",
+	"start.setTestBackend": "true",
+	"start.setTestMobile": "true",
+	"start.setTestWeb": "true"
+}

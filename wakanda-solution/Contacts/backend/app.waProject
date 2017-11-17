@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<type name="backend" />
+	<file path="./models/main/model.waModel">
+		<tag name="catalog"/>
+	</file>
+	<folder path="./database/data/">
+		<tag name="dataFolder"/>
+	</folder>
+	<folder path="./database/backups/">
+		<tag name="Backups"/>
+	</folder>
+	<file path="./settings.waSettings">
+		<tag name="settings"/>
+	</file>
+	<file path="./permissions.waPerm">
+		<tag name="permissions"/>
+	</file>
+   <file path="./bootstrap.js">
+      <tag name="bootStrap"/>
+  </file>
+</project>
