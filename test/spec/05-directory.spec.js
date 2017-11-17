@@ -25,19 +25,19 @@ describe('Directory API', function () {
 
     it('should resolve with correct credentials', function () {
       return dir.login('bar', 'bar', 3600 * 24 * 365).then(function (result) {
-        expect(result).to.be.true;
+        expect(result).to.equals(true);
       });
     });
 
     it('should fail with bad credentials', function () {
       return dir.login('bad', 'credentials').catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e instanceof Error).to.equals(true);
       });
     });
 
     it('should fail without any credentials', function () {
       return dir.login().catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e instanceof Error).to.equals(true);
       });
     });
 
@@ -65,7 +65,7 @@ describe('Directory API', function () {
 
     it('should resolve', function () {
       return dir.logout().then(function (result) {
-        expect(result).to.be.true;
+        expect(result).to.equals(true);
       });
     });
   });
@@ -99,7 +99,7 @@ describe('Directory API', function () {
     it('should fail if user is not logged in', function () {
       return dir.logout().then(function () {
         return dir.getCurrentUser().catch(function (e) {
-          expect(e).to.be.defined;
+          expect(e instanceof Error).to.equals(true);
         });
       });
     });
@@ -129,7 +129,7 @@ describe('Directory API', function () {
     it('should resolve true if current user belongs to given group', function () {
       return dir.login('bar', 'bar', 3600 * 24 * 365).then(function (user) {
         return dir.getCurrentUserBelongsTo('Admin').then(function (result) {
-          expect(result).to.be.true;
+          expect(result).to.equals(true);
         });
       });
     });
@@ -137,7 +137,7 @@ describe('Directory API', function () {
     it('should resolve false if current user doesn\'t belong to given group', function () {
       return dir.login('bar', 'bar', 3600 * 24 * 365).then(function (user) {
         return dir.getCurrentUserBelongsTo('QA').then(function (result) {
-          expect(result).to.be.false;
+          expect(result).to.equals(false);
         });
       });
     });
@@ -145,7 +145,7 @@ describe('Directory API', function () {
     it('should resolve false if user is not logged in', function () {
       return dir.logout().then(function (user) {
         return dir.getCurrentUserBelongsTo('QA').then(function (result) {
-          expect(result).to.be.false;
+          expect(result).to.equals(false);
         });
       });
     });

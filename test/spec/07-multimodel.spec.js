@@ -11,14 +11,14 @@ describe('Multimodel : virtual model', function() {
 
     it('should fail trying to retrieve an unknown dataclass', function () {
       return wakClientPublication.getCatalog(['Employee']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e).to.be.an('object');
       });
     });
 
     
     it('should throw an exception if all needed dataClasses are not retrieved', function () {
       return wakClientPublication.getCatalog(['Book']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e instanceof Error).to.equals(true);
       });
     });
   });
@@ -49,14 +49,14 @@ describe('Multimodel : virtual model', function() {
 
       it('should not expand related attributes by default', function () {
         return ds.Book.find(existingId).then(function (book) {
-          expect(book.author.ID).to.be.defined;
-          expect(book.author.firstName).to.be.undefined;
+          expect(book.author._key).to.be.a('string');
+          expect(book.author.firstName).to.equals(undefined);
         });
       });
 
       it('should expand related attributes provided on select parameter', function () {
         return ds.Book.find(existingId, { select: 'author' }).then(function (book) {
-          expect(book.author.ID).to.be.defined;
+          expect(book.author.ID).to.be.a('number');
           expect(book.author.firstName).to.be.a('string');
         });
       });
@@ -83,7 +83,7 @@ describe('Multimodel : virtual model', function() {
           var book = collection.entities[0];
           expect(book).to.be.an('object');
           expect(book.author).to.be.an('object');
-          expect(book.author.firstName).to.be.undefined;
+          expect(book.author.firstName).to.equals(undefined);
         });
       });
 

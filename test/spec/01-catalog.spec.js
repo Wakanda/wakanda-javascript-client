@@ -28,13 +28,13 @@ describe('Catalog API', function() {
       return wakClient.getCatalog(['Employee', 'Company']).then(function (ds) {
         expect(ds.Company).to.be.an('object');
         expect(ds.Employee).to.be.an('object');
-        expect(ds.Product).to.be.undefined;
+        expect(ds.Product).to.be.equal(undefined);
       });
     });
 
     it('should fail trying to retrieve an unknown dataclass', function () {
       return wakClient.getCatalog(['Foo']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e.statusCode).to.be.equal(404);
       });
     });
 
@@ -46,7 +46,7 @@ describe('Catalog API', function() {
     
     it('should throw an exception if all needed dataClasses are not retrieved', function () {
       return wakClient.getCatalog(['Employee']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e instanceof Error).to.be.equal(true);
       });
     });
   });

@@ -27,7 +27,7 @@ describe('Entity API', function () {
       var entity = ds.Product.create();
 
       return entity.save().then(function (e) {
-        expect(entity === e).to.be.true;
+        expect(entity === e).to.equals(true);
       });
     });
 
@@ -44,7 +44,7 @@ describe('Entity API', function () {
     });
 
     it('should update the _stamp for an existing entity', function () {
-      return ds.Product.query({pageSize: 1})
+      return ds.Product.query({ pageSize: 1 })
         .then(function (collection) {
           return collection.entities[0];
         })
@@ -75,7 +75,7 @@ describe('Entity API', function () {
         .then(function () {
           expect(entity.ID).to.be.a('number');
           expect(entity.name).to.be.equal('FooProduct');
-          expect(entity.myBoolean).to.be.true;
+          expect(entity.myBoolean).to.equals(true);
           expect(entity.spec).to.be.an('object');
           expect(entity.spec.foo).to.be.equal('bar');
           expect(entity.spec.number).to.be.equal(1234);
@@ -86,7 +86,7 @@ describe('Entity API', function () {
 
     it('should store related entity', function () {
 
-      return ds.Company.query({pageSize: 1})
+      return ds.Company.query({ pageSize: 1 })
         .then(function (companies) {
           return companies.entities[0];
         })
@@ -107,7 +107,7 @@ describe('Entity API', function () {
     });
 
     it('should unlink related entity by passing a null value', function () {
-      return ds.Employee.query({pageSize: 1, filter: 'employer.ID > 0'})
+      return ds.Employee.query({ pageSize: 1, filter: 'employer.ID > 0' })
         .then(function (collection) {
           return collection.entities[0];
         })
@@ -116,7 +116,7 @@ describe('Entity API', function () {
           return employee.save();
         })
         .then(function (employee) {
-          expect(employee.employer).to.be.null;
+          expect(employee.employer).to.equals(null);
         });
     });
 
@@ -143,7 +143,7 @@ describe('Entity API', function () {
         });
     });
 
-    it('should not expand "not expanded" related entity attributes on update', function() {
+    it('should not expand "not expanded" related entity attributes on update', function () {
       return ds.Employee.query({ pageSize: 1, start: 10 })
         .then(function (employees) {
           return employees.entities[0];
@@ -152,13 +152,13 @@ describe('Entity API', function () {
           employee.firstName = 'Arnaud';
           return employee.save()
             .then(function () {
-              expect(employee.employer._deferred).to.be.true;
-              expect(employee.employer.name).to.be.undefined;
+              expect(employee.employer._deferred).to.equals(true);
+              expect(employee.employer.name).to.equals(undefined);
             });
         });
     });
 
-    it('should expand "expanded" related entity attributes on update', function() {
+    it('should expand "expanded" related entity attributes on update', function () {
       return ds.Employee.query({ pageSize: 1, start: 10, select: 'employer' })
         .then(function (employees) {
           return employees.entities[0];
@@ -167,13 +167,13 @@ describe('Entity API', function () {
           employee.firstName = 'Arnaud';
           return employee.save()
             .then(function () {
-              expect(employee.employer._deferred).to.be.false;
-              expect(employee.employer.name).to.be.equal('Earth Sable Andloging');
+              expect(employee.employer._deferred).to.equals(false);
+              expect(employee.employer.name).to.be.equal('Blobarray Coolupe Orange');
             });
         });
     });
 
-    it('should update only changed attributes', function() {
+    it('should update only changed attributes', function () {
       return ds.Employee.query({ pageSize: 1, start: 12 })
         .then(function (employees) {
           return employees.entities[0];
@@ -191,7 +191,7 @@ describe('Entity API', function () {
 
   describe('delete method', function () {
     it('sould be defined', function () {
-      return ds.Product.query({pageSize: 1})
+      return ds.Product.query({ pageSize: 1 })
         .then(function (collection) {
           return collection.entities[0];
         })
@@ -201,7 +201,7 @@ describe('Entity API', function () {
     });
 
     it('should return a promise', function (done) {
-      ds.Product.query({pageSize: 1})
+      ds.Product.query({ pageSize: 1 })
         .then(function (collection) {
           expect(collection.entities[0].delete()).to.be.a('promise');
           done();
@@ -209,13 +209,13 @@ describe('Entity API', function () {
     });
 
     it('should delete the entity', function (done) {
-      ds.Product.query({pageSize: 10})
+      ds.Product.query({ pageSize: 10 })
         .then(function (collection) {
           var product = collection.entities[9];
           var productId = product._key;
           product.delete().then(function () {
             ds.Product.find(productId).catch(function (e) {
-              expect(e).to.be.defined;
+              expect(e).to.be.an('object');
               done();
             });
           });
@@ -231,13 +231,13 @@ describe('Entity API', function () {
   });
 
   describe('fetch method', function () {
-    it ('should be defined', function () {
+    it('should be defined', function () {
       var entity = ds.Product.create();
       expect(entity.fetch).to.be.a('function');
     });
 
     it('should return a promise', function () {
-      return ds.Employee.query({pageSize: 1, filter: 'employer.ID > 0'})
+      return ds.Employee.query({ pageSize: 1, filter: 'employer.ID > 0' })
         .then(function (collection) {
           var employee = collection.entities[0];
           expect(employee.employer.fetch()).to.be.a('promise');
@@ -245,7 +245,7 @@ describe('Entity API', function () {
     });
 
     it('should fetch a deferred related entity', function () {
-      return ds.Employee.query({pageSize: 1, filter: 'employer.ID > 0'})
+      return ds.Employee.query({ pageSize: 1, filter: 'employer.ID > 0' })
         .then(function (collection) {
           var employee = collection.entities[0];
           return employee.employer.fetch();
@@ -261,13 +261,13 @@ describe('Entity API', function () {
     it('should update the fetched entity', function () {
       var employee;
 
-      return ds.Employee.query({pageSize: 1, filter: 'employer.ID > 0'})
+      return ds.Employee.query({ pageSize: 1, filter: 'employer.ID > 0' })
         .then(function (collection) {
           employee = collection.entities[0];
           return employee.employer.fetch();
         })
         .then(function (company) {
-          expect(company === employee.employer).to.be.true;
+          expect(company === employee.employer).to.equals(true);
         });
     });
 
@@ -275,7 +275,7 @@ describe('Entity API', function () {
       var product, originalName;
 
       //Skipping some product as we removed some of it on previous tests
-      return ds.Product.query({pageSize: 1, start: 10})
+      return ds.Product.query({ pageSize: 1, start: 10 })
         .then(function (collection) {
           product = collection.entities[0];
           originalName = product.name;
@@ -289,27 +289,27 @@ describe('Entity API', function () {
     });
 
     it('should fail if called with invalid options', function () {
-      return ds.Employee.query({pageSize: 1, filter: 'employer.ID > 0'}).then(function (c) {
+      return ds.Employee.query({ pageSize: 1, filter: 'employer.ID > 0' }).then(function (c) {
         var employee = c.entities[0];
 
         expect(function () {
-          employee.employer.fetch({pageSize: 4});
+          employee.employer.fetch({ pageSize: 4 });
         }).to.throw(Error);
 
         expect(function () {
-          employee.employer.fetch({filter: 'ID < 10'});
+          employee.employer.fetch({ filter: 'ID < 10' });
         }).to.throw(Error);
 
         expect(function () {
-          employee.employer.fetch({params: [2]});
+          employee.employer.fetch({ params: [2] });
         }).to.throw(Error);
 
         expect(function () {
-          employee.employer.fetch({orderBy: 'name'});
+          employee.employer.fetch({ orderBy: 'name' });
         }).to.throw(Error);
 
         expect(function () {
-          employee.employer.fetch({start: 0});
+          employee.employer.fetch({ start: 0 });
         }).to.throw(Error);
       });
     });
@@ -318,7 +318,7 @@ describe('Entity API', function () {
   describe('user defined methods', function () {
 
     it('should be defined', function () {
-      return ds.Employee.query({pageSize: 1})
+      return ds.Employee.query({ pageSize: 1 })
         .then(function (collection) {
           var employee = collection.entities[0];
 
@@ -327,7 +327,7 @@ describe('Entity API', function () {
     });
 
     it('should return a promise', function () {
-      return ds.Employee.query({pageSize: 1})
+      return ds.Employee.query({ pageSize: 1 })
         .then(function (collection) {
           var employee = collection.entities[0];
 
@@ -338,7 +338,7 @@ describe('Entity API', function () {
     it('should return the right value', function () {
       var employee;
 
-      return ds.Employee.query({pageSize: 1})
+      return ds.Employee.query({ pageSize: 1 })
         .then(function (collection) {
           employee = collection.entities[0];
 
@@ -358,17 +358,17 @@ describe('Entity API', function () {
     });
 
     it('should transform result into an entity if needed', function () {
-      return ds.Employee.query({pageSize: 1}).then(function (c) {
+      return ds.Employee.query({ pageSize: 1 }).then(function (c) {
         return c.entities[0].returnSelf().then(function (e) {
-          expect(wakClient.helper.isEntity(e)).to.be.true;
+          expect(wakClient.helper.isEntity(e)).to.equals(true);
         });
       });
     });
 
     it('should transform result into a collection if needed', function () {
-      return ds.Company.query({pageSize: 1}).then(function (c) {
+      return ds.Company.query({ pageSize: 1 }).then(function (c) {
         return c.entities[0].returnStaff().then(function (e) {
-          expect(wakClient.helper.isCollection(e)).to.be.true;
+          expect(wakClient.helper.isCollection(e)).to.equals(true);
         });
       });
     });
@@ -396,7 +396,7 @@ describe('Entity API', function () {
     it('should fire init event for a newly created entity', function () {
       var entity = ds.Product.create();
       return entity.recompute().then(function () {
-        expect(entity.myBoolean).to.be.true;
+        expect(entity.myBoolean).to.equals(true);
       });
     });
 
@@ -408,7 +408,7 @@ describe('Entity API', function () {
     });
 
     it('should fire clientrefresh event for an already saved entity', function () {
-      return ds.Product.query({pageSize: 3})
+      return ds.Product.query({ pageSize: 3 })
         .then(function (collection) {
           var entity = collection.entities[0];
 
@@ -420,7 +420,7 @@ describe('Entity API', function () {
     });
 
     it('should not cause any trouble to saving after being called', function () {
-      return ds.Product.query({pageSize: 3})
+      return ds.Product.query({ pageSize: 3 })
         .then(function (collection) {
           var entity = collection.entities[0];
           var oldStamp = entity._stamp;
@@ -452,14 +452,14 @@ describe('Entity API', function () {
           expect(entity.myNumber).to.be.a('number');
           expect(entity.myNumber).to.be.equal(0);
           expect(entity.myBoolean).to.be.a('boolean');
-          expect(entity.myBoolean).to.be.false;
+          expect(entity.myBoolean).to.equals(false);
 
           return ds.Product.find(entity.ID);
         });
     });
   });
 
-  describe('date attribute field', function() {
+  describe('date attribute field', function () {
     it('should be a Date object', function () {
       return ds.Employee.query({ pageSize: 1, filter: 'birthDate != null' })
         .then(function (collection) {
@@ -476,7 +476,7 @@ describe('Entity API', function () {
           return collection.entities[0];
         })
         .then(function (employee) {
-          expect(employee.birthDate).to.be.null;
+          expect(employee.birthDate).to.equals(null);
         });
     });
 
@@ -496,7 +496,7 @@ describe('Entity API', function () {
     });
   });
 
-  describe('simple date attribute field', function() {
+  describe('simple date attribute field', function () {
     it('should be a Date object', function () {
       return ds.Employee.query({ pageSize: 1, filter: 'hiringDate != null' })
         .then(function (collection) {
@@ -513,7 +513,7 @@ describe('Entity API', function () {
           return collection.entities[0];
         })
         .then(function (employee) {
-          expect(employee.hiringDate).to.be.null;
+          expect(employee.hiringDate).to.equals(null);
         });
     });
   });
