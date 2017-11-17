@@ -3,7 +3,7 @@ import HttpResponse from '../../http/http-response';
 
 export interface IUploadParams {
   httpClient: HttpClient;
-  dataClassName: string;
+  dataURI: string;
   entityKey: string;
   attributeName: string;
   file: File;
@@ -12,7 +12,7 @@ export interface IUploadParams {
 
 export interface IDeleteParams {
   httpClient: HttpClient;
-  dataClassName: string;
+  dataURI: string;
   entityKey: string;
   entityStamp: number;
   attributeName: string;
@@ -20,9 +20,9 @@ export interface IDeleteParams {
 
 export class MediaBaseService {
 
-  public static upload({httpClient, dataClassName, entityKey, attributeName, file, isImage}: IUploadParams): Promise<HttpResponse> {
+  public static upload({httpClient, dataURI, entityKey, attributeName, file, isImage}: IUploadParams): Promise<HttpResponse> {
 
-    let uri = this._buildUri(dataClassName, entityKey, attributeName);
+    let uri = this._buildUri(dataURI, entityKey, attributeName);
 
     if (isImage) {
       uri += '?$rawPict=' + file.type;
@@ -36,8 +36,8 @@ export class MediaBaseService {
     });
   }
 
-  public static delete({httpClient, dataClassName, entityKey, entityStamp, attributeName}: IDeleteParams): Promise<HttpResponse> {
-    let uri = '/' + dataClassName + '(' + entityKey + ')';
+  public static delete({httpClient, dataURI, entityKey, entityStamp, attributeName}: IDeleteParams): Promise<HttpResponse> {
+    let uri = dataURI + '(' + entityKey + ')';
     let data: any = {
       __KEY: entityKey,
       __STAMP: entityStamp
@@ -52,7 +52,7 @@ export class MediaBaseService {
     });
   }
 
-  private static _buildUri(dataClassName: string, entityKey: string, attributeName: string): string {
-    return '/' + dataClassName + '(' + entityKey + ')' + '/' + attributeName;
+  private static _buildUri(dataURI: string, entityKey: string, attributeName: string): string {
+    return dataURI + '(' + entityKey + ')' + '/' + attributeName;
   }
 }

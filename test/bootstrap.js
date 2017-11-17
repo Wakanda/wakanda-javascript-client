@@ -1,6 +1,31 @@
 /* eslint-disable */
 
 isBrowser = new Function("try { return this === window; } catch(e) { return false; }");
+
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    byteArrays.push(byteArray);
+  }
+    
+  var blob = new Blob(byteArrays, {type: contentType});
+  return blob;
+}
+
 if (!isBrowser()) {
   var chai = require('chai');
   expect = chai.expect;
@@ -12,10 +37,12 @@ if (!isBrowser()) {
   wakClient = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port });
 
   wakClientPublication = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port, catalog: 'publication' });
+  window.b64toBlob = b64toBlob;
 }
 else {
-  wakClient = new WakandaClient.WakandaClient();
-  wakClientPublication = new WakandaClient.WakandaClient({ catalog: 'publication' });
+  wakClient = new WakandaClient.WakandaClient({ host: 'http://127.0.0.1:8081' });
+  wakClientPublication = new WakandaClient.WakandaClient({ host: 'http://127.0.0.1:8081', catalog: 'publication' });
+  global.b64toBlob = b64toBlob;
 }
 
 beforeEach(function () {
