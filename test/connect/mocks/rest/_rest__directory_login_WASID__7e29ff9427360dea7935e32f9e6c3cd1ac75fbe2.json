@@ -1,9 +1,0 @@
-{
-  "requestUrl": "/rest/$directory/login",
-  "contentType": "application/json; charset=UTF-8",
-  "statusCode": 401,
-  "data": {
-    "result": false
-  },
-  "headers": {}
-}

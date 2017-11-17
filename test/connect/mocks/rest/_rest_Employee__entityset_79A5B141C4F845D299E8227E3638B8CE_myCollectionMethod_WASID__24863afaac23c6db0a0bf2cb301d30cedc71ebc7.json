@@ -1,9 +1,0 @@
-{
-  "requestUrl": "/rest/Employee/$entityset/79A5B141C4F845D299E8227E3638B8CE/myCollectionMethod",
-  "contentType": "application/json; charset=UTF-8",
-  "statusCode": 200,
-  "data": {
-    "result": "Hello from collection employee ! There is 1 items on the collection."
-  },
-  "headers": {}
-}
