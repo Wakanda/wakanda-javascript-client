@@ -9,13 +9,14 @@ conf.isparta = {
   embedSource: true,
   noAutoWrap: true,
   babel: {
-    presets: ['es2015']
+    presets: ['env']
   }
 };
 
-var preLoaders = [];
+var rules = [];
 
-preLoaders.push({
+rules.push({
+  enforce: 'pre',
   test: /\.js$/,
   exclude: [
     /node_modules/
@@ -23,7 +24,7 @@ preLoaders.push({
   loader: 'isparta'
 });
 
-conf.module.preLoaders = preLoaders;
+conf.module.rules = rules;
 
 
 module.exports = configs;
