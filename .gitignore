@@ -24,3 +24,4 @@ tsBuild/
 *.waSymData
 *.waIndx
 *.WakTDef
+*.waData
