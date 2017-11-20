@@ -8,7 +8,7 @@ var stream = require('stream');
 
 var prism = require('connect-prism');
 var crypto = require('crypto');
-var PrismUtils = require('../../node_modules/connect-prism/lib/services/prism-utils');
+var PrismUtils = require('connect-prism/lib/services/prism-utils');
 
 
 var mode = process.argv[2] || 'mock';
@@ -23,7 +23,7 @@ var prismUtils = new PrismUtils();
 
 var mockFileName = function (config, req) {
   var reqData = prismUtils.filterUrl(config, req.url);
-  var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g,'_');
+  var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g, '_');
 
   // include request body and cookie in hash
   var cookie = req.headers.cookie || "";
@@ -44,11 +44,17 @@ prism.create({
   mocksPath: __dirname + '/mocks',
   hashFullRequest: true,
   recordHeaders: ['Set-Cookie', 'WASID'],
-  mockFilenameGenerator: mockFileName
+  mockFilenameGenerator: mockFileName,
+  proxyConfig: {
+    options: {
+      xfwd: true
+    },
+    onProxyCreated: function(proxyServer, prismConfig) { } 
+  }
 });
 
 var app = connect()
-  .use(function (req, res, next) {
+  /*.use(function (req, res, next) {
     var buffer = '';
     req.on('data', function(data) {
       buffer += data;
@@ -68,11 +74,7 @@ var app = connect()
 
       next();
     });
-  })
-  .use(prism.middleware)
-  .use(serveStatic('public'))
-  .use(function(req, res){
-    res.end('hello world\n');
-  })
+  })*/
+  .use(prism.middleware);
 
 http.createServer(app).listen(3000);
