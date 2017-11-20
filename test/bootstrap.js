@@ -37,12 +37,11 @@ if (!isBrowser()) {
   wakClient = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port });
 
   wakClientPublication = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port, catalog: 'publication' });
-  window.b64toBlob = b64toBlob;
 }
 else {
-  wakClient = new WakandaClient.WakandaClient({ host: 'http://127.0.0.1:8081' });
-  wakClientPublication = new WakandaClient.WakandaClient({ host: 'http://127.0.0.1:8081', catalog: 'publication' });
-  global.b64toBlob = b64toBlob;
+  wakClient = new WakandaClient.WakandaClient();
+  wakClientPublication = new WakandaClient.WakandaClient({ catalog: 'publication' });
+  window.b64toBlob = b64toBlob;
 }
 
 beforeEach(function () {
