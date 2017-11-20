@@ -1,0 +1,82 @@
+{
+  "requestUrl": "/rest/publication/Book?$limit=5&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Book/$entityset/4C69089585404048A509E457C1A1E4D0",
+    "__entityModel": "Book",
+    "__COUNT": 18,
+    "__SENT": 5,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 1,
+        "title": "Le dernier jour d'un condamné",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 2,
+        "title": "L'homme qui rit",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "3",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 3,
+        "title": "Les chatiments",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "4",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 4,
+        "title": "L'étranger",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      },
+      {
+        "__KEY": "5",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 5,
+        "title": "La peste",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

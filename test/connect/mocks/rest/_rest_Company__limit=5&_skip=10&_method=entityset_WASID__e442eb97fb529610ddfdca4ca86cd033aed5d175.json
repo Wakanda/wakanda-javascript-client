@@ -1,0 +1,77 @@
+{
+  "requestUrl": "/rest/Company?$limit=5&$skip=10&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Company/$entityset/5290A920FDABAC4C8576673206C34347",
+    "__entityModel": "Company",
+    "__COUNT": 62,
+    "__SENT": 5,
+    "__FIRST": 10,
+    "__ENTITIES": [
+      {
+        "__KEY": "5947",
+        "__TIMESTAMP": "2017-11-20T16:09:34.624Z",
+        "__STAMP": 1,
+        "ID": 5947,
+        "name": "X-Ray Corridor Plane",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5947)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5948",
+        "__TIMESTAMP": "2017-11-20T16:09:34.626Z",
+        "__STAMP": 1,
+        "ID": 5948,
+        "name": "Moon Developing Tree",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5948)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5949",
+        "__TIMESTAMP": "2017-11-20T16:09:34.665Z",
+        "__STAMP": 1,
+        "ID": 5949,
+        "name": "Month Business Plane",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5949)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5950",
+        "__TIMESTAMP": "2017-11-20T16:09:34.693Z",
+        "__STAMP": 1,
+        "ID": 5950,
+        "name": "Blobarray Core Library",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5950)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5951",
+        "__TIMESTAMP": "2017-11-20T16:09:34.757Z",
+        "__STAMP": 1,
+        "ID": 5951,
+        "name": "Paper Theater Blue",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5951)/staff?$expand=staff"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

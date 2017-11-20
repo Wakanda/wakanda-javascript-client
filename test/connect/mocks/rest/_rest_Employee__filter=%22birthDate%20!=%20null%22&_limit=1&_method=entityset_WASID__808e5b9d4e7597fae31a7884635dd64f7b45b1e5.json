@@ -1,0 +1,32 @@
+{
+  "requestUrl": "/rest/Employee?$filter=%22birthDate%20!=%20null%22&$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/C930CC97E4CDF24A90242CB3D77FE802",
+    "__entityModel": "Employee",
+    "__COUNT": 1000,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "96009",
+        "__TIMESTAMP": "2017-11-20T16:11:22.505Z",
+        "__STAMP": 2,
+        "ID": 96009,
+        "lastName": "SYNO",
+        "firstName": "INGRID",
+        "salary": 43791,
+        "employer": null,
+        "salaryProcessed": "1416863.4937069272 baht",
+        "employerName": null,
+        "photo": null,
+        "birthDate": "1941-09-24T11:31:07.652Z",
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,0 +1,417 @@
+{
+  "requestUrl": "/rest/Employee?$orderby=birthDate&$limit=20&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/478AD8AA62BF554DA7228D427F397CF8",
+    "__entityModel": "Employee",
+    "__COUNT": 1000,
+    "__SENT": 20,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "96902",
+        "__TIMESTAMP": "2017-11-20T16:09:35.049Z",
+        "__STAMP": 1,
+        "ID": 96902,
+        "lastName": "BINBARGAR",
+        "firstName": "SUSAN",
+        "salary": 56710,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5987)",
+            "__KEY": "5987"
+          }
+        },
+        "salaryProcessed": "1834859.416960559 baht",
+        "employerName": "Romeo Preview General",
+        "photo": null,
+        "birthDate": "1901-02-04T03:01:13.468Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96898",
+        "__TIMESTAMP": "2017-11-20T16:09:35.048Z",
+        "__STAMP": 1,
+        "ID": 96898,
+        "lastName": "LELINDA",
+        "firstName": "BENTON",
+        "salary": 71008,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5987)",
+            "__KEY": "5987"
+          }
+        },
+        "salaryProcessed": "2297473.064354353 baht",
+        "employerName": "Romeo Preview General",
+        "photo": null,
+        "birthDate": "1901-02-11T16:17:39.706Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96216",
+        "__TIMESTAMP": "2017-11-20T16:09:34.701Z",
+        "__STAMP": 1,
+        "ID": 96216,
+        "lastName": "SEKRAF",
+        "firstName": "IMELDA",
+        "salary": 50763,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5950)",
+            "__KEY": "5950"
+          }
+        },
+        "salaryProcessed": "1642443.4594104895 baht",
+        "employerName": "Blobarray Core Library",
+        "photo": null,
+        "birthDate": "1901-03-05T22:06:14.754Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96355",
+        "__TIMESTAMP": "2017-11-20T16:09:34.772Z",
+        "__STAMP": 1,
+        "ID": 96355,
+        "lastName": "WUQEGOJA",
+        "firstName": "WADE",
+        "salary": 85117,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5952)",
+            "__KEY": "5952"
+          }
+        },
+        "salaryProcessed": "2753971.5921959425 baht",
+        "employerName": "Key Rect Andloging",
+        "photo": null,
+        "birthDate": "1901-04-02T21:14:18.216Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96194",
+        "__TIMESTAMP": "2017-11-20T16:09:34.692Z",
+        "__STAMP": 1,
+        "ID": 96194,
+        "lastName": "BERENO",
+        "firstName": "RAPHAEL",
+        "salary": 6262,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5949)",
+            "__KEY": "5949"
+          }
+        },
+        "salaryProcessed": "202607.82347041124 baht",
+        "employerName": "Month Business Plane",
+        "photo": null,
+        "birthDate": "1901-06-28T13:17:00.903Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96356",
+        "__TIMESTAMP": "2017-11-20T16:09:34.773Z",
+        "__STAMP": 1,
+        "ID": 96356,
+        "lastName": "TORIRONO",
+        "firstName": "MARCUS",
+        "salary": 71851,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5952)",
+            "__KEY": "5952"
+          }
+        },
+        "salaryProcessed": "2324748.438864982 baht",
+        "employerName": "Key Rect Andloging",
+        "photo": null,
+        "birthDate": "1901-07-01T18:11:57.602Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96974",
+        "__TIMESTAMP": "2017-11-20T16:09:35.085Z",
+        "__STAMP": 1,
+        "ID": 96974,
+        "lastName": "XECECU",
+        "firstName": "WILLIAMS",
+        "salary": 106889,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5994)",
+            "__KEY": "5994"
+          }
+        },
+        "salaryProcessed": "3458407.480506034 baht",
+        "employerName": "Calendar Sable Diffusing Ring",
+        "photo": null,
+        "birthDate": "1901-07-07T18:24:37.810Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96719",
+        "__TIMESTAMP": "2017-11-20T16:09:34.970Z",
+        "__STAMP": 1,
+        "ID": 96719,
+        "lastName": "HECOZAMO",
+        "firstName": "AL",
+        "salary": 127330,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5980)",
+            "__KEY": "5980"
+          }
+        },
+        "salaryProcessed": "4119778.690911444 baht",
+        "employerName": "Network Rocket See",
+        "photo": null,
+        "birthDate": "1901-07-12T03:16:09.188Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96559",
+        "__TIMESTAMP": "2017-11-20T16:09:34.889Z",
+        "__STAMP": 1,
+        "ID": 96559,
+        "lastName": "CERRERERE",
+        "firstName": "WINNIE",
+        "salary": 48291,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5970)",
+            "__KEY": "5970"
+          }
+        },
+        "salaryProcessed": "1562461.5782832368 baht",
+        "employerName": "Very Washington Tree",
+        "photo": null,
+        "birthDate": "1901-09-30T19:38:53.251Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96545",
+        "__TIMESTAMP": "2017-11-20T16:09:34.879Z",
+        "__STAMP": 1,
+        "ID": 96545,
+        "lastName": "NUFOLE",
+        "firstName": "ARLEN",
+        "salary": 93379,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5968)",
+            "__KEY": "5968"
+          }
+        },
+        "salaryProcessed": "3021289.675478047 baht",
+        "employerName": "India Junior Bytes",
+        "photo": null,
+        "birthDate": "1901-10-17T14:02:36.920Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96925",
+        "__TIMESTAMP": "2017-11-20T16:09:35.062Z",
+        "__STAMP": 1,
+        "ID": 96925,
+        "lastName": "VYKE",
+        "firstName": "NATASHA",
+        "salary": 71574,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5990)",
+            "__KEY": "5990"
+          }
+        },
+        "salaryProcessed": "2315786.0678810626 baht",
+        "employerName": "Bravo Rect Stone",
+        "photo": null,
+        "birthDate": "1901-12-14T17:01:10.389Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96850",
+        "__TIMESTAMP": "2017-11-20T16:09:35.027Z",
+        "__STAMP": 1,
+        "ID": 96850,
+        "lastName": "SARVEN",
+        "firstName": "ROWENA",
+        "salary": 75598,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5986)",
+            "__KEY": "5986"
+          }
+        },
+        "salaryProcessed": "2445983.110622189 baht",
+        "employerName": "Oscar Week Tree",
+        "photo": null,
+        "birthDate": "1902-01-12T15:45:16.370Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96295",
+        "__TIMESTAMP": "2017-11-20T16:09:34.748Z",
+        "__STAMP": 1,
+        "ID": 96295,
+        "lastName": "MADUMENO",
+        "firstName": "KELLEY",
+        "salary": 22761,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5950)",
+            "__KEY": "5950"
+          }
+        },
+        "salaryProcessed": "736435.1117869738 baht",
+        "employerName": "Blobarray Core Library",
+        "photo": null,
+        "birthDate": "1902-02-21T08:27:00.232Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96676",
+        "__TIMESTAMP": "2017-11-20T16:09:34.949Z",
+        "__STAMP": 1,
+        "ID": 96676,
+        "lastName": "TOSSAREND",
+        "firstName": "ERMA",
+        "salary": 77213,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5977)",
+            "__KEY": "5977"
+          }
+        },
+        "salaryProcessed": "2498236.6454201313 baht",
+        "employerName": "Hand Year Papers",
+        "photo": null,
+        "birthDate": "1902-03-16T03:08:54.984Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96173",
+        "__TIMESTAMP": "2017-11-20T16:09:34.683Z",
+        "__STAMP": 1,
+        "ID": 96173,
+        "lastName": "DODAROLU",
+        "firstName": "RODGER",
+        "salary": 84895,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5949)",
+            "__KEY": "5949"
+          }
+        },
+        "salaryProcessed": "2746788.7533568447 baht",
+        "employerName": "Month Business Plane",
+        "photo": null,
+        "birthDate": "1902-04-06T06:26:24.507Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96692",
+        "__TIMESTAMP": "2017-11-20T16:09:34.958Z",
+        "__STAMP": 1,
+        "ID": 96692,
+        "lastName": "TOWENA",
+        "firstName": "MONICA",
+        "salary": 24050,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5980)",
+            "__KEY": "5980"
+          }
+        },
+        "salaryProcessed": "778140.87423561 baht",
+        "employerName": "Network Rocket See",
+        "photo": null,
+        "birthDate": "1902-04-24T02:37:18.285Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96308",
+        "__TIMESTAMP": "2017-11-20T16:09:34.751Z",
+        "__STAMP": 1,
+        "ID": 96308,
+        "lastName": "NOTA",
+        "firstName": "ELBA",
+        "salary": 49468,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5950)",
+            "__KEY": "5950"
+          }
+        },
+        "salaryProcessed": "1600543.5661824183 baht",
+        "employerName": "Blobarray Core Library",
+        "photo": null,
+        "birthDate": "1902-06-13T19:57:05.747Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96368",
+        "__TIMESTAMP": "2017-11-20T16:09:34.781Z",
+        "__STAMP": 1,
+        "ID": 96368,
+        "lastName": "LYVOJA",
+        "firstName": "CHRISTIAN",
+        "salary": 16341,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5952)",
+            "__KEY": "5952"
+          }
+        },
+        "salaryProcessed": "528715.1777914389 baht",
+        "employerName": "Key Rect Andloging",
+        "photo": null,
+        "birthDate": "1902-07-03T04:16:50.530Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96869",
+        "__TIMESTAMP": "2017-11-20T16:09:35.036Z",
+        "__STAMP": 1,
+        "ID": 96869,
+        "lastName": "DAJOBUKA",
+        "firstName": "MILDRED",
+        "salary": 11212,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5986)",
+            "__KEY": "5986"
+          }
+        },
+        "salaryProcessed": "362765.71650435176 baht",
+        "employerName": "Oscar Week Tree",
+        "photo": null,
+        "birthDate": "1902-08-01T21:04:24.495Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96961",
+        "__TIMESTAMP": "2017-11-20T16:09:35.081Z",
+        "__STAMP": 1,
+        "ID": 96961,
+        "lastName": "GUJU",
+        "firstName": "MARIA",
+        "salary": 39710,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5993)",
+            "__KEY": "5993"
+          }
+        },
+        "salaryProcessed": "1284822.2085611674 baht",
+        "employerName": "Yankee Maxime Oval",
+        "photo": null,
+        "birthDate": "1902-09-22T03:27:02.331Z",
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

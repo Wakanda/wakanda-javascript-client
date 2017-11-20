@@ -1,0 +1,24 @@
+{
+  "requestUrl": "/rest/Product(2805)",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Product",
+    "__KEY": "2805",
+    "__TIMESTAMP": "2017-11-20T16:11:22.549Z",
+    "__STAMP": 3,
+    "ID": 2805,
+    "name": "cherry",
+    "myBoolean": false,
+    "born": null,
+    "spec": {
+      "foo": "bar",
+      "baz": 1136
+    },
+    "photo": null,
+    "myNumber": null
+  },
+  "isBase64": false,
+  "headers": {}
+}

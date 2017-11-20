@@ -1,0 +1,817 @@
+{
+  "requestUrl": "/rest/Employee?$limit=40&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/51B3F4C57966DD4AA1FCD63A3123032E",
+    "__entityModel": "Employee",
+    "__COUNT": 1000,
+    "__SENT": 40,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "96009",
+        "__TIMESTAMP": "2017-11-20T16:09:34.581Z",
+        "__STAMP": 1,
+        "ID": 96009,
+        "lastName": "SYNO",
+        "firstName": "INGRID",
+        "salary": 43791,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "1416863.4937069272 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1941-09-24T11:31:07.652Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96010",
+        "__TIMESTAMP": "2017-11-20T16:09:34.581Z",
+        "__STAMP": 1,
+        "ID": 96010,
+        "lastName": "DYNEDE",
+        "firstName": "ZACHARY",
+        "salary": 116051,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "3754845.1807034006 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1918-04-28T20:39:07.138Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96011",
+        "__TIMESTAMP": "2017-11-20T16:09:34.581Z",
+        "__STAMP": 1,
+        "ID": 96011,
+        "lastName": "TUHEWA",
+        "firstName": "VANCE",
+        "salary": 146970,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "4755233.4422622705 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1956-04-04T19:39:01.200Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96012",
+        "__TIMESTAMP": "2017-11-20T16:09:34.582Z",
+        "__STAMP": 1,
+        "ID": 96012,
+        "lastName": "FEUTREOT",
+        "firstName": "KRIS",
+        "salary": 60944,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "1971851.0369819135 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1963-04-08T22:36:34.257Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96013",
+        "__TIMESTAMP": "2017-11-20T16:09:34.582Z",
+        "__STAMP": 1,
+        "ID": 96013,
+        "lastName": "CUSISU",
+        "firstName": "QUINCY",
+        "salary": 54554,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "1765101.756883554 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1965-03-28T18:16:31.450Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96014",
+        "__TIMESTAMP": "2017-11-20T16:09:34.582Z",
+        "__STAMP": 1,
+        "ID": 96014,
+        "lastName": "CIGANOBO",
+        "firstName": "ALISA",
+        "salary": 7499,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "242631.11916394343 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1904-01-29T09:06:14.156Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96015",
+        "__TIMESTAMP": "2017-11-20T16:09:34.583Z",
+        "__STAMP": 1,
+        "ID": 96015,
+        "lastName": "NYQEFECE",
+        "firstName": "ESTELLE",
+        "salary": 41417,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "1340052.4153104473 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1992-08-02T09:03:06.400Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96016",
+        "__TIMESTAMP": "2017-11-20T16:09:34.583Z",
+        "__STAMP": 1,
+        "ID": 96016,
+        "lastName": "WYNE",
+        "firstName": "SANTOS",
+        "salary": 100007,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "3235739.476493998 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1995-01-27T09:29:22.288Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96017",
+        "__TIMESTAMP": "2017-11-20T16:09:34.583Z",
+        "__STAMP": 1,
+        "ID": 96017,
+        "lastName": "JOMADETI",
+        "firstName": "DAVE",
+        "salary": 30332,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5937)",
+            "__KEY": "5937"
+          }
+        },
+        "salaryProcessed": "981395.8003041382 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1929-01-07T04:33:06.676Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96018",
+        "__TIMESTAMP": "2017-11-20T16:09:34.583Z",
+        "__STAMP": 1,
+        "ID": 96018,
+        "lastName": "QAKULU",
+        "firstName": "KENTON",
+        "salary": 40970,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "1325589.672242534 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1906-12-24T01:38:28.280Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96019",
+        "__TIMESTAMP": "2017-11-20T16:09:34.584Z",
+        "__STAMP": 1,
+        "ID": 96019,
+        "lastName": "MUDIKATU",
+        "firstName": "BARTON",
+        "salary": 64288,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "2080046.5913870644 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1958-09-11T17:44:35.959Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96020",
+        "__TIMESTAMP": "2017-11-20T16:09:34.584Z",
+        "__STAMP": 1,
+        "ID": 96020,
+        "lastName": "VOLLOAU",
+        "firstName": "FAY",
+        "salary": 33587,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "1086711.7481476688 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1986-04-21T16:10:21.666Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96021",
+        "__TIMESTAMP": "2017-11-20T16:09:34.584Z",
+        "__STAMP": 1,
+        "ID": 96021,
+        "lastName": "SOMIND",
+        "firstName": "WILMER",
+        "salary": 39873,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "1290096.0947358203 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1953-05-07T16:04:39.724Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96022",
+        "__TIMESTAMP": "2017-11-20T16:09:34.585Z",
+        "__STAMP": 1,
+        "ID": 96022,
+        "lastName": "XEPULA",
+        "firstName": "CARROL",
+        "salary": 121128,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "3919112.1752353837 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1937-01-25T10:22:10.204Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96023",
+        "__TIMESTAMP": "2017-11-20T16:09:34.585Z",
+        "__STAMP": 1,
+        "ID": 96023,
+        "lastName": "DAGRES",
+        "firstName": "RHEA",
+        "salary": 77007,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "2491571.488659527 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1919-03-02T03:47:18.580Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96024",
+        "__TIMESTAMP": "2017-11-20T16:09:34.585Z",
+        "__STAMP": 1,
+        "ID": 96024,
+        "lastName": "CETELIBY",
+        "firstName": "DOLLIE",
+        "salary": 48480,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "1568576.6978354417 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1917-06-17T22:05:39.795Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96025",
+        "__TIMESTAMP": "2017-11-20T16:09:34.585Z",
+        "__STAMP": 1,
+        "ID": 96025,
+        "lastName": "OWENOAC",
+        "firstName": "ANTHONY",
+        "salary": 55519,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5938)",
+            "__KEY": "5938"
+          }
+        },
+        "salaryProcessed": "1796324.4572426958 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1955-09-24T14:48:08.722Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96026",
+        "__TIMESTAMP": "2017-11-20T16:09:34.586Z",
+        "__STAMP": 1,
+        "ID": 96026,
+        "lastName": "GASSAN",
+        "firstName": "AVA",
+        "salary": 48750,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5939)",
+            "__KEY": "5939"
+          }
+        },
+        "salaryProcessed": "1577312.5829100204 baht",
+        "employerName": "Path Best Fabric",
+        "photo": null,
+        "birthDate": "1926-07-26T13:15:24.440Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96027",
+        "__TIMESTAMP": "2017-11-20T16:09:34.586Z",
+        "__STAMP": 1,
+        "ID": 96027,
+        "lastName": "JISE",
+        "firstName": "CLIFF",
+        "salary": 13491,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5939)",
+            "__KEY": "5939"
+          }
+        },
+        "salaryProcessed": "436503.0575597761 baht",
+        "employerName": "Path Best Fabric",
+        "photo": null,
+        "birthDate": "1964-07-19T03:13:24.326Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96028",
+        "__TIMESTAMP": "2017-11-20T16:09:34.586Z",
+        "__STAMP": 1,
+        "ID": 96028,
+        "lastName": "WABOME",
+        "firstName": "CLIFTON",
+        "salary": 140152,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5939)",
+            "__KEY": "5939"
+          }
+        },
+        "salaryProcessed": "4534636.166564208 baht",
+        "employerName": "Path Best Fabric",
+        "photo": null,
+        "birthDate": "1906-03-25T03:22:47.546Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96029",
+        "__TIMESTAMP": "2017-11-20T16:09:34.587Z",
+        "__STAMP": 1,
+        "ID": 96029,
+        "lastName": "BYMA",
+        "firstName": "SHEREE",
+        "salary": 48160,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5940)",
+            "__KEY": "5940"
+          }
+        },
+        "salaryProcessed": "1558223.056265571 baht",
+        "employerName": "Parking Power Sand",
+        "photo": null,
+        "birthDate": "1994-01-13T15:55:19.700Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96030",
+        "__TIMESTAMP": "2017-11-20T16:09:34.592Z",
+        "__STAMP": 1,
+        "ID": 96030,
+        "lastName": "DUDUXEBE",
+        "firstName": "ELIZA",
+        "salary": 88947,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5940)",
+            "__KEY": "5940"
+          }
+        },
+        "salaryProcessed": "2877891.739735335 baht",
+        "employerName": "Parking Power Sand",
+        "photo": null,
+        "birthDate": "1965-09-01T11:45:28.506Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96031",
+        "__TIMESTAMP": "2017-11-20T16:09:34.593Z",
+        "__STAMP": 1,
+        "ID": 96031,
+        "lastName": "ZUDEBE",
+        "firstName": "EDMOND",
+        "salary": 94495,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "3057398.0004529716 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1965-12-10T01:11:13.903Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96032",
+        "__TIMESTAMP": "2017-11-20T16:09:34.593Z",
+        "__STAMP": 1,
+        "ID": 96032,
+        "lastName": "TADOFA",
+        "firstName": "DEBORAH",
+        "salary": 14971,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "484388.64982042904 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1920-10-22T18:05:14.801Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96033",
+        "__TIMESTAMP": "2017-11-20T16:09:34.593Z",
+        "__STAMP": 1,
+        "ID": 96033,
+        "lastName": "SEREHYZA",
+        "firstName": "ELOY",
+        "salary": 86667,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "2804122.0435500047 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1921-03-17T14:10:07.400Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96034",
+        "__TIMESTAMP": "2017-11-20T16:09:34.593Z",
+        "__STAMP": 1,
+        "ID": 96034,
+        "lastName": "ROBODESE",
+        "firstName": "MILLICENT",
+        "salary": 61711,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "1996667.4216196977 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1996-11-15T01:23:43.900Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96035",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96035,
+        "lastName": "CIHAPU",
+        "firstName": "VIRGIE",
+        "salary": 56395,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "1824667.5510402175 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1985-10-25T02:37:50.300Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96036",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96036,
+        "lastName": "JEBAMA",
+        "firstName": "LISA",
+        "salary": 32084,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "1038081.9878991814 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1964-01-16T21:42:48.300Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96037",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96037,
+        "lastName": "TEVARNOAR",
+        "firstName": "RUDOLF",
+        "salary": 72399,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5941)",
+            "__KEY": "5941"
+          }
+        },
+        "salaryProcessed": "2342479.050053386 baht",
+        "employerName": "Hotel Apple Feet",
+        "photo": null,
+        "birthDate": "1908-05-20T16:25:21.660Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96038",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96038,
+        "lastName": "BUBUQASA",
+        "firstName": "LUCAS",
+        "salary": 147263,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "4764713.495324683 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1999-08-21T21:34:05.139Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96039",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96039,
+        "lastName": "LAHA",
+        "firstName": "DOMINICK",
+        "salary": 79082,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "2558708.3832141585 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1967-10-12T19:46:48.587Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96040",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 96040,
+        "lastName": "NACEMA",
+        "firstName": "KENDRICK",
+        "salary": 56824,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "1838547.9017698255 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1958-11-18T06:25:46.103Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96041",
+        "__TIMESTAMP": "2017-11-20T16:09:34.595Z",
+        "__STAMP": 1,
+        "ID": 96041,
+        "lastName": "LOSYVUTE",
+        "firstName": "RUPERT",
+        "salary": 62925,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "2035946.5493253956 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1904-11-27T18:13:37.600Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96042",
+        "__TIMESTAMP": "2017-11-20T16:09:34.595Z",
+        "__STAMP": 1,
+        "ID": 96042,
+        "lastName": "QALUMU",
+        "firstName": "FRANKIE",
+        "salary": 75325,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "2437150.160157893 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1981-02-26T01:30:11.112Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96043",
+        "__TIMESTAMP": "2017-11-20T16:09:34.595Z",
+        "__STAMP": 1,
+        "ID": 96043,
+        "lastName": "HEODAR",
+        "firstName": "HORACIO",
+        "salary": 82963,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "2684278.6423787493 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1925-05-05T03:38:15.876Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96044",
+        "__TIMESTAMP": "2017-11-20T16:09:34.595Z",
+        "__STAMP": 1,
+        "ID": 96044,
+        "lastName": "KINRED",
+        "firstName": "ISMAEL",
+        "salary": 41851,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)",
+            "__KEY": "5942"
+          }
+        },
+        "salaryProcessed": "1354094.541689585 baht",
+        "employerName": "Light Sable Computing",
+        "photo": null,
+        "birthDate": "1966-05-18T10:17:25.491Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96045",
+        "__TIMESTAMP": "2017-11-20T16:09:34.596Z",
+        "__STAMP": 1,
+        "ID": 96045,
+        "lastName": "ROTACE",
+        "firstName": "ARIEL",
+        "salary": 125786,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5943)",
+            "__KEY": "5943"
+          }
+        },
+        "salaryProcessed": "4069822.3703368166 baht",
+        "employerName": "Path House Construction",
+        "photo": null,
+        "birthDate": "1943-07-19T14:28:49.185Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96046",
+        "__TIMESTAMP": "2017-11-20T16:09:34.596Z",
+        "__STAMP": 1,
+        "ID": 96046,
+        "lastName": "BIUTTAMY",
+        "firstName": "MATTIE",
+        "salary": 146992,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5943)",
+            "__KEY": "5943"
+          }
+        },
+        "salaryProcessed": "4755945.255120199 baht",
+        "employerName": "Path House Construction",
+        "photo": null,
+        "birthDate": "1952-03-05T02:58:19.539Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96047",
+        "__TIMESTAMP": "2017-11-20T16:09:34.597Z",
+        "__STAMP": 1,
+        "ID": 96047,
+        "lastName": "REFA",
+        "firstName": "AUGUSTINE",
+        "salary": 69869,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5943)",
+            "__KEY": "5943"
+          }
+        },
+        "salaryProcessed": "2260620.571391594 baht",
+        "employerName": "Path House Construction",
+        "photo": null,
+        "birthDate": "1983-03-23T00:25:05.366Z",
+        "hiringDate": null
+      },
+      {
+        "__KEY": "96048",
+        "__TIMESTAMP": "2017-11-20T16:09:34.597Z",
+        "__STAMP": 1,
+        "ID": 96048,
+        "lastName": "KARKIWSKY",
+        "firstName": "GUSTAVO",
+        "salary": 68779,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(5943)",
+            "__KEY": "5943"
+          }
+        },
+        "salaryProcessed": "2225353.4797942215 baht",
+        "employerName": "Path House Construction",
+        "photo": null,
+        "birthDate": "1994-12-17T21:12:35.770Z",
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

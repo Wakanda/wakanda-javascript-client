@@ -1,0 +1,18 @@
+{
+  "requestUrl": "/rest/Product?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "2829",
+    "__STAMP": 3,
+    "uri": "/rest/Product(2829)",
+    "__TIMESTAMP": "2017-11-20T16:11:23.184Z",
+    "ID": 2829,
+    "name": "Exotic value",
+    "myBoolean": false,
+    "myNumber": 0
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,0 +1,266 @@
+{
+  "requestUrl": "/rest/Product?$limit=10&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Product/$entityset/B6694D5075640B4084C7EDD346E46576",
+    "__entityModel": "Product",
+    "__COUNT": 27,
+    "__SENT": 10,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__STAMP": 0
+      },
+      {
+        "__KEY": "2801",
+        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__STAMP": 1,
+        "ID": 2801,
+        "name": "apricot",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "apricot",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2802",
+        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__STAMP": 1,
+        "ID": 2802,
+        "name": "avocado",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "avocado",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2803",
+        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__STAMP": 1,
+        "ID": 2803,
+        "name": "banana",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "banana",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2804",
+        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__STAMP": 1,
+        "ID": 2804,
+        "name": "blueberry",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "blueberry",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2805",
+        "__TIMESTAMP": "2017-11-20T16:11:22.549Z",
+        "__STAMP": 3,
+        "ID": 2805,
+        "name": "cherry",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "foo": "bar",
+          "baz": 1136
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2806",
+        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__STAMP": 1,
+        "ID": 2806,
+        "name": "fig",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "fig",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2807",
+        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__STAMP": 1,
+        "ID": 2807,
+        "name": "grape",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "grape",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2808",
+        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__STAMP": 1,
+        "ID": 2808,
+        "name": "kiwi",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "kiwi",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2809",
+        "__TIMESTAMP": "2017-11-20T16:09:35.116Z",
+        "__STAMP": 1,
+        "ID": 2809,
+        "name": "lemon true\r",
+        "myBoolean": null,
+        "born": null,
+        "spec": {
+          "name": "lemon true\r",
+          "myObject": {
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

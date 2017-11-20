@@ -1,0 +1,104 @@
+{
+  "requestUrl": "/rest/Product?$limit=3&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Product/$entityset/1542F10DC4F5514D86F1F0D3933AE425",
+    "__entityModel": "Product",
+    "__COUNT": 25,
+    "__SENT": 3,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "2801",
+        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__STAMP": 1,
+        "ID": 2801,
+        "name": "apricot",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "apricot",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2802",
+        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__STAMP": 1,
+        "ID": 2802,
+        "name": "avocado",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "avocado",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "2803",
+        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__STAMP": 1,
+        "ID": 2803,
+        "name": "banana",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "banana",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

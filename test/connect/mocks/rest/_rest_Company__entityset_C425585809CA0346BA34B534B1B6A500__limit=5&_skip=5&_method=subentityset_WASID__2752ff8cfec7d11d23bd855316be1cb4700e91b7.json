@@ -1,0 +1,76 @@
+{
+  "requestUrl": "/rest/Company/$entityset/C425585809CA0346BA34B534B1B6A500?$limit=5&$skip=5&$method=subentityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Company",
+    "__COUNT": 62,
+    "__SENT": 5,
+    "__FIRST": 5,
+    "__ENTITIES": [
+      {
+        "__KEY": "5942",
+        "__TIMESTAMP": "2017-11-20T16:09:34.594Z",
+        "__STAMP": 1,
+        "ID": 5942,
+        "name": "Light Sable Computing",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5942)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5943",
+        "__TIMESTAMP": "2017-11-20T16:09:34.595Z",
+        "__STAMP": 1,
+        "ID": 5943,
+        "name": "Path House Construction",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5943)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5944",
+        "__TIMESTAMP": "2017-11-20T16:09:34.597Z",
+        "__STAMP": 1,
+        "ID": 5944,
+        "name": "Desert Junior Ireland",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5944)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5945",
+        "__TIMESTAMP": "2017-11-20T16:09:34.607Z",
+        "__STAMP": 1,
+        "ID": 5945,
+        "name": "Thai Kimono Twist",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5945)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "5946",
+        "__TIMESTAMP": "2017-11-20T16:09:34.608Z",
+        "__STAMP": 1,
+        "ID": 5946,
+        "name": "Desert North Partner",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(5946)/staff?$expand=staff"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

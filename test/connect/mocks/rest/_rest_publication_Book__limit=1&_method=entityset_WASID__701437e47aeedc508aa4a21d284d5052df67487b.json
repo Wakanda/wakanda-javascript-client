@@ -1,0 +1,30 @@
+{
+  "requestUrl": "/rest/publication/Book?$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Book/$entityset/CD959E28FA53984381DEE5E63DED5989",
+    "__entityModel": "Book",
+    "__COUNT": 18,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 1,
+        "title": "Le dernier jour d'un condamné",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}
