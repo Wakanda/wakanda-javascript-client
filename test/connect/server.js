@@ -2,22 +2,28 @@
 
 var http = require('http');
 var connect = require('connect');
-var serveStatic = require('serve-static');
 var chalk = require('chalk');
 var stream = require('stream');
-
+var path = require("path");
 var prism = require('connect-prism');
 var crypto = require('crypto');
 var PrismUtils = require('connect-prism/lib/services/prism-utils');
+var isModule = require.main !== module;
+var server;
+var mode;
 
+if (isModule) {
+  mode = 'mock';
+} else {
+  mode = process.argv[2] || 'mock';
+}
 
-var mode = process.argv[2] || 'mock';
 if (mode === 'record') {
   mode = 'mockrecord';
   console.log(chalk.red('You are on record mode. Do not forget to reset DB before executing test suite.'));
 }
 
-console.log(chalk.green('Starting record/mocking test server with mode ' + mode + ' on port 3000'));
+console.log(chalk.green('Starting test server with mode ' + mode + ' on port 3000'));
 
 var prismUtils = new PrismUtils();
 
@@ -41,7 +47,7 @@ prism.create({
   port: 8081,
   mode: mode,
   clearOnStart: true,
-  mocksPath: __dirname + '/mocks',
+  mocksPath: path.resolve(__dirname, 'mocks'),
   hashFullRequest: true,
   recordHeaders: ['Set-Cookie', 'WASID'],
   mockFilenameGenerator: mockFileName,
@@ -49,32 +55,30 @@ prism.create({
     options: {
       xfwd: true
     },
-    onProxyCreated: function(proxyServer, prismConfig) { } 
+    onProxyCreated: function (proxyServer, prismConfig) { }
   }
 });
 
-var app = connect()
-  /*.use(function (req, res, next) {
-    var buffer = '';
-    req.on('data', function(data) {
-      buffer += data;
+function startServer(callback) {
+  var app = connect()
+    .use(prism.middleware);
 
-      // Too much POST data, kill the connection!
-      if (buffer.length > 1e6) {
-        req.connection.destroy();
-      }
-    });
+  server = http.createServer(app);
+  callback && server.on('listening', callback);
 
-    req.on('end', function() {
-      req.body = buffer;
+  server.listen(3000);
+}
 
-      var bufferStream = new stream.PassThrough();
-      bufferStream.end(new Buffer(buffer));
-      req.bodyStream = bufferStream;
+function stopServer(callback) {
+  callback && server.on('close', callback);
+  server.close();
+}
 
-      next();
-    });
-  })*/
-  .use(prism.middleware);
-
-http.createServer(app).listen(3000);
+if (!isModule) {
+  startServer();
+} else {
+  module.exports = {
+    start: startServer,
+    stop: stopServer
+  }
+}
