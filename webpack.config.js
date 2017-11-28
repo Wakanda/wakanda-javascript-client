@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+var _ = require('lodash');
 
 process.traceDeprecation = true;
 
@@ -28,6 +29,9 @@ var baseConfig = {
         enforce: 'pre',
         test: /\.ts$/,
         loader: 'tslint-loader',
+        exclude: [
+          /node_modules/
+        ],
         options: {
           emitErrors: false,
           failOnHint: false
@@ -107,8 +111,21 @@ var noPromiseConfig = {
   target: 'node'
 };
 
+//Add istanbul loader for karma
+var karmaConfig = _.cloneDeep(baseConfig);
+karmaConfig.output.filename = 'karma.wakanda-client.js';
+karmaConfig.module.rules.push({
+  test: /\.(ts|js)$/,
+  use: {
+    loader: 'istanbul-instrumenter-loader'
+  },
+  enforce: 'post',
+  exclude: /node_modules|lib/
+});
+
 module.exports = [
   baseConfig,
   nodeConfig,
-  noPromiseConfig
+  noPromiseConfig,
+  karmaConfig
 ];
