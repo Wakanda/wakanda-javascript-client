@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><directory>
-	<group ID="01000000000000000000000000000000" name="Admin">
-		<include user="bar" ID="A01029CC4AF84BFB9755549F65275FD9"/>
-		<include user="foo" ID="3A16053D1F9E4AB8A630B5DF1A135DD6"/>
-	</group>
-	<group ID="944D7B7A35AD47AC91CA73E83CEBF95D" name="Employee"/>
-	<user ID="3A16053D1F9E4AB8A630B5DF1A135DD6" name="foo" fullName="foo" password="6919fe624a8ebe655f97edc5e92cd0d6"/>
-	<user ID="A01029CC4AF84BFB9755549F65275FD9" name="bar" fullName="bar" password="0195668c34dd3180fa0f294e2927878f"/>
-</directory>

@@ -1,0 +1,46 @@
+{
+  "requestUrl": "/rest/$catalog/publication/Book",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "dataClasses": [
+      {
+        "name": "Book",
+        "className": "Book",
+        "collectionName": "BookCollection",
+        "scope": "public",
+        "dataURI": "/rest/publication/Book",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "title",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "kind": "relatedEntity",
+            "scope": "public",
+            "type": "Author",
+            "path": "Author"
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

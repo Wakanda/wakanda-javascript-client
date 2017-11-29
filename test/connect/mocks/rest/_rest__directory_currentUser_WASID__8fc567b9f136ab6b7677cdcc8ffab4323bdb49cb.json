@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/$directory/currentUser",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "result": null
+  },
+  "isBase64": false,
+  "headers": {}
+}

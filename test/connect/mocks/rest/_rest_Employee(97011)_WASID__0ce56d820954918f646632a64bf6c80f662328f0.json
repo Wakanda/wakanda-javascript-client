@@ -1,0 +1,29 @@
+{
+  "requestUrl": "/rest/Employee(97011)",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Employee",
+    "__KEY": "97011",
+    "__TIMESTAMP": "2017-11-20T16:11:22.763Z",
+    "__STAMP": 2,
+    "ID": 97011,
+    "lastName": "Test-1",
+    "firstName": "Image",
+    "salary": 80000,
+    "employer": null,
+    "salaryProcessed": "2588410.3924677256 baht",
+    "employerName": null,
+    "photo": {
+      "__deferred": {
+        "uri": "/rest/Employee(97011)/photo?$imageformat=best&$version=2&$expand=photo",
+        "image": true
+      }
+    },
+    "birthDate": null,
+    "hiringDate": null
+  },
+  "isBase64": false,
+  "headers": {}
+}

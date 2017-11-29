@@ -1,9 +1,11 @@
 {
   "requestUrl": "/rest/$directory/currentUserBelongsTo",
   "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
   "statusCode": 200,
   "data": {
     "result": false
   },
+  "isBase64": false,
   "headers": {}
 }

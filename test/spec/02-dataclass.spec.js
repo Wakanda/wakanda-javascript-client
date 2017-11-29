@@ -47,27 +47,27 @@ describe('Dataclass API', function() {
 
     it('should fail if the entity is not found', function () {
       return ds.Employee.find(404).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(1==1);
       });
     });
 
     it('should not expand related attributes by default', function () {
       return ds.Employee.find(existingId).then(function (employee) {
-        expect(employee.employer.ID).to.be.defined;
-        expect(employee.employer.name).to.be.undefined;
+        expect(employee.employer._key).to.be.a('string');
+        expect(employee.employer.name).to.equals(undefined);
       });
     });
 
     it('should expand related attributes provided on select parameter', function () {
       return ds.Employee.find(existingId, {select: 'employer'}).then(function (employee) {
-        expect(employee.employer.ID).to.be.defined;
+        expect(employee.employer.ID).to.be.a('number');
         expect(employee.employer.name).to.be.a('string');
       });
     });
 
     it('should expand related attributes on several levels', function () {
       return ds.Employee.find(existingId, {select: 'employer,employer.staff'}).then(function (employee) {
-        expect(employee.employer.ID).to.be.defined;
+        expect(employee.employer.ID).to.be.a('number');
         expect(employee.employer.name).to.be.a('string');
         expect(employee.employer.staff).to.be.an('object');
         expect(employee.employer.staff.entities[0].firstName).to.be.a('string');
@@ -134,7 +134,7 @@ describe('Dataclass API', function() {
         var employee = collection.entities[0];
         expect(employee).to.be.an('object');
         expect(employee.employer).to.be.an('object');
-        expect(employee.employer.name).to.be.undefined;
+        expect(employee.employer.name).to.equals(undefined);
       });
     });
 
@@ -179,15 +179,15 @@ describe('Dataclass API', function() {
     });
 
     it('should sort result with orderBy', function () {
-      return ds.Employee.query({orderBy: 'lastName', pageSize: 20}).then(function (collection) {
-
+      return ds.Employee.query({orderBy: 'birthDate', pageSize: 20}).then(function (collection) {
+        // debugger;
         expect(collection).to.be.an('object');
         expect(collection.entities).to.be.an('array');
         expect(collection.entities.length).to.be.at.least(2);
         expect(collection.entities.length).to.be.at.most(20);
 
         for (var i = 0; i < collection.entities.length - 1; i++) {
-          expect(collection.entities[i].lastName).to.be.at.most(collection.entities[i + 1].lastName);
+          expect(collection.entities[i].birthDate).to.be.at.most(collection.entities[i + 1].birthDate);
         }
       });
     });
@@ -241,8 +241,8 @@ describe('Dataclass API', function() {
 
       expect(entity).to.be.an('object');
       expect(entity.save).to.be.a('function');
-      expect(entity._key).to.be.undefined;
-      expect(entity._stamp).to.be.undefined;
+      expect(entity._key).to.equals(undefined);
+      expect(entity._stamp).to.equals(undefined);
     });
 
     it('should fill the created entity with given parameter', function () {
@@ -291,6 +291,9 @@ describe('Dataclass API', function() {
     it('should return the right value when resolving', function () {
       return ds.Employee.myDataClassMethod('foo', 'bar').then(function (result) {
         expect(result).to.be.equal("This is a call to my dataClass method (Employee) with the following arguments : [\"foo\",\"bar\"]");
+      })
+      .catch(function(error){
+        throw error;
       });
     });
 

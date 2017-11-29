@@ -331,19 +331,19 @@ describe('Collection API', function () {
       
       it('should return the right value', function () {
         return collection.myCollectionMethod().then(function (result) {
-          expect(result).to.be.equal('Hello from collection employee ! There is 1 items on the collection.');
+          expect(result).to.be.equal('Hello from collection employee ! There is 9 items on the collection.');
         });
       });
       
       it('should transform result into an entity if needed', function () {
         return collection.firstOfCollection().then(function (e) {
-          expect(wakClient.helper.isEntity(e)).to.be.true;
+          expect(wakClient.helper.isEntity(e)).to.equals(true);
         });
       });
       
       it('should transform result into a collection if needed', function () {
         return collection.someCompanies().then(function (e) {
-          expect(wakClient.helper.isCollection(e)).to.be.true;
+          expect(wakClient.helper.isCollection(e)).to.equals(true);
         });
       });
     });
@@ -370,7 +370,7 @@ describe('Collection API', function () {
       
       it('should return the right value', function () {
         return collection.myCollectionMethod().then(function (result) {
-          expect(result).to.be.equal('Hello from collection employee ! There is 1 items on the collection.');
+          expect(result).to.be.equal('Hello from collection employee ! There is 9 items on the collection.');
         });
       });
       

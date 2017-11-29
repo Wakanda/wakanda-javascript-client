@@ -1,12 +1,14 @@
 {
   "requestUrl": "/rest/Product?$method=update",
   "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
   "statusCode": 200,
   "data": {
-    "__KEY": "2654",
-    "__STAMP": 95,
-    "uri": "/rest/Product(2654)",
-    "ID": 2654,
+    "__KEY": "2826",
+    "__STAMP": 1,
+    "uri": "/rest/Product(2826)",
+    "__TIMESTAMP": "2017-11-20T16:11:22.441Z",
+    "ID": 2826,
     "name": "FooProduct",
     "myBoolean": true,
     "spec": {
@@ -17,5 +19,6 @@
       }
     }
   },
+  "isBase64": false,
   "headers": {}
 }

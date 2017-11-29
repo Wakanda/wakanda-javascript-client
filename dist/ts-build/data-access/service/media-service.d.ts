@@ -10,6 +10,7 @@ declare class MediaService extends AbstractService {
     private isImage;
     private media;
     private attributeName;
+    private dataURI;
     constructor({wakJSC, mediaBusiness, media, attributeName, dataClassBusiness}: {
         wakJSC: WakandaClient;
         mediaBusiness: MediaBusiness;

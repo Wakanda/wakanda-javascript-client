@@ -1,0 +1,16 @@
+{
+  "requestUrl": "/rest/Product?$filter=%22born%20%3C%20:1%22&$params=%27[%222016-05-16T13:00:00.447Z%22]%27&$limit=40&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Product/$entityset/41584E141326D343BC744F56E37AD983",
+    "__entityModel": "Product",
+    "__COUNT": 0,
+    "__SENT": 0,
+    "__FIRST": 0,
+    "__ENTITIES": []
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/Employee/$entityset/6AAB6B4BC0EBC94EAAA7A0584848C4E3/myCollectionMethod",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "result": "Hello from collection employee ! There is 9 items on the collection."
+  },
+  "isBase64": false,
+  "headers": {}
+}

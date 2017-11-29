@@ -1,13 +1,16 @@
 {
   "requestUrl": "/rest/publication/Book?$method=update",
   "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
   "statusCode": 200,
   "data": {
     "__KEY": "20",
     "__STAMP": 0,
     "uri": "/rest/publication/Book(20)",
+    "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
     "ID": 20,
     "title": "JavaScript The Good Parts"
   },
+  "isBase64": false,
   "headers": {}
 }

@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+var _ = require('lodash');
+
+process.traceDeprecation = true;
 
 var baseConfig = {
   name: 'base',
@@ -15,58 +18,54 @@ var baseConfig = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+    extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
     alias: {
       'aurelia-http-client': path.join(__dirname, './lib/aurelia-http-client')
     }
   },
   module: {
-    preLoaders: [
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        exclude: [
+          /node_modules/
+        ],
+        options: {
+          emitErrors: false,
+          failOnHint: false
+        }
+      },
       {
         test: /\.ts$/,
-        loader: 'tslint'
+        exclude: [
+          /node_modules/
+        ],
+        loader: 'ts-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: [
+          /node_modules/
+        ],
+        loader: 'babel-loader',
+        query: {
+          presets: ['env']
+        }
       }
-    ],
-    loaders: [{
-      test: /\.ts$/,
-      exclude: [
-        /node_modules/
-      ],
-      loader: 'ts-loader'
-    },
-    {
-      test: /\.js$/,
-      exclude: [
-        /node_modules/
-      ],
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015']
-      }
-    },
-    {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }]
+    ]
   },
-  tslint: {
-    emitErrors: false,
-    failOnHint: false
-  },
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  target: 'web'
 };
 
 var nodeModules = {};
 fs.readdirSync('node_modules')
-  .filter(function(x) {
-      return ['.bin'].indexOf(x) === -1;
+  .filter(function (x) {
+    return ['.bin'].indexOf(x) === -1;
   })
-  .forEach(function(mod) {
-      nodeModules[mod] = 'commonjs ' + mod;
+  .forEach(function (mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
   });
 
 var nodeConfig = {
@@ -85,13 +84,9 @@ var nodeConfig = {
   resolve: baseConfig.resolve,
   externals: nodeModules,
   module: {
-    loaders: baseConfig.module.loaders
+    rules: baseConfig.module.rules
   },
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  target: 'node'
 };
 
 
@@ -111,17 +106,26 @@ var noPromiseConfig = {
   resolve: baseConfig.resolve,
   externals: nodeModules,
   module: {
-    loaders: baseConfig.module.loaders
+    rules: baseConfig.module.rules
   },
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  target: 'node'
 };
+
+//Add istanbul loader for karma
+var karmaConfig = _.cloneDeep(baseConfig);
+karmaConfig.output.filename = 'karma.wakanda-client.js';
+karmaConfig.module.rules.push({
+  test: /\.(ts|js)$/,
+  use: {
+    loader: 'istanbul-instrumenter-loader'
+  },
+  enforce: 'post',
+  exclude: /node_modules|lib/
+});
 
 module.exports = [
   baseConfig,
   nodeConfig,
-  noPromiseConfig
+  noPromiseConfig,
+  karmaConfig
 ];

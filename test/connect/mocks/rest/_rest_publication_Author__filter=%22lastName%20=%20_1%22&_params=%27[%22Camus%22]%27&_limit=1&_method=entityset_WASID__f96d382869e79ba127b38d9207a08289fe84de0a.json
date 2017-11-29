@@ -1,0 +1,31 @@
+{
+  "requestUrl": "/rest/publication/Author?$filter=%22lastName%20=%20:1%22&$params=%27[%22Camus%22]%27&$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Author/$entityset/E7FDDB3A1528FC4EB143337B81C87670",
+    "__entityModel": "Author",
+    "__COUNT": 1,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 2,
+        "firstName": "Albert",
+        "lastName": "Camus",
+        "birthDate": "1913-11-07T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)/books?$expand=books"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

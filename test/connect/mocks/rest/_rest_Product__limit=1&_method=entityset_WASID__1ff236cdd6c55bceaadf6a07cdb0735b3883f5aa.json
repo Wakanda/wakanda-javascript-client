@@ -1,0 +1,46 @@
+{
+  "requestUrl": "/rest/Product?$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Product/$entityset/CBA3F668C71BA24FA815C5A8EF95EC0F",
+    "__entityModel": "Product",
+    "__COUNT": 26,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "2800",
+        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__STAMP": 1,
+        "ID": 2800,
+        "name": "apple",
+        "myBoolean": false,
+        "born": null,
+        "spec": {
+          "name": "apple",
+          "myObject": {
+            "myBoolean": "true\r",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

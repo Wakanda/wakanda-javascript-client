@@ -1,0 +1,94 @@
+{
+  "requestUrl": "/rest/$catalog/publication/$all",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "dataClasses": [
+      {
+        "name": "Author",
+        "className": "Author",
+        "collectionName": "AuthorCollection",
+        "scope": "public",
+        "dataURI": "/rest/publication/Author",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "firstName",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "birthDate",
+            "kind": "storage",
+            "scope": "public",
+            "type": "date",
+            "simpleDate": false
+          },
+          {
+            "name": "books",
+            "kind": "relatedEntities",
+            "scope": "public",
+            "type": "BookCollection",
+            "reversePath": true,
+            "path": "author"
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      },
+      {
+        "name": "Book",
+        "className": "Book",
+        "collectionName": "BookCollection",
+        "scope": "public",
+        "dataURI": "/rest/publication/Book",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "title",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "kind": "relatedEntity",
+            "scope": "public",
+            "type": "Author",
+            "path": "Author"
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

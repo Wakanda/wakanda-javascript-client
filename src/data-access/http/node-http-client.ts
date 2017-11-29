@@ -1,6 +1,6 @@
 const request: any = require('request');
 
-import {HttpClient, IGetRequestOption, IPostRequestOption} from './http-client';
+import { HttpClient, IGetRequestOption, IPostRequestOption } from './http-client';
 import HttpResponse from './http-response';
 
 class NodeHttpClient extends HttpClient {
@@ -8,8 +8,8 @@ class NodeHttpClient extends HttpClient {
   private request: any;
   private cookieJar: any;
 
-  constructor({apiPrefix}: {apiPrefix: string}) {
-    super({apiPrefix});
+  constructor({ apiPrefix }: { apiPrefix: string }) {
+    super({ apiPrefix });
 
     this.request = request;
     this.cookieJar = this.request.jar();
@@ -19,9 +19,9 @@ class NodeHttpClient extends HttpClient {
     this.cookieJar = this.request.jar();
   }
 
-  public get({uri, params}: IGetRequestOption): Promise<HttpResponse> {
+  public get({ uri, params }: IGetRequestOption): Promise<HttpResponse> {
     try {
-      let res = super.get({uri, params});
+      let res = super.get({ uri, params });
       if (res !== null) {
         return Promise.resolve(res);
       }
@@ -30,11 +30,11 @@ class NodeHttpClient extends HttpClient {
       return <any>Promise.reject(e);
     }
 
-    let result = this._getWithoutInterceptor({uri, params});
+    let result = this._getWithoutInterceptor({ uri, params });
     return super.responseGet(uri, result);
   }
 
-  private _getWithoutInterceptor({uri, params}: IGetRequestOption): Promise<HttpResponse> {
+  private _getWithoutInterceptor({ uri, params }: IGetRequestOption): Promise<HttpResponse> {
     let options = {
       url: this.prefix + uri,
       method: 'GET',
@@ -42,12 +42,12 @@ class NodeHttpClient extends HttpClient {
       jar: this.cookieJar
     };
 
-    return this._httpResponseAdaptor({requestOptions: options});
+    return this._httpResponseAdaptor({ requestOptions: options });
   }
 
-  public post({uri, data, binary}: IPostRequestOption): Promise<HttpResponse> {
+  public post({ uri, data, binary }: IPostRequestOption): Promise<HttpResponse> {
     try {
-      let res = super.post({uri, data, binary});
+      let res = super.post({ uri, data, binary });
       if (res !== null) {
         return Promise.resolve(res);
       }
@@ -59,12 +59,17 @@ class NodeHttpClient extends HttpClient {
     let options: any = {
       url: this.prefix + uri,
       method: 'POST',
-      form: data,
       jar: this.cookieJar
     };
 
+    options[binary ? 'body' : 'form'] = data;
+
     try {
-      if (!binary) {
+      if (binary) {
+        options.headers = {
+          'Content-Type': 'application/octet-stream'
+        };
+      } else {
         options.headers = {
           'Content-Type': 'application/json'
         };
@@ -75,15 +80,15 @@ class NodeHttpClient extends HttpClient {
       return <any>Promise.reject(e);
     }
 
-    let result = this._httpResponseAdaptor({requestOptions: options});
+    let result = this._httpResponseAdaptor({ requestOptions: options });
     return super.responsePost(uri, result);
   }
 
-  private _httpResponseAdaptor({requestOptions}: any): Promise<HttpResponse> {
+  private _httpResponseAdaptor({ requestOptions }: any): Promise<HttpResponse> {
     return new Promise((resolve, reject) => {
       this.request(requestOptions, (error: any, response: any, body: string) => {
         if (error || response.statusCode >= 400) {
-          reject(error || {statusMessage: response.statusMessage, body: body});
+          reject(error || { statusMessage: response.statusMessage, body: body });
         }
         else {
           resolve(new HttpResponse({

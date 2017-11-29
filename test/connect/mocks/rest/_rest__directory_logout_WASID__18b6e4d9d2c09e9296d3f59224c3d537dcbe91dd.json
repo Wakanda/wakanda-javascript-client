@@ -1,0 +1,16 @@
+{
+  "requestUrl": "/rest/$directory/logout",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "result": true
+  },
+  "isBase64": false,
+  "headers": {
+    "set-cookie": [
+      "WASID=BC8089CB9DDB0E4BBFB971C614B29FFE; Path=/; Max-Age=3600; Expires=Mon, 20-Nov-2017 17:11:24 GMT; HttpOnly; Version=1"
+    ],
+    "wasid": "BC8089CB9DDB0E4BBFB971C614B29FFE"
+  }
+}

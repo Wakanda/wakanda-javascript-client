@@ -1,0 +1,56 @@
+{
+  "requestUrl": "/rest/publication/Author(1)/books?$expand=books&$limit=40&$method=subentityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Book/$entityset/77CF21E01D6E52468CC219D7B7801885",
+    "__entityModel": "Book",
+    "__COUNT": 3,
+    "__SENT": 3,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 1,
+        "title": "Le dernier jour d'un condamné",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 2,
+        "title": "L'homme qui rit",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "3",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 3,
+        "title": "Les chatiments",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,6 +1,6 @@
-describe('Multimodel : virtual model', function() {
+describe('Multimodel : virtual model', function () {
 
-  describe('getCatalog method', function() {
+  describe('getCatalog method', function () {
 
     it('should retrieve all dataclasses without a given parameter', function () {
       return wakClientPublication.getCatalog().then(function (ds) {
@@ -11,19 +11,19 @@ describe('Multimodel : virtual model', function() {
 
     it('should fail trying to retrieve an unknown dataclass', function () {
       return wakClientPublication.getCatalog(['Employee']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e).to.be.an('object');
       });
     });
 
-    
+
     it('should throw an exception if all needed dataClasses are not retrieved', function () {
       return wakClientPublication.getCatalog(['Book']).catch(function (e) {
-        expect(e).to.be.defined;
+        expect(e instanceof Error).to.equals(true);
       });
     });
   });
 
-  describe('Dataclass API', function() {
+  describe('Dataclass API', function () {
     var ds;
     var existingId;
     before(function (done) {
@@ -37,7 +37,7 @@ describe('Multimodel : virtual model', function() {
     });
 
 
-    describe('find method', function() {
+    describe('find method', function () {
       it('should retrieve an entity', function () {
         return ds.Book.find(existingId).then(function (book) {
           expect(book).to.be.an('object');
@@ -49,20 +49,20 @@ describe('Multimodel : virtual model', function() {
 
       it('should not expand related attributes by default', function () {
         return ds.Book.find(existingId).then(function (book) {
-          expect(book.author.ID).to.be.defined;
-          expect(book.author.firstName).to.be.undefined;
+          expect(book.author._key).to.be.a('string');
+          expect(book.author.firstName).to.equals(undefined);
         });
       });
 
       it('should expand related attributes provided on select parameter', function () {
         return ds.Book.find(existingId, { select: 'author' }).then(function (book) {
-          expect(book.author.ID).to.be.defined;
+          expect(book.author.ID).to.be.a('number');
           expect(book.author.firstName).to.be.a('string');
         });
       });
     });
 
-    describe('query method', function() {
+    describe('query method', function () {
       it('should retrieve a collection of entity', function () {
         return ds.Book.query({ filter: 'ID > 0' }).then(function (collection) {
           expect(collection).to.be.an('object');
@@ -83,7 +83,7 @@ describe('Multimodel : virtual model', function() {
           var book = collection.entities[0];
           expect(book).to.be.an('object');
           expect(book.author).to.be.an('object');
-          expect(book.author.firstName).to.be.undefined;
+          expect(book.author.firstName).to.equals(undefined);
         });
       });
 
@@ -120,30 +120,32 @@ describe('Multimodel : virtual model', function() {
             expect(entity.title).to.be.equal('JavaScript The Good Parts');
           });
       });
-    });
 
-    it('should store related entity', function () {
+      // it('should store related entity', function () {
 
-      return ds.Author.query({ pageSize: 1, filter: 'lastName = :1', params: ['Camus'] })
-        .then(function (authors) {
-          return authors.entities[0];
-        })
-        .then(function (author) {
-          var entity = ds.Book.create({
-            title: 'Le premier homme',
-            author: author,
-            ID: 40 
-          });
+      //   return ds.Author.query({ pageSize: 1, filter: 'lastName = :1', params: ['Camus'] })
+      //     .then(function (authors) {
+      //       return authors.entities[0];
+      //     })
+      //     .then(function (author) {
+      //       var entity = ds.Book.create({
+      //         title: 'Le premier homme',
+      //         author: author,
+      //         ID: 40
+      //       });
 
-          return entity.save().then(function () {
-            expect(entity.author).to.be.an('object');
-            expect(entity.author._key).to.be.equal(author._key);
-          });
-        });
+      //       return entity.save().then(function () {
+      //         expect(entity.author).to.be.an('object');
+      //         expect(entity.author._key).to.be.equal(author._key);
+      //       });
+      //     });
+      // });
     });
   });
 
-  describe('Collection API', function() {
+
+
+  describe('Collection API', function () {
 
     var ds;
     before(function (done) {

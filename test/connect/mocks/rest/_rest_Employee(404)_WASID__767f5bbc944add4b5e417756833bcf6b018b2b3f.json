@@ -1,0 +1,17 @@
+{
+  "requestUrl": "/rest/Employee(404)",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 401,
+  "data": {
+    "__ERROR": [
+      {
+        "message": "Cannot load entity# 404 in the \"Employee\" datastore class",
+        "componentSignature": "dbmg",
+        "errCode": 1543
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}
