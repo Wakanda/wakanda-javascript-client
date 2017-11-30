@@ -7,10 +7,12 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "declaration": true,
-        "outDir": "ts-build"
+        "outDir": "."
     },
     "files": [
       "typings/index.d.ts",
-      "src/entry.browser.ts"
+      "src/browser.ts",
+      "src/browser-nopromise.ts",
+      "src/node.ts"
     ]
 }

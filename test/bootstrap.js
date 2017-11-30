@@ -33,7 +33,7 @@ if (!isBrowser()) {
   var testEnv = process.env.TEST_ENV || 'integration';
   var serverInfo = require('./server.' + testEnv + '.json');
 
-  var WakandaClient = require('../dist/wakanda-client.node.js');
+  var WakandaClient = require('../dist/node.js');
   wakClient = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port });
 
   wakClientPublication = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port, catalog: 'publication' });

@@ -1,1 +1,1 @@
-module.exports = require('../dist/wakanda-client.js');
+module.exports = require('../dist/browser.js');

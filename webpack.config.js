@@ -1,17 +1,42 @@
-var webpack = require('webpack');
-var path = require('path');
-var fs = require('fs');
-var _ = require('lodash');
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const _ = require('lodash');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const packageInfo = require('./package.json');
 
 process.traceDeprecation = true;
 
+/**
+ * Banner
+ */
+var date = new Date();
+var month = date.getMonth() + 1;
+var dateStr = date.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + date.getDate();
+var bannerPlugin = new webpack.BannerPlugin('version: ' + packageInfo.version + ' - date: ' + dateStr);
+
+/**
+ * List of external modules
+ */
+var nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function (x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function (mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
+
+/**
+ * Browser target
+ */
 var baseConfig = {
   name: 'base',
   entry: [
-    "./src/entry.browser.ts"
+    "./src/browser.ts"
   ],
   output: {
-    filename: "wakanda-client.js",
+    filename: "browser.js",
     path: __dirname + "/dist/",
     library: 'WakandaClient',
     libraryTarget: 'umd'
@@ -58,60 +83,42 @@ var baseConfig = {
   },
   target: 'web'
 };
+baseConfig.plugins = [
+  new CleanWebpackPlugin(baseConfig.output.path),
+  // new webpack.optimize.UglifyJsPlugin({minimize: true}),
+  bannerPlugin
+];
 
-var nodeModules = {};
-fs.readdirSync('node_modules')
-  .filter(function (x) {
-    return ['.bin'].indexOf(x) === -1;
-  })
-  .forEach(function (mod) {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
-
-var nodeConfig = {
-  name: 'node',
-  entry: [
-    "./src/entry.node.ts"
-  ],
-  target: 'node',
-  output: {
-    filename: 'wakanda-client.node.js',
-    path: baseConfig.output.path,
-    library: baseConfig.output.library,
-    libraryTarget: baseConfig.output.libraryTarget
-  },
-  devtool: baseConfig.devtool,
-  resolve: baseConfig.resolve,
-  externals: nodeModules,
-  module: {
-    rules: baseConfig.module.rules
-  },
-  target: 'node'
-};
+/**
+ * NodeJS Target
+ */
+var nodeConfig = _.cloneDeep(baseConfig);
+nodeConfig.name = 'node';
+nodeConfig.output.filename = 'node.js';
+nodeConfig.entry = [
+  "./src/node.ts"
+];
+nodeConfig.target = 'node';
+nodeConfig.externals = nodeModules;
+nodeConfig.plugins = [bannerPlugin];
 
 
-//NoPromise is a browser bundle that do not bundle Promise polyfill
-var noPromiseConfig = {
-  name: 'nopromise',
-  entry: [
-    "./src/entry.browser-nopromise.ts"
-  ],
-  output: {
-    filename: 'wakanda-client.no-promise.js',
-    path: baseConfig.output.path,
-    library: baseConfig.output.library,
-    libraryTarget: baseConfig.output.libraryTarget
-  },
-  devtool: baseConfig.devtool,
-  resolve: baseConfig.resolve,
-  externals: nodeModules,
-  module: {
-    rules: baseConfig.module.rules
-  },
-  target: 'node'
-};
+/**
+ * NoPromise is a browser bundle that do not bundle Promise polyfill
+ */
+var noPromiseConfig = _.cloneDeep(baseConfig);
+noPromiseConfig.name = 'node';
+noPromiseConfig.output.filename = 'browser-nopromise.js';
+noPromiseConfig.externals = nodeModules;
+noPromiseConfig.entry = [
+  "./src/browser-nopromise.ts"
+];
+noPromiseConfig.target = 'web';
+noPromiseConfig.plugins = [bannerPlugin];
 
-//Add istanbul loader for karma
+/**
+ * Add istanbul loader for karma
+ */
 var karmaConfig = _.cloneDeep(baseConfig);
 karmaConfig.output.filename = 'karma.wakanda-client.js';
 karmaConfig.module.rules.push({
@@ -122,7 +129,11 @@ karmaConfig.module.rules.push({
   enforce: 'post',
   exclude: /node_modules|lib/
 });
+karmaConfig.plugins = [bannerPlugin];
 
+/**
+ * Exports
+ */
 module.exports = [
   baseConfig,
   nodeConfig,
