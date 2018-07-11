@@ -1,4 +1,4 @@
-/*! version: 2.3.0 - date: 2017-11-30 */
+/*! version: 2.3.0 - date: 2018-07-11 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -4793,8 +4793,10 @@ var DirectoryBusiness = /** @class */ (function (_super) {
             throw new Error('Directory.login: invalid duration parameter');
         }
         return this.service.login(username, password, durationTime)
-            .catch(function () {
-            return Promise.reject(new Error('Directory.login: Unauthorized'));
+            .catch(function (result) {
+            var error = new Error('Directory.login error');
+            error.name = result.statusCode == 401 ? 'UNAUTHORIZED' : 'UNEXPECTED_ERROR';
+            return Promise.reject(error);
         });
     };
     DirectoryBusiness.prototype.logout = function () {
