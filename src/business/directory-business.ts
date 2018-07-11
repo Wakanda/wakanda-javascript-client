@@ -28,8 +28,10 @@ class DirectoryBusiness extends AbstractBusiness {
     }
 
     return this.service.login(username, password, durationTime)
-      .catch(() => {
-        return Promise.reject(new Error('Directory.login: Unauthorized'));
+      .catch((result) => {
+        let error = new Error('Directory.login error');
+        error.name = result.statusCode == 401 ? 'UNAUTHORIZED' : 'UNEXPECTED_ERROR';
+        return Promise.reject(error);
       });
   }
 
