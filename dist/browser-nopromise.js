@@ -1,4 +1,4 @@
-/*! version: 2.3.0 - date: 2017-11-30 */
+/*! version: 2.3.0 - date: 2018-08-17 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -723,20 +723,24 @@ var DataClass = /** @class */ (function () {
 exports.DataClass = DataClass;
 var Attribute = /** @class */ (function () {
     function Attribute(_a) {
-        var name = _a.name, type = _a.type, readOnly = _a.readOnly, kind = _a.kind, simpleDate = _a.simpleDate;
+        var name = _a.name, type = _a.type, readOnly = _a.readOnly, kind = _a.kind, simpleDate = _a.simpleDate, identifying = _a.identifying;
         this.name = name;
         this.type = type;
         this.readOnly = readOnly === true;
         this.kind = kind;
         this.simpleDate = simpleDate;
+        this.identifying = identifying;
     }
     return Attribute;
 }());
 exports.Attribute = Attribute;
 var AttributeRelated = /** @class */ (function (_super) {
     __extends(AttributeRelated, _super);
-    function AttributeRelated() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function AttributeRelated(_a) {
+        var name = _a.name, type = _a.type, kind = _a.kind, path = _a.path, readOnly = _a.readOnly, simpleDate = _a.simpleDate, identifying = _a.identifying;
+        var _this = _super.call(this, { name: name, type: type, kind: kind, readOnly: readOnly, simpleDate: simpleDate, identifying: identifying }) || this;
+        _this.path = path;
+        return _this;
     }
     return AttributeRelated;
 }(Attribute));
@@ -744,9 +748,10 @@ exports.AttributeRelated = AttributeRelated;
 var AttributeCollection = /** @class */ (function (_super) {
     __extends(AttributeCollection, _super);
     function AttributeCollection(_a) {
-        var name = _a.name, type = _a.type, readOnly = _a.readOnly, kind = _a.kind, entityType = _a.entityType;
-        var _this = _super.call(this, { name: name, type: type, readOnly: readOnly, kind: kind }) || this;
+        var name = _a.name, type = _a.type, kind = _a.kind, entityType = _a.entityType, path = _a.path, readOnly = _a.readOnly;
+        var _this = _super.call(this, { name: name, type: type, kind: kind, readOnly: readOnly }) || this;
         _this.entityType = entityType;
+        _this.path = path;
         return _this;
     }
     return AttributeCollection;
@@ -1418,6 +1423,8 @@ var CatalogBaseService = /** @class */ (function () {
                                 name: attr.name,
                                 kind: attr.kind,
                                 type: attr.type,
+                                path: attr.path,
+                                identifying: attr.identifying,
                                 readOnly: attr.readOnly,
                                 simpleDate: attr.simpleDate === undefined ? undefined : attr.simpleDate
                             });
@@ -3599,7 +3606,8 @@ var CatalogBusiness = /** @class */ (function (_super) {
                             attributes.push(new dataclass_1.AttributeRelated({
                                 name: attr.name,
                                 type: attr.type,
-                                kind: attr.kind
+                                kind: attr.kind,
+                                path: attr.path
                             }));
                             _this.needDataClass(attr.type);
                             break;
@@ -3613,6 +3621,7 @@ var CatalogBusiness = /** @class */ (function (_super) {
                                 type: attr.type,
                                 readOnly: readOnly,
                                 kind: attr.kind,
+                                identifying: attr.identifying,
                                 simpleDate: simpleDate
                             }));
                             break;
@@ -3628,7 +3637,8 @@ var CatalogBusiness = /** @class */ (function (_super) {
                                 name: attr.name,
                                 type: attr.type,
                                 kind: attr.kind,
-                                entityType: entityType_1
+                                entityType: entityType_1,
+                                path: attr.path
                             });
                             attributes.push(attrCollection);
                             _this.needDataClass(attrCollection.entityType);

@@ -10,6 +10,8 @@ export interface IDataClassDBO {
         kind: string;
         readOnly: boolean;
         simpleDate: boolean;
+        identifying: boolean;
+        path: string;
     }[];
     methods: {
         name: string;

@@ -31,23 +31,37 @@ export declare class Attribute {
     readOnly: boolean;
     kind: string;
     simpleDate: boolean;
-    constructor({name, type, readOnly, kind, simpleDate}: {
+    identifying: boolean;
+    constructor({name, type, readOnly, kind, simpleDate, identifying}: {
         name: string;
         type: string;
         readOnly?: boolean;
         kind: string;
         simpleDate?: boolean;
+        identifying?: boolean;
     });
 }
 export declare class AttributeRelated extends Attribute {
+    path: string;
+    constructor({name, type, kind, path, readOnly, simpleDate, identifying}: {
+        name: string;
+        type: string;
+        kind: string;
+        path: string;
+        readOnly?: boolean;
+        simpleDate?: boolean;
+        identifying?: boolean;
+    });
 }
 export declare class AttributeCollection extends Attribute {
     entityType: string;
-    constructor({name, type, readOnly, kind, entityType}: {
+    path: string;
+    constructor({name, type, kind, entityType, path, readOnly}: {
         name: string;
         type: string;
-        readOnly?: boolean;
         kind: string;
         entityType: string;
+        path: string;
+        readOnly?: boolean;
     });
 }
