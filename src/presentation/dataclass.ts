@@ -41,30 +41,41 @@ export class Attribute {
   public readOnly: boolean;
   public kind: string;
   public simpleDate: boolean;
+  public identifying: boolean;
 
-  constructor({name, type, readOnly, kind, simpleDate}:
-   {name: string, type: string, readOnly?: boolean, kind: string, simpleDate?: boolean}) {
+  constructor({name, type, readOnly, kind, simpleDate, identifying}:
+   {name: string, type: string, readOnly?: boolean, kind: string, simpleDate?: boolean, identifying?: boolean}) {
 
     this.name = name;
     this.type = type;
     this.readOnly = readOnly === true;
     this.kind = kind;
     this.simpleDate = simpleDate;
+    this.identifying = identifying;
   }
 }
 
 export class AttributeRelated extends Attribute {
+  public path: string;
 
+  constructor({name, type, kind, path, readOnly, simpleDate, identifying}:
+    {name: string, type: string, kind: string, path: string, readOnly?: boolean, simpleDate?: boolean, identifying?: boolean}) {
+
+    super({name, type, kind, readOnly, simpleDate, identifying});
+    this.path = path;
+  }
 }
 
 export class AttributeCollection extends Attribute {
 
   public entityType: string;
+  public path: string;
 
-  constructor({name, type, readOnly, kind, entityType}:
-    {name: string, type: string, readOnly?: boolean, kind: string, entityType: string}) {
+  constructor({name, type, kind, entityType, path, readOnly}:
+    {name: string, type: string, kind: string, entityType: string, path:string, readOnly?: boolean}) {
 
-    super({name, type, readOnly, kind});
+    super({name, type, kind, readOnly});
     this.entityType = entityType;
+    this.path = path;
   }
 }

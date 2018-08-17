@@ -33,6 +33,8 @@ export class CatalogBaseService {
                   name: attr.name,
                   kind: attr.kind,
                   type: attr.type,
+                  path: attr.path,
+                  identifying: attr.identifying,
                   readOnly: attr.readOnly,
                   simpleDate: attr.simpleDate === undefined ? undefined : attr.simpleDate
                 });

@@ -13,7 +13,9 @@ export interface IDataClassDBO {
     type: string,
     kind: string,
     readOnly: boolean,
-    simpleDate: boolean
+    simpleDate: boolean,
+    identifying: boolean,
+    path: string
   }[];
   methods: {
     name: string,
@@ -57,7 +59,8 @@ class CatalogBusiness extends AbstractBusiness {
               attributes.push(new AttributeRelated({
                 name: attr.name,
                 type: attr.type,
-                kind: attr.kind
+                kind: attr.kind,
+                path: attr.path
               }));
               this.needDataClass(attr.type);
               break;
@@ -71,6 +74,7 @@ class CatalogBusiness extends AbstractBusiness {
                 type: attr.type,
                 readOnly,
                 kind: attr.kind,
+                identifying: attr.identifying,
                 simpleDate: simpleDate
               }));
               break;
@@ -86,7 +90,8 @@ class CatalogBusiness extends AbstractBusiness {
                 name: attr.name,
                 type: attr.type,
                 kind: attr.kind,
-                entityType: entityType
+                entityType: entityType,
+                path: attr.path
               });
               attributes.push(attrCollection);
               this.needDataClass(attrCollection.entityType);
