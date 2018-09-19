@@ -83,11 +83,9 @@ const baseConfig = {
     ]
   },
   target: 'web',
-  mode: 'development',
+  mode: 'production',
   optimization: {
-    minimize: true,
-    namedChunks: true,
-    nodeEnv: 'production'
+    minimize: true
   }
 };
 baseConfig.plugins = [

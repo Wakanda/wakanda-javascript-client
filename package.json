@@ -70,6 +70,7 @@
     }
   },
   "files": [
-    "/dist"
+    "/dist/*",
+    "!karma.wakanda-client.js*"
   ]
 }
