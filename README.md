@@ -38,7 +38,7 @@ npm run webpack-watch
 On another tab, launch a server that serve example application on `app/` directory.
 
 ```bash
-gulp serve
+npm run serve:proxy
 ```
 
 Then open your browser on `http://localhost:1136/app/index.html`.
