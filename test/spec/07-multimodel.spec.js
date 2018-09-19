@@ -50,7 +50,7 @@ describe('Multimodel : virtual model', function () {
       it('should not expand related attributes by default', function () {
         return ds.Book.find(existingId).then(function (book) {
           expect(book.author._key).to.be.a('string');
-          expect(book.author.firstName).to.equals(undefined);
+          expect(book.author.firstName).to.be.an('undefined');
         });
       });
 
@@ -83,7 +83,7 @@ describe('Multimodel : virtual model', function () {
           var book = collection.entities[0];
           expect(book).to.be.an('object');
           expect(book.author).to.be.an('object');
-          expect(book.author.firstName).to.equals(undefined);
+          expect(book.author.firstName).to.be.an('undefined');
         });
       });
 

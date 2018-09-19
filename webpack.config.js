@@ -1,8 +1,10 @@
 const webpack = require('webpack');
-const path = require('path');
+const { resolve, join } = require('path');
 const fs = require('fs');
 const _ = require('lodash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const moment = require('moment');
+
 const packageInfo = require('./package.json');
 
 process.traceDeprecation = true;
@@ -10,15 +12,13 @@ process.traceDeprecation = true;
 /**
  * Banner
  */
-var date = new Date();
-var month = date.getMonth() + 1;
-var dateStr = date.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + date.getDate();
-var bannerPlugin = new webpack.BannerPlugin('version: ' + packageInfo.version + ' - date: ' + dateStr);
+const dateStr = moment().format('YYYY-MM-DD');
+const bannerPlugin = new webpack.BannerPlugin(`version: ${packageInfo.version} - date: ${dateStr}`);
 
 /**
  * List of external modules
  */
-var nodeModules = {};
+const nodeModules = {};
 fs.readdirSync('node_modules')
   .filter(function (x) {
     return ['.bin'].indexOf(x) === -1;
@@ -30,14 +30,14 @@ fs.readdirSync('node_modules')
 /**
  * Browser target
  */
-var baseConfig = {
+const baseConfig = {
   name: 'base',
   entry: [
     "./src/browser.ts"
   ],
   output: {
     filename: "browser.js",
-    path: __dirname + "/dist/",
+    path: resolve(__dirname, 'dist'),
     library: 'WakandaClient',
     libraryTarget: 'umd'
   },
@@ -45,7 +45,7 @@ var baseConfig = {
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
     alias: {
-      'aurelia-http-client': path.join(__dirname, './lib/aurelia-http-client')
+      'aurelia-http-client': join(__dirname, './lib/aurelia-http-client')
     }
   },
   module: {
@@ -76,23 +76,29 @@ var baseConfig = {
         ],
         loader: 'babel-loader',
         query: {
-          presets: ['env']
+          presets: ['@babel/preset-env']
         }
       }
     ]
   },
-  target: 'web'
+  target: 'web',
+  mode: 'development',
+  optimization: {
+    minimize: true,
+    namedChunks: true,
+    nodeEnv: 'production'
+  }
 };
 baseConfig.plugins = [
   new CleanWebpackPlugin(baseConfig.output.path),
-  // new webpack.optimize.UglifyJsPlugin({minimize: true}),
   bannerPlugin
 ];
 
 /**
  * NodeJS Target
  */
-var nodeConfig = _.cloneDeep(baseConfig);
+const nodeConfig = _.cloneDeep(baseConfig);
+
 nodeConfig.name = 'node';
 nodeConfig.output.filename = 'node.js';
 nodeConfig.entry = [
@@ -106,7 +112,7 @@ nodeConfig.plugins = [bannerPlugin];
 /**
  * NoPromise is a browser bundle that do not bundle Promise polyfill
  */
-var noPromiseConfig = _.cloneDeep(baseConfig);
+const noPromiseConfig = _.cloneDeep(baseConfig);
 noPromiseConfig.name = 'node';
 noPromiseConfig.output.filename = 'browser-nopromise.js';
 noPromiseConfig.externals = nodeModules;
@@ -119,7 +125,8 @@ noPromiseConfig.plugins = [bannerPlugin];
 /**
  * Add istanbul loader for karma
  */
-var karmaConfig = _.cloneDeep(baseConfig);
+const karmaConfig = _.cloneDeep(baseConfig);
+
 karmaConfig.output.filename = 'karma.wakanda-client.js';
 karmaConfig.module.rules.push({
   test: /\.(ts|js)$/,

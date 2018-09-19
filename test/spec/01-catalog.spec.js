@@ -28,13 +28,13 @@ describe('Catalog API', function() {
       return wakClient.getCatalog(['Employee', 'Company']).then(function (ds) {
         expect(ds.Company).to.be.an('object');
         expect(ds.Employee).to.be.an('object');
-        expect(ds.Product).to.be.equal(undefined);
+        expect(ds.Product).to.be.an('undefined');
       });
     });
 
     it('should fail trying to retrieve an unknown dataclass', function () {
-      return wakClient.getCatalog(['Foo']).catch(function (e) {
-        expect(1==1);
+      return wakClient.getCatalog(['Foo']).catch(function () {
+        expect(true);
       });
     });
 

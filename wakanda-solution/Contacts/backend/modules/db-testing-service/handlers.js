@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function db_fill(req,res){
 	var unitTestsHelpers = require('./unit-test-helper');
 	var result = unitTestsHelpers.db.fill();

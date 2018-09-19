@@ -1,0 +1,14 @@
+{
+    "globals": {
+        "ds": true,
+        "model": true,
+        "httpServer": true,
+        "include": true,
+        "loadText": true,
+        "saveText": true,
+        "directory": true
+    },
+    "rules": {
+        "no-console": "off"
+    }
+}

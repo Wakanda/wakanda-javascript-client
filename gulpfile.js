@@ -12,7 +12,7 @@ gulp.task('serve', function() {
     livereload: false,
     // Change this to '0.0.0.0' to access the server from outside.
     port: 1136,
-    middleware: function (connect, opt) {
+    middleware() {
       return [
         proxy('/rest', {
           target: 'http://' + wakandaApp.host + ':' + wakandaApp.port,
