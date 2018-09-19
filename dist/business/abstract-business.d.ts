@@ -1,7 +1,7 @@
 import WakandaClient from '../wakanda-client';
 declare abstract class AbstractBusiness {
     wakJSC: WakandaClient;
-    constructor({wakJSC}: {
+    constructor({ wakJSC }: {
         wakJSC: WakandaClient;
     });
 }

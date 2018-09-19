@@ -6,7 +6,7 @@ import WakandaClient from '../../wakanda-client';
 declare class EntityService extends AbstractService {
     private entity;
     private dataClassBusiness;
-    constructor({wakJSC, entity, dataClassBusiness}: {
+    constructor({ wakJSC, entity, dataClassBusiness }: {
         wakJSC: WakandaClient;
         entity: Entity;
         dataClassBusiness: DataClassBusiness;

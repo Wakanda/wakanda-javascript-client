@@ -18,31 +18,31 @@ declare class DataClassBusiness extends AbstractBusiness {
     _dataClassBusinessMap: Map<string, DataClassBusiness>;
     dataURI: string;
     private service;
-    constructor({wakJSC, dataClass, methods, dataURI}: {
+    constructor({ wakJSC, dataClass, methods, dataURI }: {
         wakJSC: WakandaClient;
         dataClass: DataClass;
         methods: IMethodsArray;
         dataURI: string;
     });
     _decorateDataClass(): void;
-    private _addUserDefinedMethods();
+    private _addUserDefinedMethods;
     callMethod(methodName: string, parameters: any[]): Promise<Entity | Collection | any>;
     find(id: string | number, options?: QueryOption): Promise<Entity>;
     query(options?: QueryOption): Promise<Collection>;
     create(pojo?: any): Entity;
-    private _createEntity({key, deferred, dbo});
-    private _createCollection({uri, deferred, pageSize, initialSelect});
-    _createMedia({uri, isImage, attributeName, entity}: {
+    private _createEntity;
+    private _createCollection;
+    _createMedia({ uri, isImage, attributeName, entity }: {
         uri: string;
         isImage: boolean;
         attributeName: string;
         entity: Entity;
     }): Media;
-    private _populateEntityDataFromDbo({dbo, entity});
-    _presentationEntityFromDbo({dbo}: {
+    private _populateEntityDataFromDbo;
+    _presentationEntityFromDbo({ dbo }: {
         dbo: IEntityDBO;
     }): Entity;
-    _presentationCollectionFromDbo({dbo, pageSize, initialSelect}: {
+    _presentationCollectionFromDbo({ dbo, pageSize, initialSelect }: {
         dbo: ICollectionDBO;
         pageSize?: number;
         initialSelect?: string;

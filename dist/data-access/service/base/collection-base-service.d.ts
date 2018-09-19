@@ -14,7 +14,7 @@ export interface ICallMethodParams extends IBaseParams {
     parameters: any[];
 }
 export declare class CollectionBaseService {
-    static fetch({httpClient, collectionUri, isEntitySet, options}: IFetchParams): Promise<ICollectionDBO>;
-    static callMethod({httpClient, collectionUri, isEntitySet, methodName, parameters}: ICallMethodParams): Promise<any>;
+    static fetch({ httpClient, collectionUri, isEntitySet, options }: IFetchParams): Promise<ICollectionDBO>;
+    static callMethod({ httpClient, collectionUri, isEntitySet, methodName, parameters }: ICallMethodParams): Promise<any>;
 }
 export declare function isEntitySetUri(uri: string): boolean;

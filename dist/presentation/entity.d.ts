@@ -10,7 +10,7 @@ declare class Entity {
     delete: () => Promise<void>;
     fetch: (options?: QueryOption) => Promise<Entity>;
     recompute: () => Promise<Entity>;
-    constructor({key: entityKey, deferred, dataClass}: {
+    constructor({ key: entityKey, deferred, dataClass }: {
         key: string;
         deferred: boolean;
         dataClass: DataClass;

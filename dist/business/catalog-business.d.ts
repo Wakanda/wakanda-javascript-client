@@ -20,7 +20,7 @@ declare class CatalogBusiness extends AbstractBusiness {
     private service;
     private seenDataClasses;
     constructor(obj: any);
-    private needDataClass(dcName);
+    private needDataClass;
     get(dataClasses?: string[]): Promise<Catalog>;
 }
 export default CatalogBusiness;

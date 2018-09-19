@@ -3,7 +3,7 @@ import HttpClient from '../http/http-client';
 declare abstract class AbstractService {
     protected httpClient: HttpClient;
     protected wakJSC: WakandaClient;
-    constructor({wakJSC}: {
+    constructor({ wakJSC }: {
         wakJSC: WakandaClient;
     });
 }

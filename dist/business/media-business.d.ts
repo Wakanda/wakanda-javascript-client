@@ -9,7 +9,7 @@ declare class MediaBusiness extends AbstractBusiness {
     private media;
     private dataClassBusiness;
     private service;
-    constructor({wakJSC, media, dataClassBusiness, isImage, attributeName, entity}: {
+    constructor({ wakJSC, media, dataClassBusiness, isImage, attributeName, entity }: {
         wakJSC: WakandaClient;
         media: Media;
         dataClassBusiness: DataClassBusiness;

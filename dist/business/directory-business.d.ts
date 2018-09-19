@@ -7,7 +7,7 @@ export interface ICurrentUserDBO {
 }
 declare class DirectoryBusiness extends AbstractBusiness {
     private service;
-    constructor({wakJSC}: {
+    constructor({ wakJSC }: {
         wakJSC: WakandaClient;
     });
     login(username: string, password: string, duration?: number): Promise<boolean>;

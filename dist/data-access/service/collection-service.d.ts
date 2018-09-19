@@ -9,7 +9,7 @@ declare class CollectionService extends AbstractService {
     private dataClassBusiness;
     private collectionUri;
     private isEntitySet;
-    constructor({wakJSC, collection, dataClassBusiness, collectionUri}: {
+    constructor({ wakJSC, collection, dataClassBusiness, collectionUri }: {
         wakJSC: WakandaClient;
         collection: Collection;
         dataClassBusiness: DataClassBusiness;

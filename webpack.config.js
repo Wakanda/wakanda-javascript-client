@@ -32,8 +32,9 @@ fs.readdirSync('node_modules')
  */
 const baseConfig = {
   name: 'base',
+  context: resolve(__dirname, 'src'),
   entry: [
-    "./src/browser.ts"
+    "./browser.ts"
   ],
   output: {
     filename: "browser.js",
@@ -102,7 +103,7 @@ const nodeConfig = _.cloneDeep(baseConfig);
 nodeConfig.name = 'node';
 nodeConfig.output.filename = 'node.js';
 nodeConfig.entry = [
-  "./src/node.ts"
+  "./node.ts"
 ];
 nodeConfig.target = 'node';
 nodeConfig.externals = nodeModules;
@@ -117,7 +118,7 @@ noPromiseConfig.name = 'node';
 noPromiseConfig.output.filename = 'browser-nopromise.js';
 noPromiseConfig.externals = nodeModules;
 noPromiseConfig.entry = [
-  "./src/browser-nopromise.ts"
+  "./browser-nopromise.ts"
 ];
 noPromiseConfig.target = 'web';
 noPromiseConfig.plugins = [bannerPlugin];

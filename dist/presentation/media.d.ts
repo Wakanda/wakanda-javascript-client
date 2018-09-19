@@ -3,7 +3,7 @@ declare class Media {
     uri: string;
     upload: (file: any, mimeType?: string) => Promise<Entity>;
     delete: () => Promise<Entity>;
-    constructor({uri}: {
+    constructor({ uri }: {
         uri: string;
     });
 }

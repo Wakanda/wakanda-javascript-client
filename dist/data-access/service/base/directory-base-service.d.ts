@@ -11,17 +11,17 @@ export interface ICurrentUserBelongsToParams {
     group: string;
 }
 export declare class DirectoryBaseService {
-    static login({httpClient, username, password, duration}: {
+    static login({ httpClient, username, password, duration }: {
         httpClient: HttpClient;
         username: string;
         password: string;
         duration?: number;
     }): Promise<boolean>;
-    static logout({httpClient}: {
+    static logout({ httpClient }: {
         httpClient: HttpClient;
     }): Promise<boolean>;
-    static getCurrentUser({httpClient}: {
+    static getCurrentUser({ httpClient }: {
         httpClient: HttpClient;
     }): Promise<ICurrentUserDBO>;
-    static getCurrentUserBelongsTo({httpClient, group}: ICurrentUserBelongsToParams): Promise<boolean>;
+    static getCurrentUserBelongsTo({ httpClient, group }: ICurrentUserBelongsToParams): Promise<boolean>;
 }

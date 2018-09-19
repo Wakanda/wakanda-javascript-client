@@ -20,8 +20,8 @@ export interface ICallMethodParams {
     dataURI: string;
 }
 export declare class DataClassBaseService {
-    static find({httpClient, key, options, dataURI}: IFindParams): Promise<IEntityDBO>;
-    static query({httpClient, options, dataURI}: IQueryParams): Promise<ICollectionDBO>;
-    static callMethod({httpClient, methodName, parameters, dataURI}: ICallMethodParams): Promise<any>;
-    private static _sanitizeOptionParams(params);
+    static find({ httpClient, key, options, dataURI }: IFindParams): Promise<IEntityDBO>;
+    static query({ httpClient, options, dataURI }: IQueryParams): Promise<ICollectionDBO>;
+    static callMethod({ httpClient, methodName, parameters, dataURI }: ICallMethodParams): Promise<any>;
+    private static _sanitizeOptionParams;
 }

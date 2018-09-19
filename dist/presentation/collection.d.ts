@@ -14,7 +14,7 @@ declare class Collection {
     nextPage: () => Promise<Collection>;
     prevPage: () => Promise<Collection>;
     more: () => Promise<Collection>;
-    constructor({deferred, dataClass}: {
+    constructor({ deferred, dataClass }: {
         deferred: boolean;
         dataClass: DataClass;
     });

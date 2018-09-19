@@ -17,7 +17,7 @@ export declare abstract class HttpClient {
     private _postRequestInterceptors;
     private _getResponseInterceptors;
     private _postResponseInterceptors;
-    constructor({apiPrefix}: {
+    constructor({ apiPrefix }: {
         apiPrefix: string;
     });
     get(options: IGetRequestOption): Promise<HttpResponse>;
@@ -37,7 +37,7 @@ export declare abstract class HttpClient {
      */
     registerRequestInterceptor(type: string | string[], callback: RequestInterceptor<IRequestOption>): void;
     registerResponseInterceptor(type: string | string[], callback: ResponseInterceptor): void;
-    private _interceptorTypeToArray(type);
-    private _isValidInterceptorType(type);
+    private _interceptorTypeToArray;
+    private _isValidInterceptorType;
 }
 export default HttpClient;

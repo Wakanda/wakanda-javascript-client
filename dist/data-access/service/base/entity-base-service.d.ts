@@ -24,8 +24,8 @@ export interface IDeleteParams {
     dataURI: string;
 }
 export declare class EntityBaseService {
-    static save({httpClient, data, expand, dataURI}: ISaveParams): Promise<IEntityDBO>;
-    static recompute({httpClient, dataURI, data}: IRecomputeParams): Promise<IEntityDBO>;
-    static callMethod({httpClient, dataURI, methodName, parameters, entityKey}: ICallMethodParams): Promise<any>;
-    static delete({httpClient, dataURI, entityKey}: IDeleteParams): Promise<boolean>;
+    static save({ httpClient, data, expand, dataURI }: ISaveParams): Promise<IEntityDBO>;
+    static recompute({ httpClient, dataURI, data }: IRecomputeParams): Promise<IEntityDBO>;
+    static callMethod({ httpClient, dataURI, methodName, parameters, entityKey }: ICallMethodParams): Promise<any>;
+    static delete({ httpClient, dataURI, entityKey }: IDeleteParams): Promise<boolean>;
 }

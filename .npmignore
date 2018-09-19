@@ -4,6 +4,8 @@
 .vscode
 
 .*
+src/
+scripts/
 node_modules/
 npm-debug.log
 app/

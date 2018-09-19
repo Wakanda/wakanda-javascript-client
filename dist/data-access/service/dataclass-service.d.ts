@@ -6,7 +6,7 @@ import { ICollectionDBO } from '../../business/collection-business';
 import WakandaClient from '../../wakanda-client';
 declare class DataClassService extends AbstractService {
     private dataClassBusiness;
-    constructor({wakJSC, dataClassBusiness}: {
+    constructor({ wakJSC, dataClassBusiness }: {
         wakJSC: WakandaClient;
         dataClassBusiness: DataClassBusiness;
     });

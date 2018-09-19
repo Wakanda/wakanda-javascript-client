@@ -1,7 +1,7 @@
 import { DataClass } from './dataclass';
 declare class Catalog {
     [key: string]: DataClass;
-    constructor({dataClasses}: {
+    constructor({ dataClasses }: {
         dataClasses: DataClass[];
     });
 }

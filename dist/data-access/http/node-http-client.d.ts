@@ -3,13 +3,13 @@ import HttpResponse from './http-response';
 declare class NodeHttpClient extends HttpClient {
     private request;
     private cookieJar;
-    constructor({apiPrefix}: {
+    constructor({ apiPrefix }: {
         apiPrefix: string;
     });
     _clearCookie(): void;
-    get({uri, params}: IGetRequestOption): Promise<HttpResponse>;
-    private _getWithoutInterceptor({uri, params});
-    post({uri, data, binary}: IPostRequestOption): Promise<HttpResponse>;
-    private _httpResponseAdaptor({requestOptions});
+    get({ uri, params }: IGetRequestOption): Promise<HttpResponse>;
+    private _getWithoutInterceptor;
+    post({ uri, data, binary }: IPostRequestOption): Promise<HttpResponse>;
+    private _httpResponseAdaptor;
 }
 export default NodeHttpClient;

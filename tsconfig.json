@@ -7,7 +7,7 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "declaration": true,
-        "outDir": "."
+        "outDir": "./dist"
     },
     "files": [
       "typings/index.d.ts",

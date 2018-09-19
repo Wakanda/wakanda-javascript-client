@@ -32,14 +32,14 @@ declare class CollectionBusiness extends AbstractBusiness {
     private service;
     private pageSize;
     private initialSelect;
-    constructor({wakJSC, dataClass, collection, dataClassBusiness, collectionUri, pageSize, initialSelect}: ICollectionBusinessConstructor);
+    constructor({ wakJSC, dataClass, collection, dataClassBusiness, collectionUri, pageSize, initialSelect }: ICollectionBusinessConstructor);
     _decorateCollection(): void;
     fetch(options?: QueryOption): Promise<Collection>;
     more(): Promise<Collection>;
     nextPage(): Promise<Collection>;
     prevPage(): Promise<Collection>;
-    private _addUserDefinedMethods();
+    private _addUserDefinedMethods;
     callMethod(methodName: string, parameters: any[]): Promise<any>;
-    private _refreshCollection({fresherCollection});
+    private _refreshCollection;
 }
 export default CollectionBusiness;

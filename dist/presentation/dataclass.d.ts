@@ -14,7 +14,7 @@ export declare class DataClass {
     query: (options?: QueryOption) => Promise<Collection>;
     create: (pojo?: any) => Entity;
     [key: string]: any;
-    constructor({name, collectionName, attributes, methods}: {
+    constructor({ name, collectionName, attributes, methods }: {
         name: string;
         collectionName: string;
         attributes: Attribute[];
@@ -31,7 +31,7 @@ export declare class Attribute {
     readOnly: boolean;
     kind: string;
     simpleDate: boolean;
-    constructor({name, type, readOnly, kind, simpleDate}: {
+    constructor({ name, type, readOnly, kind, simpleDate }: {
         name: string;
         type: string;
         readOnly?: boolean;
@@ -43,7 +43,7 @@ export declare class AttributeRelated extends Attribute {
 }
 export declare class AttributeCollection extends Attribute {
     entityType: string;
-    constructor({name, type, readOnly, kind, entityType}: {
+    constructor({ name, type, readOnly, kind, entityType }: {
         name: string;
         type: string;
         readOnly?: boolean;
