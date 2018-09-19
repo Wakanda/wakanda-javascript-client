@@ -1,8 +1,7 @@
-import {DataClass} from './dataclass';
-import {QueryOption} from './query-option';
+import { DataClass } from './dataclass';
+import { QueryOption } from './query-option';
 
 class Entity {
-
   public _key: string;
   public _stamp: number;
   public _deferred: boolean;
@@ -15,9 +14,15 @@ class Entity {
   public fetch: (options?: QueryOption) => Promise<Entity>;
   public recompute: () => Promise<Entity>;
 
-  constructor({key: entityKey, deferred, dataClass}:
-   {key: string, deferred: boolean, dataClass: DataClass}) {
-
+  constructor({
+    key: entityKey,
+    deferred,
+    dataClass,
+  }: {
+    key: string;
+    deferred: boolean;
+    dataClass: DataClass;
+  }) {
     this._key = entityKey;
     this._deferred = deferred === true;
 
@@ -25,7 +30,7 @@ class Entity {
       enumerable: false,
       configurable: false,
       writable: false,
-      value: dataClass
+      value: dataClass,
     });
   }
 }

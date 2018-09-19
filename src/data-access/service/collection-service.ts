@@ -1,21 +1,29 @@
 import AbstractService from './abstract-service';
 import Collection from '../../presentation/collection';
 import DataClassBusiness from '../../business/dataclass-business';
-import {QueryOption} from '../../presentation/query-option';
-import {ICollectionDBO} from '../../business/collection-business';
-import {CollectionBaseService, isEntitySetUri} from './base/collection-base-service';
+import { QueryOption } from '../../presentation/query-option';
+import { ICollectionDBO } from '../../business/collection-business';
+import { CollectionBaseService, isEntitySetUri } from './base/collection-base-service';
 import WakandaClient from '../../wakanda-client';
 
 class CollectionService extends AbstractService {
-
   private collection: Collection;
   private dataClassBusiness: DataClassBusiness;
   private collectionUri: string;
   private isEntitySet: boolean;
 
-  constructor({wakJSC, collection, dataClassBusiness, collectionUri}:
-    {wakJSC: WakandaClient, collection: Collection, dataClassBusiness: DataClassBusiness, collectionUri: string}) {
-    super({wakJSC});
+  constructor({
+    wakJSC,
+    collection,
+    dataClassBusiness,
+    collectionUri,
+  }: {
+    wakJSC: WakandaClient;
+    collection: Collection;
+    dataClassBusiness: DataClassBusiness;
+    collectionUri: string;
+  }) {
+    super({ wakJSC });
 
     this.collection = collection;
     this.dataClassBusiness = dataClassBusiness;
@@ -24,24 +32,20 @@ class CollectionService extends AbstractService {
   }
 
   public fetch(options: QueryOption): Promise<ICollectionDBO> {
-
     return CollectionBaseService.fetch({
       httpClient: this.httpClient,
       collectionUri: this.collectionUri,
       isEntitySet: this.isEntitySet,
-      options
-    })
-      .then(dbo => {
+      options,
+    }).then(dbo => {
+      if (dbo.__ENTITYSET) {
+        this.collectionUri = dbo.__ENTITYSET;
+        this.isEntitySet = isEntitySetUri(dbo.__ENTITYSET);
+      }
 
-        if (dbo.__ENTITYSET) {
-          this.collectionUri = dbo.__ENTITYSET;
-          this.isEntitySet = isEntitySetUri(dbo.__ENTITYSET);
-        }
-
-        return dbo;
-      });
+      return dbo;
+    });
   }
-
 
   public callMethod(methodName: string, parameters: any[]): Promise<any> {
     return CollectionBaseService.callMethod({
@@ -49,7 +53,7 @@ class CollectionService extends AbstractService {
       collectionUri: this.collectionUri,
       isEntitySet: this.isEntitySet,
       methodName,
-      parameters
+      parameters,
     });
   }
 }

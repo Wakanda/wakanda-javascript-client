@@ -19,9 +19,14 @@ export interface IDeleteParams {
 }
 
 export class MediaBaseService {
-
-  public static upload({httpClient, dataURI, entityKey, attributeName, file, isImage}: IUploadParams): Promise<HttpResponse> {
-
+  public static upload({
+    httpClient,
+    dataURI,
+    entityKey,
+    attributeName,
+    file,
+    isImage,
+  }: IUploadParams): Promise<HttpResponse> {
     let uri = this._buildUri(dataURI, entityKey, attributeName);
 
     if (isImage) {
@@ -32,15 +37,21 @@ export class MediaBaseService {
     return httpClient.post({
       uri,
       data: file,
-      binary: true
+      binary: true,
     });
   }
 
-  public static delete({httpClient, dataURI, entityKey, entityStamp, attributeName}: IDeleteParams): Promise<HttpResponse> {
+  public static delete({
+    httpClient,
+    dataURI,
+    entityKey,
+    entityStamp,
+    attributeName,
+  }: IDeleteParams): Promise<HttpResponse> {
     let uri = dataURI + '(' + entityKey + ')';
     let data: any = {
       __KEY: entityKey,
-      __STAMP: entityStamp
+      __STAMP: entityStamp,
     };
 
     data[attributeName] = null;
@@ -48,7 +59,7 @@ export class MediaBaseService {
     //FIXME - crappy
     return httpClient.post({
       uri,
-      data
+      data,
     });
   }
 

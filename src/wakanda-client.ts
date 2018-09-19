@@ -1,20 +1,16 @@
-import CatalogBusiness from "./business/catalog-business";
-import DirectoryBusiness from "./business/directory-business";
-import Entity from "./presentation/entity";
-import Collection from "./presentation/collection";
-import HttpClient from "./data-access/http/http-client";
-import Catalog from "./presentation/catalog";
-import BrowserHttpClient from "./data-access/http/browser-http-client";
-import NodeHttpClient from "./data-access/http/node-http-client";
+import CatalogBusiness from './business/catalog-business';
+import DirectoryBusiness from './business/directory-business';
+import Entity from './presentation/entity';
+import Collection from './presentation/collection';
+import HttpClient from './data-access/http/http-client';
+import Catalog from './presentation/catalog';
+import BrowserHttpClient from './data-access/http/browser-http-client';
+import NodeHttpClient from './data-access/http/node-http-client';
 
-const packageOptions: any = require("../package.json");
+const packageOptions: any = require('../package.json');
 
 export interface IDirectory {
-  login(
-    username: string,
-    password: string,
-    duration?: number
-  ): Promise<boolean>;
+  login(username: string, password: string, duration?: number): Promise<boolean>;
   logout(): Promise<boolean>;
   getCurrentUser(): Promise<any>;
   getCurrentUserBelongsTo(groupName: string): Promise<boolean>;
@@ -45,13 +41,13 @@ class WakandaClient {
     this._httpClient =
       (params && params.client ? params.client : false) ||
       new WakandaClient.HttpClient({
-        apiPrefix: host || ""
+        apiPrefix: host || '',
       });
 
     this.catalog = catalog;
 
     let directoryBusiness = new DirectoryBusiness({
-      wakJSC: this
+      wakJSC: this,
     });
 
     this.directory = {
@@ -66,7 +62,7 @@ class WakandaClient {
       },
       getCurrentUserBelongsTo: group => {
         return directoryBusiness.getCurrentUserBelongsTo(group);
-      }
+      },
     };
 
     this.helper = {
@@ -75,13 +71,13 @@ class WakandaClient {
       },
       isCollection: object => {
         return object instanceof Collection;
-      }
+      },
     };
   }
 
   public getCatalog(dataClasses?: string[]): Promise<Catalog> {
     let catalogBusiness = new CatalogBusiness({
-      wakJSC: this
+      wakJSC: this,
     });
 
     return catalogBusiness.get(dataClasses);

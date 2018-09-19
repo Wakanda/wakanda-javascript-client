@@ -14,10 +14,12 @@ export interface IPostRequestOption extends IRequestOption {
 }
 
 export type RequestInterceptor<T extends IRequestOption> = (options: T) => any;
-export type ResponseInterceptor = (requestUri: string, promise: Promise<HttpResponse>) => Promise<HttpResponse>;
+export type ResponseInterceptor = (
+  requestUri: string,
+  promise: Promise<HttpResponse>
+) => Promise<HttpResponse>;
 
 export abstract class HttpClient {
-
   public prefix: string;
 
   private _getRequestInterceptors: RequestInterceptor<IGetRequestOption>[];
@@ -25,7 +27,7 @@ export abstract class HttpClient {
   private _getResponseInterceptors: ResponseInterceptor[];
   private _postResponseInterceptors: ResponseInterceptor[];
 
-  constructor({apiPrefix}: {apiPrefix: string}) {
+  constructor({ apiPrefix }: { apiPrefix: string }) {
     this.prefix = apiPrefix;
 
     this._getRequestInterceptors = [];
@@ -39,7 +41,7 @@ export abstract class HttpClient {
       let interceptor = this._getRequestInterceptors[i];
       let res = interceptor(options);
 
-      if (res !== null && (typeof res !== 'undefined')) {
+      if (res !== null && typeof res !== 'undefined') {
         return res;
       }
     }
@@ -52,7 +54,7 @@ export abstract class HttpClient {
       let interceptor = this._postRequestInterceptors[i];
       let res = interceptor(options);
 
-      if (res !== null && (typeof res !== 'undefined')) {
+      if (res !== null && typeof res !== 'undefined') {
         return res;
       }
     }
@@ -80,7 +82,10 @@ export abstract class HttpClient {
   /**
    * @return {Promise} Returns either the underlying HTTP request result, or the promise returned by the interceptor if any
    */
-  protected responsePost(requestUri: string, promise: Promise<HttpResponse>): Promise<HttpResponse> {
+  protected responsePost(
+    requestUri: string,
+    promise: Promise<HttpResponse>
+  ): Promise<HttpResponse> {
     //Execute response interceptors
     for (let interceptor of this._postResponseInterceptors) {
       let res = interceptor(requestUri, promise);
@@ -98,56 +103,51 @@ export abstract class HttpClient {
    * @param {function} callback - The interceptor function to execute before HTTP request. If it returns something different than null, the underlying HTTP request won't be executed
    * @returns {null|object} Returns null or an object, if an object is returned, the underlying HTTP request won't be executed
    */
-  public registerRequestInterceptor(type: string|string[], callback: RequestInterceptor<IRequestOption>) {
-
+  public registerRequestInterceptor(
+    type: string | string[],
+    callback: RequestInterceptor<IRequestOption>
+  ) {
     let interceptorType = this._interceptorTypeToArray(type);
 
     interceptorType.forEach(t => {
       if (t === 'get') {
         this._getRequestInterceptors.push(callback);
-      }
-      else if (t === 'post') {
+      } else if (t === 'post') {
         this._postRequestInterceptors.push(callback);
       }
     });
   }
 
-  public registerResponseInterceptor(type: string|string[], callback: ResponseInterceptor) {
-
+  public registerResponseInterceptor(type: string | string[], callback: ResponseInterceptor) {
     let interceptorType = this._interceptorTypeToArray(type);
 
     interceptorType.forEach(t => {
       if (t === 'get') {
         this._getResponseInterceptors.push(callback);
-      }
-      else if (t === 'post') {
+      } else if (t === 'post') {
         this._postResponseInterceptors.push(callback);
       }
     });
   }
 
-  private _interceptorTypeToArray(type: string|string[]): string[] {
+  private _interceptorTypeToArray(type: string | string[]): string[] {
     let interceptorType: string[] = [];
 
     if (typeof type === 'string') {
       if (!this._isValidInterceptorType(type.toLowerCase())) {
         throw new Error('HttpClient.registerInterceptor: invalid interceptor type');
-      }
-      else {
+      } else {
         interceptorType.push(type.toLowerCase());
       }
-    }
-    else if (Array.isArray(type)) {
+    } else if (Array.isArray(type)) {
       type.forEach(t => {
         if (!this._isValidInterceptorType(t.toLowerCase())) {
           throw new Error('HttpClient.registerInterceptor: invalid interceptor type');
-        }
-        else {
+        } else {
           interceptorType.push(t.toLowerCase());
         }
       });
-    }
-    else {
+    } else {
       throw new Error('HttpClient.registerInterceptor: type must be a string or an array');
     }
 

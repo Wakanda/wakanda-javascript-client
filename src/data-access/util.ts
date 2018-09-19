@@ -1,22 +1,12 @@
-import {QueryOption} from '../presentation/query-option';
+import { QueryOption } from '../presentation/query-option';
 
 class Util {
   public static handleOptions(options: QueryOption) {
-
     if (!options) {
       return '';
     }
 
-    let {
-      select,
-      filter,
-      params,
-      pageSize,
-      start,
-      orderBy,
-      method,
-      emMethod
-    } = options;
+    let { select, filter, params, pageSize, start, orderBy, method, emMethod } = options;
 
     let ret = '?';
 
@@ -25,7 +15,7 @@ class Util {
     }
 
     if (filter) {
-      ret += '&$filter=\"' + filter + '\"';
+      ret += '&$filter="' + filter + '"';
     }
 
     if (orderBy) {
@@ -42,16 +32,15 @@ class Util {
 
         for (let elt of params) {
           if (typeof elt === 'string') {
-            p += '\"' + elt + '\",';
-          }
-          else {
+            p += '"' + elt + '",';
+          } else {
             p += elt + ',';
           }
         }
 
-        p   = p.slice(0, -1);
-        p   += ']';
-        ret += '&$params=\'' + p + '\'';
+        p = p.slice(0, -1);
+        p += ']';
+        ret += "&$params='" + p + "'";
       }
     }
 
@@ -87,14 +76,15 @@ class Util {
   }
 
   public static isInteger(n: any): boolean {
-    return typeof n === 'number' && !isNaN(n) && (n % 1) === 0;
+    return typeof n === 'number' && !isNaN(n) && n % 1 === 0;
   }
 
   public static removeRestInfoFromEntity(entity: any): void {
     for (let prop in entity) {
       if (Object.prototype.hasOwnProperty.call(entity, prop)) {
         let p = entity[prop];
-        if (p && p.__deferred && p.__deferred.__KEY) { //Do not remove uri for collection
+        if (p && p.__deferred && p.__deferred.__KEY) {
+          //Do not remove uri for collection
           delete p.__deferred.uri;
         }
       }

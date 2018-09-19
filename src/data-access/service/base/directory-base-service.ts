@@ -1,5 +1,5 @@
 import HttpClient from '../../http/http-client';
-import {ICurrentUserDBO} from '../../../business/directory-business';
+import { ICurrentUserDBO } from '../../../business/directory-business';
 
 export interface ILoginParams {
   httpClient: HttpClient;
@@ -14,61 +14,79 @@ export interface ICurrentUserBelongsToParams {
 }
 
 export class DirectoryBaseService {
-
-  public static login({httpClient, username, password, duration}:
-  {httpClient: HttpClient, username: string, password: string, duration?: number}): Promise<boolean> {
-
-    return httpClient.post({
-      uri: '/rest/$directory/login',
-      data: [username, password, duration]
-    }).then(() => {
+  public static login({
+    httpClient,
+    username,
+    password,
+    duration,
+  }: {
+    httpClient: HttpClient;
+    username: string;
+    password: string;
+    duration?: number;
+  }): Promise<boolean> {
+    return httpClient
+      .post({
+        uri: '/rest/$directory/login',
+        data: [username, password, duration],
+      })
+      .then(() => {
         return true;
       });
   }
 
-  public static logout({httpClient}: {httpClient: HttpClient}): Promise<boolean> {
-    return httpClient.get({
-      uri: '/rest/$directory/logout'
-    }).then(res => {
-      let obj = JSON.parse(res.body);
-      if (obj.result && obj.result === true) {
-        return true;
-      }
-      else {
-        return <any>Promise.reject(new Error());
-      }
-    });
+  public static logout({ httpClient }: { httpClient: HttpClient }): Promise<boolean> {
+    return httpClient
+      .get({
+        uri: '/rest/$directory/logout',
+      })
+      .then(res => {
+        let obj = JSON.parse(res.body);
+        if (obj.result && obj.result === true) {
+          return true;
+        } else {
+          return <any>Promise.reject(new Error());
+        }
+      });
   }
 
-  public static getCurrentUser({httpClient}: {httpClient: HttpClient}): Promise<ICurrentUserDBO> {
-    return httpClient.get({
-      uri: '/rest/$directory/currentUser'
-    })
+  public static getCurrentUser({
+    httpClient,
+  }: {
+    httpClient: HttpClient;
+  }): Promise<ICurrentUserDBO> {
+    return httpClient
+      .get({
+        uri: '/rest/$directory/currentUser',
+      })
       .then(res => {
         let obj = JSON.parse(res.body);
 
         if (obj.result && obj.result.ID) {
           return obj.result;
-        }
-        else {
+        } else {
           return Promise.reject(new Error());
         }
       });
   }
 
-  public static getCurrentUserBelongsTo({httpClient, group}: ICurrentUserBelongsToParams): Promise<boolean> {
-    return httpClient.post({
-      uri: '/rest/$directory/currentUserBelongsTo',
-      data: [group]
-    }).then(res => {
-      let obj = JSON.parse(res.body);
+  public static getCurrentUserBelongsTo({
+    httpClient,
+    group,
+  }: ICurrentUserBelongsToParams): Promise<boolean> {
+    return httpClient
+      .post({
+        uri: '/rest/$directory/currentUserBelongsTo',
+        data: [group],
+      })
+      .then(res => {
+        let obj = JSON.parse(res.body);
 
-      if (obj && obj.result && obj.result === true) {
-        return true;
-      }
-      else {
-        return <any>Promise.reject(new Error());
-      }
-    });
+        if (obj && obj.result && obj.result === true) {
+          return true;
+        } else {
+          return <any>Promise.reject(new Error());
+        }
+      });
   }
 }

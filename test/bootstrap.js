@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-isBrowser = new Function("try { return this === window; } catch(e) { return false; }");
+isBrowser = new Function('try { return this === window; } catch(e) { return false; }');
 
 function b64toBlob(b64Data, contentType, sliceSize) {
   contentType = contentType || '';
@@ -21,8 +21,8 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 
     byteArrays.push(byteArray);
   }
-    
-  var blob = new Blob(byteArrays, {type: contentType});
+
+  var blob = new Blob(byteArrays, { type: contentType });
   return blob;
 }
 
@@ -36,21 +36,22 @@ if (!isBrowser()) {
   var WakandaClient = require('../dist/node.js');
   wakClient = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port });
 
-  wakClientPublication = new WakandaClient.WakandaClient({ host: serverInfo.host + ':' + serverInfo.port, catalog: 'publication' });
-}
-else {
+  wakClientPublication = new WakandaClient.WakandaClient({
+    host: serverInfo.host + ':' + serverInfo.port,
+    catalog: 'publication',
+  });
+} else {
   wakClient = new WakandaClient.WakandaClient();
   wakClientPublication = new WakandaClient.WakandaClient({ catalog: 'publication' });
   window.b64toBlob = b64toBlob;
 }
 
-beforeEach(function () {
+beforeEach(function() {
   if (isBrowser()) {
     window.top.callPhantom({
-      type: 'clearCookies'
+      type: 'clearCookies',
     });
-  }
-  else {
+  } else {
     wakClient._httpClient._clearCookie();
     wakClientPublication._httpClient._clearCookie();
   }

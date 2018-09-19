@@ -5,17 +5,16 @@ import CollectionBusiness from './collection-business';
 import MediaBusiness from './media-business';
 import Entity from '../presentation/entity';
 import Collection from '../presentation/collection';
-import {AttributeRelated, AttributeCollection} from '../presentation/dataclass';
+import { AttributeRelated, AttributeCollection } from '../presentation/dataclass';
 import Media from '../presentation/media';
 import Const from '../const';
-import {ICollectionDBO} from './collection-business';
-import {DataClass} from '../presentation/dataclass';
-import {QueryOption} from '../presentation/query-option';
-import {IEntityDBO} from './entity-business';
-import {MethodAdapter} from './method-adapter';
+import { ICollectionDBO } from './collection-business';
+import { DataClass } from '../presentation/dataclass';
+import { QueryOption } from '../presentation/query-option';
+import { IEntityDBO } from './entity-business';
+import { MethodAdapter } from './method-adapter';
 import WakandaClient from '../wakanda-client';
 import Util from './util';
-
 
 //This map stores all DataClassBusiness instances of existing dataClasses
 let _dataClassBusinessMap = new Map<string, DataClassBusiness>();
@@ -27,7 +26,6 @@ export interface IMethodsArray {
 }
 
 class DataClassBusiness extends AbstractBusiness {
-
   public dataClass: DataClass;
   public methods: IMethodsArray;
   public _dataClassBusinessMap: Map<string, DataClassBusiness>;
@@ -35,15 +33,24 @@ class DataClassBusiness extends AbstractBusiness {
 
   private service: DataClassService;
 
-  constructor({wakJSC, dataClass, methods, dataURI}:
-  {wakJSC: WakandaClient, dataClass: DataClass, methods: IMethodsArray, dataURI: string}) {
-    super({wakJSC});
+  constructor({
+    wakJSC,
+    dataClass,
+    methods,
+    dataURI,
+  }: {
+    wakJSC: WakandaClient;
+    dataClass: DataClass;
+    methods: IMethodsArray;
+    dataURI: string;
+  }) {
+    super({ wakJSC });
 
     this.dataClass = dataClass;
     this.methods = methods;
     this.service = new DataClassService({
       wakJSC: this.wakJSC,
-      dataClassBusiness: this
+      dataClassBusiness: this,
     });
     this.dataURI = dataURI;
 
@@ -54,9 +61,9 @@ class DataClassBusiness extends AbstractBusiness {
   public _decorateDataClass() {
     //Do not forget to bind(this) to have "this" pointing on business instance
     //instead of given dataclass instance
-    this.dataClass.find    = this.find.bind(this);
-    this.dataClass.query   = this.query.bind(this);
-    this.dataClass.create  = this.create.bind(this);
+    this.dataClass.find = this.find.bind(this);
+    this.dataClass.query = this.query.bind(this);
+    this.dataClass.create = this.create.bind(this);
 
     this._addUserDefinedMethods();
   }
@@ -73,24 +80,30 @@ class DataClassBusiness extends AbstractBusiness {
     });
   }
 
-  public callMethod(methodName: string, parameters: any[]): Promise<Entity|Collection|any> {
-    return this.service.callMethod(methodName, parameters)
-      .then(obj => {
-        return MethodAdapter.transform(obj, this._dataClassBusinessMap);
-      });
+  public callMethod(methodName: string, parameters: any[]): Promise<Entity | Collection | any> {
+    return this.service.callMethod(methodName, parameters).then(obj => {
+      return MethodAdapter.transform(obj, this._dataClassBusinessMap);
+    });
   }
 
-  public find(id: string|number, options?: QueryOption): Promise<Entity> {
+  public find(id: string | number, options?: QueryOption): Promise<Entity> {
     let opt = options || {};
 
-    if (opt.filter !== undefined || opt.params !== undefined || opt.pageSize !== undefined ||
-      opt.start !== undefined || opt.orderBy !== undefined) {
-      throw new Error('Dataclass.find: options filter, params, pageSize, start and orderBy are not allowed');
+    if (
+      opt.filter !== undefined ||
+      opt.params !== undefined ||
+      opt.pageSize !== undefined ||
+      opt.start !== undefined ||
+      opt.orderBy !== undefined
+    ) {
+      throw new Error(
+        'Dataclass.find: options filter, params, pageSize, start and orderBy are not allowed'
+      );
     }
 
     return this.service.find(id, opt).then(entity => {
       return this._presentationEntityFromDbo({
-        dbo: entity
+        dbo: entity,
       });
     });
   }
@@ -111,7 +124,7 @@ class DataClassBusiness extends AbstractBusiness {
       return this._presentationCollectionFromDbo({
         dbo: collection,
         pageSize: opt.pageSize,
-        initialSelect
+        initialSelect,
       });
     });
   }
@@ -129,7 +142,7 @@ class DataClassBusiness extends AbstractBusiness {
     }
 
     let entity = this._presentationEntityFromDbo({
-      dbo: pojo || {}
+      dbo: pojo || {},
     });
 
     for (let prop in entityToAttach) {
@@ -141,38 +154,53 @@ class DataClassBusiness extends AbstractBusiness {
     return entity;
   }
 
-  private _createEntity({key, deferred, dbo}: {key: string, deferred?: boolean, dbo?: IEntityDBO}): Entity {
-
+  private _createEntity({
+    key,
+    deferred,
+    dbo,
+  }: {
+    key: string;
+    deferred?: boolean;
+    dbo?: IEntityDBO;
+  }): Entity {
     let entity = new Entity({
       key,
       deferred,
-      dataClass: this.dataClass
+      dataClass: this.dataClass,
     });
     let business = new EntityBusiness({
       wakJSC: this.wakJSC,
       dataClass: this.dataClass,
       entity,
-      dataClassBusiness: this
+      dataClassBusiness: this,
     });
     business._decorateEntity();
 
     if (!deferred) {
       this._populateEntityDataFromDbo({
         dbo: dbo,
-        entity: entity
+        entity: entity,
       });
       business._flashEntityValues();
     }
     return entity;
   }
 
-  private _createCollection({uri, deferred, pageSize, initialSelect}:
-    {uri: string, deferred?: boolean, pageSize?: number, initialSelect?: string}): Collection {
-
+  private _createCollection({
+    uri,
+    deferred,
+    pageSize,
+    initialSelect,
+  }: {
+    uri: string;
+    deferred?: boolean;
+    pageSize?: number;
+    initialSelect?: string;
+  }): Collection {
     let collection = new Collection({
-        deferred: deferred,
-        dataClass: this.dataClass
-      });
+      deferred: deferred,
+      dataClass: this.dataClass,
+    });
     let business = new CollectionBusiness({
       wakJSC: this.wakJSC,
       dataClass: this.dataClass,
@@ -180,24 +208,32 @@ class DataClassBusiness extends AbstractBusiness {
       collection,
       collectionUri: uri,
       pageSize,
-      initialSelect
+      initialSelect,
     });
     business._decorateCollection();
 
     return collection;
   }
 
-  public _createMedia({uri, isImage, attributeName, entity}:
-   {uri: string, isImage: boolean, attributeName: string, entity: Entity}): Media {
-
-    let media = new Media({uri});
+  public _createMedia({
+    uri,
+    isImage,
+    attributeName,
+    entity,
+  }: {
+    uri: string;
+    isImage: boolean;
+    attributeName: string;
+    entity: Entity;
+  }): Media {
+    let media = new Media({ uri });
     let business = new MediaBusiness({
       wakJSC: this.wakJSC,
       media,
       dataClassBusiness: this,
       isImage,
       attributeName,
-      entity
+      entity,
     });
 
     business._decorateMedia();
@@ -205,74 +241,68 @@ class DataClassBusiness extends AbstractBusiness {
     return media;
   }
 
-  private _populateEntityDataFromDbo({dbo, entity}: {dbo: IEntityDBO, entity: Entity}): Entity {
-      entity._stamp = dbo.__STAMP;
-      for (let attr of this.dataClass.attributes) {
+  private _populateEntityDataFromDbo({ dbo, entity }: { dbo: IEntityDBO; entity: Entity }): Entity {
+    entity._stamp = dbo.__STAMP;
+    for (let attr of this.dataClass.attributes) {
+      let dboAttribute = dbo[attr.name];
 
-        let dboAttribute = dbo[attr.name];
+      if (dboAttribute !== null && dboAttribute !== undefined) {
+        if (attr instanceof AttributeRelated) {
+          //Kind of recursive call with a potententialy different instance of
+          //DataClassBusiness
+          let business = _dataClassBusinessMap.get(attr.type);
+          entity[attr.name] = business._presentationEntityFromDbo({
+            dbo: dboAttribute,
+          });
+        } else if (attr instanceof AttributeCollection) {
+          let business = _dataClassBusinessMap.get(attr.entityType);
+          entity[attr.name] = business._presentationCollectionFromDbo({
+            dbo: dboAttribute,
+          });
+        } else if (attr.type === 'image' || attr.type === 'blob') {
+          let uri: string;
 
-        if (dboAttribute !== null && dboAttribute !== undefined) {
-          if (attr instanceof AttributeRelated) {
-            //Kind of recursive call with a potententialy different instance of
-            //DataClassBusiness
-            let business = _dataClassBusinessMap.get(attr.type);
-            entity[attr.name] = business._presentationEntityFromDbo({
-              dbo: dboAttribute
-            });
+          if (dboAttribute && dboAttribute.__deferred && dboAttribute.__deferred.uri) {
+            uri = dboAttribute.__deferred.uri;
+          } else {
+            uri = null;
           }
-          else if (attr instanceof AttributeCollection) {
-            let business = _dataClassBusinessMap.get(attr.entityType);
-            entity[attr.name] = business._presentationCollectionFromDbo({
-              dbo: dboAttribute
-            });
-          }
-          else if (attr.type === 'image' || attr.type === 'blob') {
-            let uri: string;
-
-            if (dboAttribute && dboAttribute.__deferred && dboAttribute.__deferred.uri) {
-              uri = dboAttribute.__deferred.uri;
-            }
-            else {
-              uri = null;
-            }
-            entity[attr.name] = this._createMedia({
-              uri,
-              isImage: attr.type === 'image',
-              attributeName: attr.name,
-              entity
-            });
-          }
-          else if (attr.type === 'date') {
-            if (!dboAttribute) {
-              entity[attr.name] = null;
-            } else {
-              entity[attr.name] = attr.simpleDate ? Util.wakParseSimpleDate(dboAttribute) : new Date(dboAttribute);
-            }
-          }
-          else {
-            entity[attr.name] = dboAttribute;
-          }
-        }
-        else {
-          //Even if the property is null, we need a media for this kind of attributes
-          //to handle the upload part
-          if (attr.type === 'image' || attr.type === 'blob') {
-            entity[attr.name] = this._createMedia({
-              uri: null,
-              isImage: attr.type === 'image',
-              attributeName: attr.name,
-              entity
-            });
-          }
-          else {
+          entity[attr.name] = this._createMedia({
+            uri,
+            isImage: attr.type === 'image',
+            attributeName: attr.name,
+            entity,
+          });
+        } else if (attr.type === 'date') {
+          if (!dboAttribute) {
             entity[attr.name] = null;
+          } else {
+            entity[attr.name] = attr.simpleDate
+              ? Util.wakParseSimpleDate(dboAttribute)
+              : new Date(dboAttribute);
           }
+        } else {
+          entity[attr.name] = dboAttribute;
+        }
+      } else {
+        //Even if the property is null, we need a media for this kind of attributes
+        //to handle the upload part
+        if (attr.type === 'image' || attr.type === 'blob') {
+          entity[attr.name] = this._createMedia({
+            uri: null,
+            isImage: attr.type === 'image',
+            attributeName: attr.name,
+            entity,
+          });
+        } else {
+          entity[attr.name] = null;
         }
       }
-      return entity;
+    }
+    return entity;
   }
 
-  public _presentationEntityFromDbo({dbo}: {dbo: IEntityDBO}): Entity {
+  public _presentationEntityFromDbo({ dbo }: { dbo: IEntityDBO }): Entity {
     let entity: Entity;
 
     if (!dbo) {
@@ -281,48 +311,53 @@ class DataClassBusiness extends AbstractBusiness {
     if (dbo.__deferred) {
       entity = this._createEntity({
         key: dbo.__deferred.__KEY,
-        deferred: true
+        deferred: true,
       });
-    }
-    else {
+    } else {
       entity = this._createEntity({
         key: dbo.__KEY,
-        dbo: dbo
+        dbo: dbo,
       });
     }
 
     return entity;
   }
 
-  public _presentationCollectionFromDbo({dbo, pageSize, initialSelect}:
-    {dbo: ICollectionDBO, pageSize?: number, initialSelect?: string}): Collection {
-
+  public _presentationCollectionFromDbo({
+    dbo,
+    pageSize,
+    initialSelect,
+  }: {
+    dbo: ICollectionDBO;
+    pageSize?: number;
+    initialSelect?: string;
+  }): Collection {
     let collection: Collection;
 
     if (!dbo) {
       collection = null;
-    }
-    else if (dbo.__deferred) {
+    } else if (dbo.__deferred) {
       collection = this._createCollection({
         deferred: true,
-        uri: dbo.__deferred.uri
+        uri: dbo.__deferred.uri,
       });
-    }
-    else {
+    } else {
       collection = this._createCollection({
         uri: dbo.__ENTITYSET,
         pageSize: pageSize || dbo.__ENTITIES.length,
-        initialSelect
+        initialSelect,
       });
-      collection._count     = dbo.__COUNT;
-      collection._first     = dbo.__FIRST;
-      collection._sent      = dbo.__SENT;
-      collection._pageSize  = pageSize;
+      collection._count = dbo.__COUNT;
+      collection._first = dbo.__FIRST;
+      collection._sent = dbo.__SENT;
+      collection._pageSize = pageSize;
 
       for (let dboEntity of dbo.__ENTITIES) {
-        collection.entities.push(this._presentationEntityFromDbo({
-          dbo: dboEntity
-        }));
+        collection.entities.push(
+          this._presentationEntityFromDbo({
+            dbo: dboEntity,
+          })
+        );
       }
     }
 

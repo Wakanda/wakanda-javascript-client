@@ -1,6 +1,6 @@
 import HttpClient from '../../http/http-client';
-import {QueryOption} from '../../../presentation/query-option';
-import {ICollectionDBO} from '../../../business/collection-business';
+import { QueryOption } from '../../../presentation/query-option';
+import { ICollectionDBO } from '../../../business/collection-business';
 import Util from '../../util';
 
 export interface IBaseParams {
@@ -19,12 +19,12 @@ export interface ICallMethodParams extends IBaseParams {
 }
 
 export class CollectionBaseService {
-
-  public static fetch({httpClient, collectionUri, isEntitySet, options}: IFetchParams) {
-
+  public static fetch({ httpClient, collectionUri, isEntitySet, options }: IFetchParams) {
     if (!isEntitySet) {
       if (options.select && options.select.length > 0) {
-        throw new Error('Collection.fetch: option select is not allowed when collection is deferred');
+        throw new Error(
+          'Collection.fetch: option select is not allowed when collection is deferred'
+        );
       }
     }
 
@@ -40,40 +40,49 @@ export class CollectionBaseService {
 
     let uri = collectionUri;
 
-    return httpClient.get({
-      uri: uri + optString
-    }).then(res => {
-      let obj = JSON.parse(res.body);
+    return httpClient
+      .get({
+        uri: uri + optString,
+      })
+      .then(res => {
+        let obj = JSON.parse(res.body);
 
-      delete obj.__entityModel;
+        delete obj.__entityModel;
 
-      for (let entity of obj.__ENTITIES) {
-        Util.removeRestInfoFromEntity(entity);
-      }
+        for (let entity of obj.__ENTITIES) {
+          Util.removeRestInfoFromEntity(entity);
+        }
 
-      return obj as ICollectionDBO;
-    });
+        return obj as ICollectionDBO;
+      });
   }
 
-  public static callMethod({httpClient, collectionUri, isEntitySet, methodName, parameters}: ICallMethodParams) {
+  public static callMethod({
+    httpClient,
+    collectionUri,
+    isEntitySet,
+    methodName,
+    parameters,
+  }: ICallMethodParams) {
     let uri = collectionUri;
 
     if (isEntitySet) {
       uri += '/' + methodName;
-    }
-    else {
+    } else {
       let optString = Util.handleOptions({
         method: 'subentityset',
-        emMethod: methodName
+        emMethod: methodName,
       });
 
       uri += '&' + optString.slice(1);
     }
 
-    return httpClient.post({
+    return httpClient
+      .post({
         uri,
-        data: parameters
-      }).then((res: any) => {
+        data: parameters,
+      })
+      .then((res: any) => {
         let obj = JSON.parse(res.body);
         return obj.result || obj || null;
       });

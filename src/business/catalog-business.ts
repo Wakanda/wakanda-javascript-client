@@ -1,7 +1,12 @@
 import AbstractBusiness from './abstract-business';
 import CatalogService from '../data-access/service/catalog-service';
 import Catalog from '../presentation/catalog';
-import {DataClass, Attribute, AttributeRelated, AttributeCollection} from '../presentation/dataclass';
+import {
+  DataClass,
+  Attribute,
+  AttributeRelated,
+  AttributeCollection,
+} from '../presentation/dataclass';
 import DataClassBusiness from './dataclass-business';
 
 export interface IDataClassDBO {
@@ -9,20 +14,19 @@ export interface IDataClassDBO {
   collectionName: string;
   dataURI: string;
   attributes: {
-    name: string,
-    type: string,
-    kind: string,
-    readOnly: boolean,
-    simpleDate: boolean
+    name: string;
+    type: string;
+    kind: string;
+    readOnly: boolean;
+    simpleDate: boolean;
   }[];
   methods: {
-    name: string,
-    applyTo: string
+    name: string;
+    applyTo: string;
   }[];
 }
 
 class CatalogBusiness extends AbstractBusiness {
-
   private service: CatalogService;
   private seenDataClasses: string[];
 
@@ -30,7 +34,7 @@ class CatalogBusiness extends AbstractBusiness {
     super(obj);
 
     this.service = new CatalogService({
-      wakJSC: this.wakJSC
+      wakJSC: this.wakJSC,
     });
   }
 
@@ -41,11 +45,9 @@ class CatalogBusiness extends AbstractBusiness {
   }
 
   public get(dataClasses?: string[]): Promise<Catalog> {
-
     this.seenDataClasses = [];
 
     return this.service.get(dataClasses).then((dataClassDBOArray: IDataClassDBO[]) => {
-
       let dcArray: DataClass[] = [];
 
       for (let dcDBO of dataClassDBOArray) {
@@ -54,11 +56,13 @@ class CatalogBusiness extends AbstractBusiness {
         for (let attr of dcDBO.attributes) {
           switch (attr.kind) {
             case 'relatedEntity':
-              attributes.push(new AttributeRelated({
-                name: attr.name,
-                type: attr.type,
-                kind: attr.kind
-              }));
+              attributes.push(
+                new AttributeRelated({
+                  name: attr.name,
+                  type: attr.type,
+                  kind: attr.kind,
+                })
+              );
               this.needDataClass(attr.type);
               break;
             case 'storage':
@@ -66,17 +70,19 @@ class CatalogBusiness extends AbstractBusiness {
             case 'alias':
               let readOnly = attr.readOnly || (attr.type === 'image' || attr.type === 'blob');
               let simpleDate = attr.simpleDate !== undefined ? attr.simpleDate : undefined;
-              attributes.push(new Attribute({
-                name: attr.name,
-                type: attr.type,
-                readOnly,
-                kind: attr.kind,
-                simpleDate: simpleDate
-              }));
+              attributes.push(
+                new Attribute({
+                  name: attr.name,
+                  type: attr.type,
+                  readOnly,
+                  kind: attr.kind,
+                  simpleDate: simpleDate,
+                })
+              );
               break;
             case 'relatedEntities':
               let entityType: string;
-              dataClassDBOArray.some((_dataClass) => {
+              dataClassDBOArray.some(_dataClass => {
                 if (_dataClass.collectionName === attr.type) {
                   entityType = _dataClass.name;
                   return true;
@@ -86,7 +92,7 @@ class CatalogBusiness extends AbstractBusiness {
                 name: attr.name,
                 type: attr.type,
                 kind: attr.kind,
-                entityType: entityType
+                entityType: entityType,
               });
               attributes.push(attrCollection);
               this.needDataClass(attrCollection.entityType);
@@ -97,13 +103,13 @@ class CatalogBusiness extends AbstractBusiness {
         }
 
         let methods: {
-          entity: string[],
-          collection: string[],
-          dataClass: string[]
+          entity: string[];
+          collection: string[];
+          dataClass: string[];
         } = {
           entity: [],
           collection: [],
-          dataClass: []
+          dataClass: [],
         };
 
         for (let method of dcDBO.methods) {
@@ -126,7 +132,7 @@ class CatalogBusiness extends AbstractBusiness {
           name: dcDBO.name,
           collectionName: dcDBO.collectionName,
           attributes,
-          methods
+          methods,
         });
 
         //Binding framework methods to the dataclass
@@ -134,7 +140,7 @@ class CatalogBusiness extends AbstractBusiness {
           wakJSC: this.wakJSC,
           dataClass,
           methods,
-          dataURI: dcDBO.dataURI
+          dataURI: dcDBO.dataURI,
         });
         dataClassBusiness._decorateDataClass();
 
@@ -142,7 +148,7 @@ class CatalogBusiness extends AbstractBusiness {
       }
 
       let catalog = new Catalog({
-        dataClasses: dcArray
+        dataClasses: dcArray,
       });
 
       //Check if we have all needed dataClasses on the catalog

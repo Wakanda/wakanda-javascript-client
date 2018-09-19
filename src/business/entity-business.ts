@@ -1,35 +1,42 @@
 import AbstractBusiness from './abstract-business';
 import EntityService from '../data-access/service/entity-service';
-import {AttributeRelated, AttributeCollection} from '../presentation/dataclass';
+import { AttributeRelated, AttributeCollection } from '../presentation/dataclass';
 import Entity from '../presentation/entity';
-import {DataClass} from '../presentation/dataclass';
+import { DataClass } from '../presentation/dataclass';
 import DataClassBusiness from './dataclass-business';
-import {QueryOption} from '../presentation/query-option';
-import {MethodAdapter} from './method-adapter';
+import { QueryOption } from '../presentation/query-option';
+import { MethodAdapter } from './method-adapter';
 import WakandaClient from '../wakanda-client';
 import Media from '../presentation/media';
 import Util from './util';
 
-
 export interface IEntityDBO {
   __KEY?: string;
   __STAMP?: number;
-  __deferred?: {uri: string, __KEY: string};
+  __deferred?: { uri: string; __KEY: string };
 
   [key: string]: any;
 }
 
 class EntityBusiness extends AbstractBusiness {
-
   private entity: Entity;
   private dataClass: DataClass;
   private dataClassBusiness: DataClassBusiness;
   private service: EntityService;
   private _oldEntityValues: IEntityDBO;
 
-  constructor({wakJSC, entity, dataClass, dataClassBusiness}:
-  {wakJSC: WakandaClient, entity: Entity, dataClass: DataClass, dataClassBusiness: DataClassBusiness}) {
-    super({wakJSC});
+  constructor({
+    wakJSC,
+    entity,
+    dataClass,
+    dataClassBusiness,
+  }: {
+    wakJSC: WakandaClient;
+    entity: Entity;
+    dataClass: DataClass;
+    dataClassBusiness: DataClassBusiness;
+  }) {
+    super({ wakJSC });
 
     this.entity = entity;
     this.dataClass = dataClass;
@@ -37,15 +44,15 @@ class EntityBusiness extends AbstractBusiness {
     this.service = new EntityService({
       wakJSC,
       entity,
-      dataClassBusiness
+      dataClassBusiness,
     });
   }
 
   public _decorateEntity() {
-    this.entity.save        = this.save.bind(this);
-    this.entity.delete      = this.delete.bind(this);
-    this.entity.fetch       = this.fetch.bind(this);
-    this.entity.recompute   = this.recompute.bind(this);
+    this.entity.save = this.save.bind(this);
+    this.entity.delete = this.delete.bind(this);
+    this.entity.fetch = this.fetch.bind(this);
+    this.entity.recompute = this.recompute.bind(this);
 
     this._addUserDefinedMethods();
   }
@@ -67,7 +74,7 @@ class EntityBusiness extends AbstractBusiness {
         switch (attr.type) {
           case 'image':
           case 'blob':
-            data[attr.name] = { uri: objAttr.uri };
+            data[attr.name] = { uri: objAttr.uri };
             break;
           case 'object':
             data[attr.name] = JSON.stringify(objAttr);
@@ -76,7 +83,9 @@ class EntityBusiness extends AbstractBusiness {
             if (!objAttr) {
               data[attr.name] = null;
             } else {
-              data[attr.name] = attr.simpleDate ? Util.wakToStringSimpleDate(objAttr) : objAttr.toJSON();
+              data[attr.name] = attr.simpleDate
+                ? Util.wakToStringSimpleDate(objAttr)
+                : objAttr.toJSON();
             }
             break;
           default:
@@ -102,13 +111,20 @@ class EntityBusiness extends AbstractBusiness {
   public fetch(options?: QueryOption): Promise<Entity> {
     let opt = options || {};
 
-    if (opt.filter !== undefined || opt.params !== undefined || opt.pageSize !== undefined ||
-      opt.start !== undefined || opt.orderBy !== undefined) {
-      throw new Error('Entity.fetch: options filter, params, pageSize, start and orderBy are not allowed');
+    if (
+      opt.filter !== undefined ||
+      opt.params !== undefined ||
+      opt.pageSize !== undefined ||
+      opt.start !== undefined ||
+      opt.orderBy !== undefined
+    ) {
+      throw new Error(
+        'Entity.fetch: options filter, params, pageSize, start and orderBy are not allowed'
+      );
     }
 
     return this.dataClassBusiness.find(this.entity._key, options).then(fresherEntity => {
-      this._refreshEntity({fresherEntity});
+      this._refreshEntity({ fresherEntity });
       this._flashEntityValues();
       return this.entity;
     });
@@ -119,9 +135,7 @@ class EntityBusiness extends AbstractBusiness {
       throw new Error('Entity.' + methodName + ': can not be called on an unsaved entity');
     }
 
-    return this.service.callMethod(methodName, parameters)
-    .then(obj => {
-
+    return this.service.callMethod(methodName, parameters).then(obj => {
       return MethodAdapter.transform(obj, this.dataClassBusiness._dataClassBusinessMap);
     });
   }
@@ -146,10 +160,10 @@ class EntityBusiness extends AbstractBusiness {
 
     return this.service.save(data, expand).then(entityDbo => {
       let fresherEntity = this.dataClassBusiness._presentationEntityFromDbo({
-        dbo: entityDbo
+        dbo: entityDbo,
       });
 
-      this._refreshEntity({fresherEntity});
+      this._refreshEntity({ fresherEntity });
       this._flashEntityValues();
       return this.entity;
     });
@@ -158,15 +172,14 @@ class EntityBusiness extends AbstractBusiness {
   public recompute(): Promise<Entity> {
     let data = this.prepareDataForSave();
 
-    return this.service.recompute(data)
-      .then(dbo => {
-        let fresherEntity = this.dataClassBusiness._presentationEntityFromDbo({
-          dbo
-        });
-
-        this._refreshEntity({fresherEntity});
-        return this.entity;
+    return this.service.recompute(data).then(dbo => {
+      let fresherEntity = this.dataClassBusiness._presentationEntityFromDbo({
+        dbo,
       });
+
+      this._refreshEntity({ fresherEntity });
+      return this.entity;
+    });
   }
 
   private prepareDataForSave(): IEntityDBO {
@@ -174,10 +187,9 @@ class EntityBusiness extends AbstractBusiness {
     let entityIsNew = false;
 
     if (this.entity._key && this.entity._stamp) {
-      data.__KEY   = this.entity._key;
+      data.__KEY = this.entity._key;
       data.__STAMP = this.entity._stamp;
-    }
-    else {
+    } else {
       entityIsNew = true;
     }
 
@@ -190,18 +202,17 @@ class EntityBusiness extends AbstractBusiness {
 
       if (attr instanceof AttributeRelated) {
         data[attr.name] = objAttr ? objAttr._key : null;
-      }
-      else if (attr.readOnly) {
+      } else if (attr.readOnly) {
         continue;
-      }
-      else if (attr.type === 'date') {
-        if (! objAttr) {
+      } else if (attr.type === 'date') {
+        if (!objAttr) {
           data[attr.name] = objAttr;
         } else {
-          data[attr.name] = attr.simpleDate ? Util.wakToStringSimpleDate(objAttr) : objAttr.toJSON();
+          data[attr.name] = attr.simpleDate
+            ? Util.wakToStringSimpleDate(objAttr)
+            : objAttr.toJSON();
         }
-      }
-      else if (!(attr instanceof AttributeCollection)) {
+      } else if (!(attr instanceof AttributeCollection)) {
         //Don't send null value for a newly created attribute (to don't override value eventually set on init event)
         //except for ID (which is null), because if an empty object is send, save is ignored
         if (!entityIsNew || objAttr !== null || attr.name === 'ID') {
@@ -240,9 +251,9 @@ class EntityBusiness extends AbstractBusiness {
     return data;
   }
 
-  private _refreshEntity({fresherEntity}: {fresherEntity: Entity}) {
+  private _refreshEntity({ fresherEntity }: { fresherEntity: Entity }) {
     for (let prop in fresherEntity) {
-      if (fresherEntity.hasOwnProperty(prop) && (typeof fresherEntity[prop] !== 'function')) {
+      if (fresherEntity.hasOwnProperty(prop) && typeof fresherEntity[prop] !== 'function') {
         if (fresherEntity[prop] instanceof Media) {
           this.entity[prop].uri = fresherEntity[prop].uri;
         } else {

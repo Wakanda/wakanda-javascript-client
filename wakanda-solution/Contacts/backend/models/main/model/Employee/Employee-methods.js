@@ -79,7 +79,7 @@ model.Employee.methods.myDataClassMethodXHR = function (url) {
     returned = {
         statusLine: statusLine,
         headers: headersObj,
-        result: resultObj || resultTxt
+        result: resultObj || resultTxt,
     };
 
     return returned;

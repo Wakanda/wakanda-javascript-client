@@ -1,9 +1,8 @@
 import Entity from './entity';
-import {DataClass} from './dataclass';
-import {QueryOption} from './query-option';
+import { DataClass } from './dataclass';
+import { QueryOption } from './query-option';
 
 class Collection {
-
   public entities: Entity[];
   public _deferred: boolean;
   public _count: number;
@@ -22,7 +21,7 @@ class Collection {
   public prevPage: () => Promise<Collection>;
   public more: () => Promise<Collection>;
 
-  constructor({deferred, dataClass}: {deferred: boolean, dataClass: DataClass}) {
+  constructor({ deferred, dataClass }: { deferred: boolean; dataClass: DataClass }) {
     this.entities = [];
     this._deferred = deferred === true;
 
@@ -30,7 +29,7 @@ class Collection {
       enumerable: false,
       configurable: false,
       writable: false,
-      value: dataClass
+      value: dataClass,
     });
   }
 }

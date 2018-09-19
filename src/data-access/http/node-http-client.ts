@@ -4,7 +4,6 @@ import { HttpClient, IGetRequestOption, IPostRequestOption } from './http-client
 import HttpResponse from './http-response';
 
 class NodeHttpClient extends HttpClient {
-
   private request: any;
   private cookieJar: any;
 
@@ -25,8 +24,7 @@ class NodeHttpClient extends HttpClient {
       if (res !== null) {
         return Promise.resolve(res);
       }
-    }
-    catch (e) {
+    } catch (e) {
       return <any>Promise.reject(e);
     }
 
@@ -39,7 +37,7 @@ class NodeHttpClient extends HttpClient {
       url: this.prefix + uri,
       method: 'GET',
       qs: params,
-      jar: this.cookieJar
+      jar: this.cookieJar,
     };
 
     return this._httpResponseAdaptor({ requestOptions: options });
@@ -51,15 +49,14 @@ class NodeHttpClient extends HttpClient {
       if (res !== null) {
         return Promise.resolve(res);
       }
-    }
-    catch (e) {
+    } catch (e) {
       return <any>Promise.reject(e);
     }
 
     let options: any = {
       url: this.prefix + uri,
       method: 'POST',
-      jar: this.cookieJar
+      jar: this.cookieJar,
     };
 
     options[binary ? 'body' : 'form'] = data;
@@ -67,16 +64,15 @@ class NodeHttpClient extends HttpClient {
     try {
       if (binary) {
         options.headers = {
-          'Content-Type': 'application/octet-stream'
+          'Content-Type': 'application/octet-stream',
         };
       } else {
         options.headers = {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         };
         options.form = JSON.stringify(data);
       }
-    }
-    catch (e) {
+    } catch (e) {
       return <any>Promise.reject(e);
     }
 
@@ -89,13 +85,14 @@ class NodeHttpClient extends HttpClient {
       this.request(requestOptions, (error: any, response: any, body: string) => {
         if (error || response.statusCode >= 400) {
           reject(error || { statusMessage: response.statusMessage, body: body });
-        }
-        else {
-          resolve(new HttpResponse({
-            statusCode: response.statusCode,
-            headers: [],
-            body
-          }));
+        } else {
+          resolve(
+            new HttpResponse({
+              statusCode: response.statusCode,
+              headers: [],
+              body,
+            })
+          );
         }
       });
     });

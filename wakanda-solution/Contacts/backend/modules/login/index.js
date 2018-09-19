@@ -26,10 +26,10 @@ function loginEmployee(lastName, firstName) {
 				belongsTo: theGroups,
 				storage: {
 					time: connectTime,
-					access: "Guest access"
+					access: "Guest access",
 					//in the user session, sessionStorage.access
 					//will contain "Guest access"
-				}
+				},
 			};
 		}
 		else {

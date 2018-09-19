@@ -11,7 +11,7 @@
   "rules": {
     //Potential issues
     "strict": 0,
-    "comma-dangle": 2, // disallow or enforce trailing commas
+    "comma-dangle": ["error", "always-multiline"], // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
     "no-console": 1, // disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // disallow use of constant expressions in conditions
