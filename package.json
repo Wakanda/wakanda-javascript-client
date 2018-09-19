@@ -6,6 +6,7 @@
   "browser": "browser/wakanda-client.min.js",
   "repository": "wakanda/wakanda-javascript-client",
   "scripts": {
+    "prepack": "npm run build",
     "lint": "eslint .",
     "watch": "webpack --progress --colors --watch",
     "build": "webpack --progress --colors",
@@ -67,5 +68,8 @@
       "pre-push": "npm run lint && npm test",
       "post-merge": "npm i"
     }
-  }
+  },
+  "files": [
+    "/dist"
+  ]
 }
