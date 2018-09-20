@@ -26,13 +26,13 @@ class DirectoryBusiness extends AbstractBusiness {
     }
 
     return this.service.login(username, password, durationTime).catch(() => {
-      return Promise.reject(new Error('Directory.login: Unauthorized'));
+      return false;
     });
   }
 
   public logout(): Promise<boolean> {
     return this.service.logout().catch(() => {
-      return Promise.reject(new Error('Directory.logout: logout failed'));
+      return false;
     });
   }
 
@@ -43,7 +43,7 @@ class DirectoryBusiness extends AbstractBusiness {
         return dbo;
       })
       .catch(() => {
-        return Promise.reject(new Error('Directory.getCurrentUser: user is not logged in'));
+        return null;
       });
   }
 

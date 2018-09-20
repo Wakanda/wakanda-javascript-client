@@ -89,7 +89,7 @@ class NodeHttpClient extends HttpClient {
           resolve(
             new HttpResponse({
               statusCode: response.statusCode,
-              headers: [],
+              headers: response.headers || {},
               body,
             })
           );

@@ -60,7 +60,7 @@ class BrowserHttpClient extends HttpClient {
     return request.then((res: any) => {
       return new HttpResponse({
         statusCode: res.statusCode,
-        headers: [],
+        headers: res.headers || {},
         body: res.response,
       });
     });

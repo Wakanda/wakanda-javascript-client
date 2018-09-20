@@ -14,6 +14,8 @@ import { DataClassBaseService } from './data-access/service/base/dataclass-base-
 import { DirectoryBaseService } from './data-access/service/base/directory-base-service';
 import { EntityBaseService } from './data-access/service/base/entity-base-service';
 import { MediaBaseService } from './data-access/service/base/media-base-service';
+import { HttpClient, IGetRequestOption, IPostRequestOption } from './data-access/http/http-client';
+import HttpResponse from './data-access/http/http-response';
 
 WakandaClient.HttpClient = BrowserHttpClient;
 
@@ -25,4 +27,8 @@ export {
   DirectoryBaseService,
   EntityBaseService,
   MediaBaseService,
+  HttpClient,
+  IGetRequestOption,
+  IPostRequestOption,
+  HttpResponse,
 };
