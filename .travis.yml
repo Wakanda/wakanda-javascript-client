@@ -1,10 +1,9 @@
-language: node_j
+language: node_js
 
 node_js:
   - "lts/*"
 
 script:
-  - npm ci 
   - npm run lint
   - npm test
 
