@@ -1,11 +1,12 @@
 language: node_j
 
-script:
-  - npm run lint
-  - npm test
-
 node_js:
   - "lts/*"
+
+script:
+  - npm ci 
+  - npm run lint
+  - npm test
 
 after_success:
   - npm run codecov
