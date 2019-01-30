@@ -5,9 +5,17 @@ class HttpResponse {
   };
   public body: string;
 
-  constructor({ statusCode, headers, body }: { statusCode: number; headers: {
-    [name: string]: string;
-  }; body: string }) {
+  constructor({
+    statusCode,
+    headers,
+    body,
+  }: {
+    statusCode: number;
+    headers: {
+      [name: string]: string;
+    };
+    body: string;
+  }) {
     this.statusCode = statusCode;
     this.headers = headers || {};
     this.body = body;

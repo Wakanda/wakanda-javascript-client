@@ -81,7 +81,7 @@ describe('Directory API', function() {
     });
 
     it('should return current user info if logged in', function() {
-      return dir.login('bar', 'bar', 3600 * 24 * 365).then(function() {
+      return dir.login('bar', 'bar', 3600 * 24 * 365).then(function(isLoggedIn) {
         return dir.getCurrentUser().then(function(user) {
           expect(user.userName).to.be.equal('bar');
           expect(user.fullName).to.be.equal('bar');
