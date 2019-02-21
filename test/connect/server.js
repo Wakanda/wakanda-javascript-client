@@ -3,7 +3,6 @@
 var http = require('http');
 var connect = require('connect');
 var chalk = require('chalk');
-var stream = require('stream');
 var path = require("path");
 var prism = require('connect-prism');
 var crypto = require('crypto');
@@ -11,6 +10,9 @@ var PrismUtils = require('connect-prism/lib/services/prism-utils');
 var isModule = require.main !== module;
 var server;
 var mode;
+
+const { existsSync } = require('fs');
+const { resolve } = require('path');
 
 if (isModule) {
   mode = 'mock';
@@ -30,14 +32,25 @@ var prismUtils = new PrismUtils();
 var mockFileName = function (config, req) {
   var reqData = prismUtils.filterUrl(config, req.url);
   var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g, '_');
+  var body = Buffer.isBuffer(req.body) ? req.body.toString('base64') : req.body;
 
   // include request body and cookie in hash
   var cookie = req.headers.cookie || "";
-  reqData = req.body + reqData + cookie;
+  reqData = body + reqData + cookie;
+
+  cookie = cookie.split(';')
+    .filter(c => /^WASID\=/.test(c));
+
+  if(cookie.length > 0){
+    cookie = cookie[0];
+  }
 
   var shasum = crypto.createHash('sha1');
   shasum.update(reqData);
-  return url + '_' + 'WASID_' + cookie + '_' + shasum.digest('hex') + '.json';
+  
+  const result = url + '_' + 'WASID_' + cookie + '_' + shasum.digest('hex') + '.json';
+  
+  return result;
 }
 
 prism.create({

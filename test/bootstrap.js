@@ -46,9 +46,11 @@ else {
 
 beforeEach(function () {
   if (isBrowser()) {
-    window.top.callPhantom({
-      type: 'clearCookies'
-    });
+    if(typeof window.top.callPhantom === 'function') {
+      window.top.callPhantom({
+        type: 'clearCookies'
+      });
+    }
   }
   else {
     wakClient._httpClient._clearCookie();
