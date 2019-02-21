@@ -4,27 +4,24 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/B6694D5075640B4084C7EDD346E46576",
+    "__ENTITYSET": "/rest/Product/$entityset/DD94C367B6A64EE3A74750F8DAE6FB61",
     "__entityModel": "Product",
-    "__COUNT": 27,
+    "__COUNT": 26,
     "__SENT": 10,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__STAMP": 0
-      },
-      {
-        "__KEY": "2801",
-        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__KEY": "2",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2801,
+        "ID": 2,
         "name": "apricot",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "apricot",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -43,17 +40,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2802",
-        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__KEY": "3",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2802,
+        "ID": 3,
         "name": "avocado",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "avocado",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -72,17 +69,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2803",
-        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__KEY": "4",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2803,
+        "ID": 4,
         "name": "banana",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "banana",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -101,17 +98,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2804",
-        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__KEY": "5",
+        "__TIMESTAMP": "2019-02-21T22:19:01.005Z",
         "__STAMP": 1,
-        "ID": 2804,
+        "ID": 5,
         "name": "blueberry",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "blueberry",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -130,12 +127,12 @@
         "myNumber": null
       },
       {
-        "__KEY": "2805",
-        "__TIMESTAMP": "2017-11-20T16:11:22.549Z",
+        "__KEY": "6",
+        "__TIMESTAMP": "2019-02-21T22:19:25.644Z",
         "__STAMP": 3,
-        "ID": 2805,
+        "ID": 6,
         "name": "cherry",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "foo": "bar",
@@ -145,17 +142,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2806",
-        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__KEY": "7",
+        "__TIMESTAMP": "2019-02-21T22:19:01.006Z",
         "__STAMP": 1,
-        "ID": 2806,
+        "ID": 7,
         "name": "fig",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "fig",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -174,17 +171,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2807",
-        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__KEY": "8",
+        "__TIMESTAMP": "2019-02-21T22:19:01.006Z",
         "__STAMP": 1,
-        "ID": 2807,
+        "ID": 8,
         "name": "grape",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "grape",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -203,17 +200,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2808",
-        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__KEY": "9",
+        "__TIMESTAMP": "2019-02-21T22:19:01.006Z",
         "__STAMP": 1,
-        "ID": 2808,
+        "ID": 9,
         "name": "kiwi",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "kiwi",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -232,15 +229,43 @@
         "myNumber": null
       },
       {
-        "__KEY": "2809",
-        "__TIMESTAMP": "2017-11-20T16:09:35.116Z",
+        "__KEY": "10",
+        "__TIMESTAMP": "2019-02-21T22:19:01.007Z",
         "__STAMP": 1,
-        "ID": 2809,
-        "name": "lemon true\r",
+        "ID": 10,
+        "name": "lemon true",
         "myBoolean": null,
         "born": null,
         "spec": {
-          "name": "lemon true\r",
+          "name": "lemon true",
+          "myObject": {
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      },
+      {
+        "__KEY": "11",
+        "__TIMESTAMP": "2019-02-21T22:19:01.008Z",
+        "__STAMP": 1,
+        "ID": 11,
+        "name": "lime true",
+        "myBoolean": null,
+        "born": null,
+        "spec": {
+          "name": "lime true",
           "myObject": {
             "myArray": [
               {

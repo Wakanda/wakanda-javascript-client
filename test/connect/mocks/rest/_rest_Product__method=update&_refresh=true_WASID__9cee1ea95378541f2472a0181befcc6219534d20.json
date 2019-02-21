@@ -1,0 +1,16 @@
+{
+  "requestUrl": "/rest/Product?$method=update&$refresh=true",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "28",
+    "__STAMP": 0,
+    "uri": "/rest/Product(28)",
+    "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+    "name": "Unnamed product",
+    "myBoolean": true
+  },
+  "isBase64": false,
+  "headers": {}
+}

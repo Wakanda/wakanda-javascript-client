@@ -1,0 +1,32 @@
+{
+  "requestUrl": "/rest/Employee?$filter=%22ID%20==1003%22&$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/19D5C0E510DB40FA92CA9FC3F3CFEE76",
+    "__entityModel": "Employee",
+    "__COUNT": 1,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1003",
+        "__TIMESTAMP": "2019-02-21T22:19:25.738Z",
+        "__STAMP": 1,
+        "ID": 1003,
+        "lastName": "Test-0",
+        "firstName": "Image",
+        "salary": 80000,
+        "employer": null,
+        "salaryProcessed": "2588410.3924677256 baht",
+        "employerName": null,
+        "photo": null,
+        "birthDate": null,
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

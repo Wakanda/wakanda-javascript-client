@@ -4,24 +4,24 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Employee/$entityset/18D9C582BBCE4A449F6931F60A9DB9B2",
+    "__ENTITYSET": "/rest/Employee/$entityset/33AAFB8DC97F4C06BBABF4C320F3F2C9",
     "__entityModel": "Employee",
     "__COUNT": 3,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "97009",
-        "__TIMESTAMP": "2017-11-20T16:11:22.467Z",
+        "__KEY": "1001",
+        "__TIMESTAMP": "2019-02-21T22:19:25.579Z",
         "__STAMP": 1,
-        "ID": 97009,
+        "ID": 1001,
         "lastName": "Smith",
         "firstName": "John",
         "salary": 80000,
         "employer": {
           "__deferred": {
-            "uri": "/rest/Company(5937)",
-            "__KEY": "5937"
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
           }
         },
         "salaryProcessed": "2588410.3924677256 baht",

@@ -1,0 +1,28 @@
+{
+  "requestUrl": "/rest/Employee?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "13",
+    "__STAMP": 1,
+    "uri": "/rest/Employee(13)",
+    "__TIMESTAMP": "2019-02-21T22:19:00.285Z",
+    "ID": 13,
+    "lastName": "SOMIND",
+    "firstName": "WILMER",
+    "salary": 39873,
+    "salaryProcessed": "1290096.0947358203 baht",
+    "employerName": "Blobarray Coolupe Orange",
+    "birthDate": "1953-05-07T16:04:39.724Z",
+    "hiringDate": "29!3!2003",
+    "employer": {
+      "__deferred": {
+        "uri": "/rest/Company(2)",
+        "__KEY": "2"
+      }
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

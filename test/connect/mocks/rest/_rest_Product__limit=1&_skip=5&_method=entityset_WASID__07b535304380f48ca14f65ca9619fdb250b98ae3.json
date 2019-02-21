@@ -4,24 +4,24 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/0CCB2B5FE347DF459185280BEDFF7163",
+    "__ENTITYSET": "/rest/Product/$entityset/E8E590E80A3645268B548A0DB2EAED93",
     "__entityModel": "Product",
     "__COUNT": 27,
     "__SENT": 1,
     "__FIRST": 5,
     "__ENTITIES": [
       {
-        "__KEY": "2805",
-        "__TIMESTAMP": "2017-11-20T16:09:35.115Z",
+        "__KEY": "6",
+        "__TIMESTAMP": "2019-02-21T22:19:01.005Z",
         "__STAMP": 1,
-        "ID": 2805,
+        "ID": 6,
         "name": "cherry",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "cherry",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
