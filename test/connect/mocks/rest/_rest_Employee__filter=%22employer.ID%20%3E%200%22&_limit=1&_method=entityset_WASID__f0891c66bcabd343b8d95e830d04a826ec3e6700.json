@@ -4,31 +4,31 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Employee/$entityset/1144D1794095F846848A7C72D80D4845",
+    "__ENTITYSET": "/rest/Employee/$entityset/924680ABC9264E61952A048E93AD842F",
     "__entityModel": "Employee",
     "__COUNT": 1001,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "96009",
-        "__TIMESTAMP": "2017-11-20T16:09:34.581Z",
+        "__KEY": "1",
+        "__TIMESTAMP": "2019-02-21T22:19:00.276Z",
         "__STAMP": 1,
-        "ID": 96009,
+        "ID": 1,
         "lastName": "SYNO",
         "firstName": "INGRID",
         "salary": 43791,
         "employer": {
           "__deferred": {
-            "uri": "/rest/Company(5937)",
-            "__KEY": "5937"
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
           }
         },
         "salaryProcessed": "1416863.4937069272 baht",
         "employerName": "Listbox Dolphin Eye",
         "photo": null,
         "birthDate": "1941-09-24T11:31:07.652Z",
-        "hiringDate": null
+        "hiringDate": "4!1!2002"
       }
     ]
   },

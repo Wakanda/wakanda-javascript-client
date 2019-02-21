@@ -4,24 +4,24 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/CBA3F668C71BA24FA815C5A8EF95EC0F",
+    "__ENTITYSET": "/rest/Product/$entityset/C3A24444852A4F7D9231CC6C4EE075ED",
     "__entityModel": "Product",
     "__COUNT": 26,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "2800",
-        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__KEY": "1",
+        "__TIMESTAMP": "2019-02-21T22:19:01.003Z",
         "__STAMP": 1,
-        "ID": 2800,
+        "ID": 1,
         "name": "apple",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "apple",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
