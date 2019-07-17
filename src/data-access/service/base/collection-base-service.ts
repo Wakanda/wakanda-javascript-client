@@ -1,7 +1,7 @@
-import HttpClient from '../../http/http-client';
-import { QueryOption } from '../../../presentation/query-option';
-import { ICollectionDBO } from '../../../business/collection-business';
-import Util from '../../util';
+import { ICollectionDBO } from "../../../business/collection-business";
+import { IQueryOption } from "../../../presentation/query-option";
+import HttpClient from "../../http/http-client";
+import Util from "../../util";
 
 export interface IBaseParams {
   httpClient: HttpClient;
@@ -10,7 +10,7 @@ export interface IBaseParams {
 }
 
 export interface IFetchParams extends IBaseParams {
-  options: QueryOption;
+  options: IQueryOption;
 }
 
 export interface ICallMethodParams extends IBaseParams {
@@ -23,33 +23,33 @@ export class CollectionBaseService {
     if (!isEntitySet) {
       if (options.select && options.select.length > 0) {
         throw new Error(
-          'Collection.fetch: option select is not allowed when collection is deferred'
+          "Collection.fetch: option select is not allowed when collection is deferred",
         );
       }
     }
 
-    options.method = 'subentityset';
+    options.method = "subentityset";
 
     let optString = Util.handleOptions(options);
 
-    //Remove the first ? on optString if it's not an entitySet (because there is also
-    //?$expand=... on collectionUri), and add a &
+    // Remove the first ? on optString if it's not an entitySet (because there is also
+    // ?$expand=... on collectionUri), and add a &
     if (!isEntitySet) {
-      optString = '&' + optString.slice(1);
+      optString = "&" + optString.slice(1);
     }
 
-    let uri = collectionUri;
+    const uri = collectionUri;
 
     return httpClient
       .get({
         uri: uri + optString,
       })
-      .then(res => {
-        let obj = JSON.parse(res.body);
+      .then((res) => {
+        const obj = JSON.parse(res.body);
 
         delete obj.__entityModel;
 
-        for (let entity of obj.__ENTITIES) {
+        for (const entity of obj.__ENTITIES) {
           Util.removeRestInfoFromEntity(entity);
         }
 
@@ -67,14 +67,14 @@ export class CollectionBaseService {
     let uri = collectionUri;
 
     if (isEntitySet) {
-      uri += '/' + methodName;
+      uri += "/" + methodName;
     } else {
-      let optString = Util.handleOptions({
-        method: 'subentityset',
+      const optString = Util.handleOptions({
+        method: "subentityset",
         emMethod: methodName,
       });
 
-      uri += '&' + optString.slice(1);
+      uri += "&" + optString.slice(1);
     }
 
     return httpClient
@@ -83,7 +83,7 @@ export class CollectionBaseService {
         data: parameters,
       })
       .then((res: any) => {
-        let obj = JSON.parse(res.body);
+        const obj = JSON.parse(res.body);
         return obj.result || obj || null;
       });
   }

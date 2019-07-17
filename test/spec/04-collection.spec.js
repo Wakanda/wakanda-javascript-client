@@ -1,10 +1,3 @@
-/* global wakClient */
-/* global before */
-/* global beforeEach */
-/* global describe */
-/* global it */
-/* global expect */
-
 describe('Collection API', function() {
   var ds;
 

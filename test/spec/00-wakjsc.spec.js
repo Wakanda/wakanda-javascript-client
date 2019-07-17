@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 describe('WakandaClient object', function() {
   describe('public APIs', function() {
     it('should have a getCatalog method', function() {

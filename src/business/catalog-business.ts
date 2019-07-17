@@ -1,29 +1,29 @@
-import AbstractBusiness from './abstract-business';
-import CatalogService from '../data-access/service/catalog-service';
-import Catalog from '../presentation/catalog';
+import CatalogService from "../data-access/service/catalog-service";
+import Catalog from "../presentation/catalog";
 import {
-  DataClass,
   Attribute,
-  AttributeRelated,
   AttributeCollection,
-} from '../presentation/dataclass';
-import DataClassBusiness from './dataclass-business';
+  AttributeRelated,
+  DataClass,
+} from "../presentation/dataclass";
+import AbstractBusiness from "./abstract-business";
+import DataClassBusiness from "./dataclass-business";
 
 export interface IDataClassDBO {
   name: string;
   collectionName: string;
   dataURI: string;
-  attributes: {
+  attributes: Array<{
     name: string;
     type: string;
     kind: string;
     readOnly: boolean;
     simpleDate: boolean;
-  }[];
-  methods: {
+  }>;
+  methods: Array<{
     name: string;
     applyTo: string;
-  }[];
+  }>;
 }
 
 class CatalogBusiness extends AbstractBusiness {
@@ -38,71 +38,65 @@ class CatalogBusiness extends AbstractBusiness {
     });
   }
 
-  private needDataClass(dcName: string) {
-    if (this.seenDataClasses.indexOf(dcName) === -1) {
-      this.seenDataClasses.push(dcName);
-    }
-  }
-
   public get(dataClasses?: string[]): Promise<Catalog> {
     this.seenDataClasses = [];
 
     return this.service.get(dataClasses).then((dataClassDBOArray: IDataClassDBO[]) => {
-      let dcArray: DataClass[] = [];
+      const dcArray: DataClass[] = [];
 
-      for (let dcDBO of dataClassDBOArray) {
-        let attributes: Attribute[] = [];
+      for (const dcDBO of dataClassDBOArray) {
+        const attributes: Attribute[] = [];
 
-        for (let attr of dcDBO.attributes) {
+        for (const attr of dcDBO.attributes) {
           switch (attr.kind) {
-            case 'relatedEntity':
+            case "relatedEntity":
               attributes.push(
                 new AttributeRelated({
                   name: attr.name,
                   type: attr.type,
                   kind: attr.kind,
-                })
+                }),
               );
               this.needDataClass(attr.type);
               break;
-            case 'storage':
-            case 'calculated':
-            case 'alias':
-              let readOnly = attr.readOnly || (attr.type === 'image' || attr.type === 'blob');
-              let simpleDate = attr.simpleDate !== undefined ? attr.simpleDate : undefined;
+            case "storage":
+            case "calculated":
+            case "alias":
+              const readOnly = attr.readOnly || (attr.type === "image" || attr.type === "blob");
+              const simpleDate = attr.simpleDate !== undefined ? attr.simpleDate : undefined;
               attributes.push(
                 new Attribute({
                   name: attr.name,
                   type: attr.type,
                   readOnly,
                   kind: attr.kind,
-                  simpleDate: simpleDate,
-                })
+                  simpleDate,
+                }),
               );
               break;
-            case 'relatedEntities':
+            case "relatedEntities":
               let entityType: string;
-              dataClassDBOArray.some(_dataClass => {
-                if (_dataClass.collectionName === attr.type) {
-                  entityType = _dataClass.name;
+              dataClassDBOArray.some((dc) => {
+                if (dc.collectionName === attr.type) {
+                  entityType = dc.name;
                   return true;
                 }
               });
-              let attrCollection = new AttributeCollection({
+              const attrCollection = new AttributeCollection({
                 name: attr.name,
                 type: attr.type,
                 kind: attr.kind,
-                entityType: entityType,
+                entityType,
               });
               attributes.push(attrCollection);
               this.needDataClass(attrCollection.entityType);
               break;
             default:
-              throw new Error('[WakandaClient] Unhandled ' + attr.kind + ' attribute type');
+              throw new Error("[WakandaClient] Unhandled " + attr.kind + " attribute type");
           }
         }
 
-        let methods: {
+        const methods: {
           entity: string[];
           collection: string[];
           dataClass: string[];
@@ -112,31 +106,31 @@ class CatalogBusiness extends AbstractBusiness {
           dataClass: [],
         };
 
-        for (let method of dcDBO.methods) {
+        for (const method of dcDBO.methods) {
           switch (method.applyTo) {
-            case 'entity':
+            case "entity":
               methods.entity.push(method.name);
               break;
-            case 'entityCollection':
+            case "entityCollection":
               methods.collection.push(method.name);
               break;
-            case 'dataClass':
+            case "dataClass":
               methods.dataClass.push(method.name);
               break;
             default:
-              throw new Error('[WakandaClient] Unrecognized ' + method.applyTo + ' method type');
+              throw new Error("[WakandaClient] Unrecognized " + method.applyTo + " method type");
           }
         }
 
-        let dataClass = new DataClass({
+        const dataClass = new DataClass({
           name: dcDBO.name,
           collectionName: dcDBO.collectionName,
           attributes,
           methods,
         });
 
-        //Binding framework methods to the dataclass
-        let dataClassBusiness = new DataClassBusiness({
+        // Binding framework methods to the dataclass
+        const dataClassBusiness = new DataClassBusiness({
           wakJSC: this.wakJSC,
           dataClass,
           methods,
@@ -147,19 +141,25 @@ class CatalogBusiness extends AbstractBusiness {
         dcArray.push(dataClass);
       }
 
-      let catalog = new Catalog({
+      const catalog = new Catalog({
         dataClasses: dcArray,
       });
 
-      //Check if we have all needed dataClasses on the catalog
-      for (let dcName of this.seenDataClasses) {
+      // Check if we have all needed dataClasses on the catalog
+      for (const dcName of this.seenDataClasses) {
         if (!catalog[dcName]) {
-          throw new Error('Needed ' + dcName + ' dataClass is not present on catalog');
+          throw new Error("Needed " + dcName + " dataClass is not present on catalog");
         }
       }
 
       return catalog;
     });
+  }
+
+  private needDataClass(dcName: string) {
+    if (this.seenDataClasses.indexOf(dcName) === -1) {
+      this.seenDataClasses.push(dcName);
+    }
   }
 }
 

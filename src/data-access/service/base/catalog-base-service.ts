@@ -1,5 +1,5 @@
-import HttpClient from '../../http/http-client';
-import { IDataClassDBO } from '../../../business/catalog-business';
+import { IDataClassDBO } from "../../../business/catalog-business";
+import HttpClient from "../../http/http-client";
 
 export class CatalogBaseService {
   public static get({
@@ -11,28 +11,28 @@ export class CatalogBaseService {
     dataClasses?: string | string[];
     catalog: string;
   }) {
-    let strDataclasses = '/';
+    let strDataclasses = "/";
 
     if (Array.isArray(dataClasses)) {
       strDataclasses += dataClasses.join();
-    } else if (typeof dataClasses === 'undefined') {
-      strDataclasses += '$all';
+    } else if (typeof dataClasses === "undefined") {
+      strDataclasses += "$all";
     } else {
-      throw new Error('Catalog.get: first parameter should be an array');
+      throw new Error("Catalog.get: first parameter should be an array");
     }
 
-    let strCatalog = catalog ? '/' + catalog : '';
+    const strCatalog = catalog ? "/" + catalog : "";
 
-    return httpClient.get({ uri: '/rest/$catalog' + strCatalog + strDataclasses }).then(res => {
-      let catalogContent: IDataClassDBO[] = [];
-      let rawObj = JSON.parse(res.body);
+    return httpClient.get({ uri: "/rest/$catalog" + strCatalog + strDataclasses }).then((res) => {
+      const catalogContent: IDataClassDBO[] = [];
+      const rawObj = JSON.parse(res.body);
 
       if (rawObj.dataClasses) {
-        for (let d of rawObj.dataClasses) {
-          let attributes: any[] = [];
+        for (const d of rawObj.dataClasses) {
+          const attributes: any[] = [];
           if (d.attributes) {
-            //Seriously? :)
-            for (let attr of d.attributes) {
+            // Seriously? :)
+            for (const attr of d.attributes) {
               attributes.push({
                 name: attr.name,
                 kind: attr.kind,
@@ -43,9 +43,9 @@ export class CatalogBaseService {
             }
           }
 
-          let methods: any[] = [];
+          const methods: any[] = [];
           if (d.methods) {
-            for (let m of d.methods) {
+            for (const m of d.methods) {
               methods.push({
                 name: m.name,
                 applyTo: m.applyTo,

@@ -1,7 +1,7 @@
-import WakandaClient from '../wakanda-client';
-import AbstractBusiness from './abstract-business';
-import DirectoryService from '../data-access/service/directory-service';
-import Const from '../const';
+import Const from "../const";
+import DirectoryService from "../data-access/service/directory-service";
+import WakandaClient from "../wakanda-client";
+import AbstractBusiness from "./abstract-business";
 
 export interface ICurrentUserDBO {
   userName: string;
@@ -19,10 +19,10 @@ class DirectoryBusiness extends AbstractBusiness {
   }
 
   public login(username: string, password: string, duration?: number): Promise<boolean> {
-    let durationTime = duration || Const.DEFAULT_SESSION_DURATION;
+    const durationTime = duration || Const.DEFAULT_SESSION_DURATION;
 
-    if (!(typeof durationTime === 'number') || durationTime <= 0) {
-      throw new Error('Directory.login: invalid duration parameter');
+    if (!(typeof durationTime === "number") || durationTime <= 0) {
+      throw new Error("Directory.login: invalid duration parameter");
     }
 
     return this.service.login(username, password, durationTime).catch(() => {
@@ -39,7 +39,7 @@ class DirectoryBusiness extends AbstractBusiness {
   public getCurrentUser(): Promise<ICurrentUserDBO> {
     return this.service
       .getCurrentUser()
-      .then(dbo => {
+      .then((dbo) => {
         return dbo;
       })
       .catch(() => {
@@ -48,8 +48,8 @@ class DirectoryBusiness extends AbstractBusiness {
   }
 
   public getCurrentUserBelongsTo(group: string): Promise<boolean> {
-    if (!(typeof group === 'string')) {
-      throw new Error('Directory.getCurrentUserBelongsTo: group must be a string');
+    if (!(typeof group === "string")) {
+      throw new Error("Directory.getCurrentUserBelongsTo: group must be a string");
     }
 
     return this.service

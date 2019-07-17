@@ -6,26 +6,26 @@ class Util {
       return null;
     }
 
-    let arr = stringDate.split('!');
+    const arr = stringDate.split("!");
     if (arr.length !== 3) {
       // return null or throw an error, simple date format is ko
       return null;
     }
-    let date: Date = new Date(
-      Date.UTC(parseInt(arr[2], 10), parseInt(arr[1], 10) - 1, parseInt(arr[0], 10))
+    const date: Date = new Date(
+      Date.UTC(parseInt(arr[2], 10), parseInt(arr[1], 10) - 1, parseInt(arr[0], 10)),
     );
     return date;
   }
 
-  public static wakToStringSimpleDate(date: Date): String {
-    let wakSimpleDate: String;
+  public static wakToStringSimpleDate(date: Date): string {
+    let wakSimpleDate: string;
 
     if (!(date instanceof Date)) {
       return null;
     }
 
     wakSimpleDate =
-      date.getUTCDate() + '!' + (date.getUTCMonth() + 1) + '!' + date.getUTCFullYear();
+      date.getUTCDate() + "!" + (date.getUTCMonth() + 1) + "!" + date.getUTCFullYear();
     return wakSimpleDate;
   }
 }

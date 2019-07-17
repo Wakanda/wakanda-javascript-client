@@ -1,10 +1,10 @@
-import AbstractService from './abstract-service';
-import Collection from '../../presentation/collection';
-import DataClassBusiness from '../../business/dataclass-business';
-import { QueryOption } from '../../presentation/query-option';
-import { ICollectionDBO } from '../../business/collection-business';
-import { CollectionBaseService, isEntitySetUri } from './base/collection-base-service';
-import WakandaClient from '../../wakanda-client';
+import { ICollectionDBO } from "../../business/collection-business";
+import DataClassBusiness from "../../business/dataclass-business";
+import Collection from "../../presentation/collection";
+import { IQueryOption } from "../../presentation/query-option";
+import WakandaClient from "../../wakanda-client";
+import AbstractService from "./abstract-service";
+import { CollectionBaseService, isEntitySetUri } from "./base/collection-base-service";
 
 class CollectionService extends AbstractService {
   private collection: Collection;
@@ -31,13 +31,13 @@ class CollectionService extends AbstractService {
     this.isEntitySet = isEntitySetUri(collectionUri);
   }
 
-  public fetch(options: QueryOption): Promise<ICollectionDBO> {
+  public fetch(options: IQueryOption): Promise<ICollectionDBO> {
     return CollectionBaseService.fetch({
       httpClient: this.httpClient,
       collectionUri: this.collectionUri,
       isEntitySet: this.isEntitySet,
       options,
-    }).then(dbo => {
+    }).then((dbo) => {
       if (dbo.__ENTITYSET) {
         this.collectionUri = dbo.__ENTITYSET;
         this.isEntitySet = isEntitySetUri(dbo.__ENTITYSET);

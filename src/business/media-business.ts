@@ -1,9 +1,9 @@
-import AbstractBusiness from './abstract-business';
-import MediaService from '../data-access/service/media-service';
-import Media from '../presentation/media';
-import Entity from '../presentation/entity';
-import DataClassBusiness from './dataclass-business';
-import WakandaClient from '../wakanda-client';
+import MediaService from "../data-access/service/media-service";
+import Entity from "../presentation/entity";
+import Media from "../presentation/media";
+import WakandaClient from "../wakanda-client";
+import AbstractBusiness from "./abstract-business";
+import DataClassBusiness from "./dataclass-business";
 
 class MediaBusiness extends AbstractBusiness {
   public entity: Entity;
@@ -50,27 +50,27 @@ class MediaBusiness extends AbstractBusiness {
 
   public upload(file: any): Promise<Entity> {
     if (!this.entity._key) {
-      throw new Error('Media.upload: entity must be saved before uploading a media');
+      throw new Error("Media.upload: entity must be saved before uploading a media");
     }
 
     return this.service
       .upload(file, file.type)
-      .then(dbo => {
-        return dbo; //FIXME
+      .then((dbo) => {
+        return dbo; // FIXME
       })
       .then(() => {
-        //FIXME - crappy, force a refresh of the entity to get proper stamp and media uri
+        // FIXME - crappy, force a refresh of the entity to get proper stamp and media uri
         return this.entity.fetch();
       });
   }
 
   public delete(): Promise<Entity> {
     if (!this.entity._key) {
-      throw new Error('Media.upload: entity must be saved before deleting a media');
+      throw new Error("Media.upload: entity must be saved before deleting a media");
     }
 
     return this.service.delete().then(() => {
-      //FIXME - crappy, force a refresh of the entity to get proper stamp and media uri
+      // FIXME - crappy, force a refresh of the entity to get proper stamp and media uri
       return this.entity.fetch();
     });
   }

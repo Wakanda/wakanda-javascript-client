@@ -1,6 +1,8 @@
-import Entity from './entity';
-import Collection from './collection';
-import { QueryOption } from './query-option';
+/* tslint:disable max-classes-per-file */
+
+import Collection from "./collection";
+import Entity from "./entity";
+import { IQueryOption } from "./query-option";
 
 export class DataClass {
   public name: string;
@@ -12,8 +14,8 @@ export class DataClass {
     dataClass: string[];
   };
 
-  public find: (id: string | number, options?: QueryOption) => Promise<Entity>;
-  public query: (options?: QueryOption) => Promise<Collection>;
+  public find: (id: string | number, options?: IQueryOption) => Promise<Entity>;
+  public query: (options?: IQueryOption) => Promise<Collection>;
   public create: (pojo?: any) => Entity;
 
   [key: string]: any;

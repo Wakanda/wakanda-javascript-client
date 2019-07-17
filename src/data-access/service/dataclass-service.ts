@@ -1,10 +1,10 @@
-import AbstractService from './abstract-service';
-import { QueryOption } from '../../presentation/query-option';
-import DataClassBusiness from '../../business/dataclass-business';
-import { IEntityDBO } from '../../business/entity-business';
-import { ICollectionDBO } from '../../business/collection-business';
-import { DataClassBaseService } from './base/dataclass-base-service';
-import WakandaClient from '../../wakanda-client';
+import { ICollectionDBO } from "../../business/collection-business";
+import DataClassBusiness from "../../business/dataclass-business";
+import { IEntityDBO } from "../../business/entity-business";
+import { IQueryOption } from "../../presentation/query-option";
+import WakandaClient from "../../wakanda-client";
+import AbstractService from "./abstract-service";
+import { DataClassBaseService } from "./base/dataclass-base-service";
 
 class DataClassService extends AbstractService {
   private dataClassBusiness: DataClassBusiness;
@@ -21,7 +21,7 @@ class DataClassService extends AbstractService {
     this.dataClassBusiness = dataClassBusiness;
   }
 
-  public find(id: string | number, options: QueryOption): Promise<IEntityDBO> {
+  public find(id: string | number, options: IQueryOption): Promise<IEntityDBO> {
     return DataClassBaseService.find({
       httpClient: this.httpClient,
       key: id,
@@ -30,7 +30,7 @@ class DataClassService extends AbstractService {
     });
   }
 
-  public query(options: QueryOption): Promise<ICollectionDBO> {
+  public query(options: IQueryOption): Promise<ICollectionDBO> {
     return DataClassBaseService.query({
       httpClient: this.httpClient,
       options,

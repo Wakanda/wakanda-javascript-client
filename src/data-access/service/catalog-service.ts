@@ -1,6 +1,6 @@
-import AbstractService from './abstract-service';
-import { IDataClassDBO } from '../../business/catalog-business';
-import { CatalogBaseService } from './base/catalog-base-service';
+import { IDataClassDBO } from "../../business/catalog-business";
+import AbstractService from "./abstract-service";
+import { CatalogBaseService } from "./base/catalog-base-service";
 
 class CatalogService extends AbstractService {
   public get(dataClasses?: string | string[]): Promise<IDataClassDBO[]> {

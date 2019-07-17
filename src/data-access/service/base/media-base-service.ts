@@ -1,5 +1,5 @@
-import HttpClient from '../../http/http-client';
-import HttpResponse from '../../http/http-response';
+import HttpClient from "../../http/http-client";
+import HttpResponse from "../../http/http-response";
 
 export interface IUploadParams {
   httpClient: HttpClient;
@@ -30,10 +30,10 @@ export class MediaBaseService {
     let uri = this._buildUri(dataURI, entityKey, attributeName);
 
     if (isImage) {
-      uri += '?$rawPict=' + file.type;
+      uri += "?$rawPict=" + file.type;
     }
 
-    //FIXME - real crappy not to return some piece of information to refresh entity
+    // FIXME - real crappy not to return some piece of information to refresh entity
     return httpClient.post({
       uri,
       data: file,
@@ -48,15 +48,15 @@ export class MediaBaseService {
     entityStamp,
     attributeName,
   }: IDeleteParams): Promise<HttpResponse> {
-    let uri = dataURI + '(' + entityKey + ')';
-    let data: any = {
+    const uri = dataURI + "(" + entityKey + ")";
+    const data: any = {
       __KEY: entityKey,
       __STAMP: entityStamp,
     };
 
     data[attributeName] = null;
 
-    //FIXME - crappy
+    // FIXME - crappy
     return httpClient.post({
       uri,
       data,
@@ -64,6 +64,6 @@ export class MediaBaseService {
   }
 
   private static _buildUri(dataURI: string, entityKey: string, attributeName: string): string {
-    return dataURI + '(' + entityKey + ')' + '/' + attributeName;
+    return dataURI + "(" + entityKey + ")" + "/" + attributeName;
   }
 }

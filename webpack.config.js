@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const { resolve, join } = require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const moment = require('moment');
 
 const packageInfo = require('./package.json');
@@ -87,9 +86,12 @@ const baseConfig = {
   optimization: {
     minimize: true,
   },
+  performance: {
+    maxEntrypointSize: 600000,
+    maxAssetSize: 600000,
+  },
 };
 baseConfig.plugins = [
-  new CleanWebpackPlugin(baseConfig.output.path),
   bannerPlugin,
 ];
 

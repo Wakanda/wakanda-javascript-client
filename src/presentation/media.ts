@@ -1,4 +1,4 @@
-import Entity from './entity';
+import Entity from "./entity";
 
 class Media {
   public uri: string;
