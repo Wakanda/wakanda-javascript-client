@@ -3,7 +3,7 @@
   "main": "dist/node.js",
   "version": "3.0.0-beta.1",
   "description": "Wakanda Client allows you to easily interact with Wakanda Server on a JavaScript (browser or node) environment",
-  "browser": "browser/wakanda-client.min.js",
+  "browser": "dist/browser.js",
   "repository": "wakanda/wakanda-javascript-client",
   "scripts": {
     "tsc": "tsc",
@@ -74,7 +74,6 @@
   },
   "files": [
     "/dist/*",
-    "/browser",
     "!karma.wakanda-client.js*"
   ]
 }
