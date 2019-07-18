@@ -9,8 +9,6 @@ import Catalog from "./presentation/catalog";
 import Collection from "./presentation/collection";
 import Entity from "./presentation/entity";
 
-import * as packageOptions from "../package.json";
-
 export interface IDirectory {
   login(username: string, password: string, duration?: number): Promise<boolean>;
   logout(): Promise<boolean>;
@@ -86,7 +84,7 @@ class WakandaClient {
   }
 
   public version(): string {
-    return packageOptions.version;
+    return "3.0.0";
   }
 }
 

@@ -87,6 +87,8 @@
   },
   "files": [
     "/dist/*",
+    "/src/*",
+    "/lib/*",
     "!karma.wakanda-client.js*"
   ]
 }

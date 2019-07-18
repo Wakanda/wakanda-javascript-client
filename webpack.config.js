@@ -31,13 +31,13 @@ fs.readdirSync('node_modules')
  */
 const baseConfig = {
   name: 'base',
-  context: resolve(__dirname, 'src'),
+  context: resolve('src'),
   entry: [
     "./browser.ts",
   ],
   output: {
     filename: "browser.js",
-    path: resolve(__dirname, 'dist'),
+    path: resolve('dist'),
     library: 'WakandaClient',
     libraryTarget: 'umd',
   },

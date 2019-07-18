@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
@@ -7,8 +8,7 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "declaration": true,
-    "outDir": "./dist",
-    "resolveJsonModule": true
+    "outDir": "./dist"
   },
   "files": [
     "typings/index.d.ts",
