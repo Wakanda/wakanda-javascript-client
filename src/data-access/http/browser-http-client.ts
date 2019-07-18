@@ -1,7 +1,8 @@
 import { HttpClient, IGetRequestOption, IPostRequestOption } from "./http-client";
 import HttpResponse from "./http-response";
 
-import { HttpClient as AureliaHttpClient } from "aurelia-http-client";
+// tslint:disable-next-line
+const { HttpClient: AureliaHttpClient } = require("aurelia-http-client");
 
 class BrowserHttpClient extends HttpClient {
   private client: any;
