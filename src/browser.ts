@@ -1,4 +1,13 @@
-import "core-js/stable";
+import "core-js/stable/array/from";
+import "core-js/stable/array/is-array";
+import "core-js/stable/function/bind";
+import "core-js/stable/map";
+
+if (!(window as any).Zone) {
+  // tslint:disable-next-line
+  require("core-js/features/promise");
+}
+
 import "./polyfills/customevent-polyfill";
 
 import BrowserHttpClient from "./data-access/http/browser-http-client";
