@@ -70,7 +70,7 @@
     "tslint": "^5.18.0",
     "tslint-loader": "^3.5.4",
     "typescript": "^3.5.3",
-    "webpack": "^4.38.0",
+    "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
@@ -80,7 +80,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm test",
-      "pre-push": "npm run lint && npm test",
       "post-merge": "npm i",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
