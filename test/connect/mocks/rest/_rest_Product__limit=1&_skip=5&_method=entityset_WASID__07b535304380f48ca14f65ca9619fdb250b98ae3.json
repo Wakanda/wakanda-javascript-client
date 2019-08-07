@@ -1,0 +1,46 @@
+{
+  "requestUrl": "/rest/Product?$limit=1&$skip=5&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Product/$entityset/E8E590E80A3645268B548A0DB2EAED93",
+    "__entityModel": "Product",
+    "__COUNT": 27,
+    "__SENT": 1,
+    "__FIRST": 5,
+    "__ENTITIES": [
+      {
+        "__KEY": "6",
+        "__TIMESTAMP": "2019-02-21T22:19:01.005Z",
+        "__STAMP": 1,
+        "ID": 6,
+        "name": "cherry",
+        "myBoolean": true,
+        "born": null,
+        "spec": {
+          "name": "cherry",
+          "myObject": {
+            "myBoolean": "true",
+            "myArray": [
+              {
+                "foo": "bar"
+              },
+              "tata"
+            ]
+          },
+          "myArray": [
+            {
+              "foo": "bar"
+            },
+            "tata"
+          ]
+        },
+        "photo": null,
+        "myNumber": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

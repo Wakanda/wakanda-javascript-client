@@ -1,0 +1,352 @@
+{
+  "requestUrl": "/rest/$catalog/$all",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "dataClasses": [
+      {
+        "name": "Company",
+        "className": "Company",
+        "collectionName": "CompanyCollection",
+        "scope": "public",
+        "dataURI": "/rest/Company",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "indexed": true,
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "name",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "staff",
+            "kind": "relatedEntities",
+            "scope": "public",
+            "type": "Employees",
+            "reversePath": true,
+            "path": "employer"
+          }
+        ],
+        "methods": [
+          {
+            "name": "firstOfCollection",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Company.collectionMethods.firstOfCollection",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myCollectionMethod",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Company.collectionMethods.myCollectionMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myDataClassMethod",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Company.methods.myDataClassMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myEntityMethod",
+            "applyTo": "entity",
+            "scope": "public",
+            "from": "$mainModel.Company.entityMethods.myEntityMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "returnSelf",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Company.collectionMethods.returnSelf",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "returnStaff",
+            "applyTo": "entity",
+            "scope": "public",
+            "from": "$mainModel.Company.entityMethods.returnStaff",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      },
+      {
+        "name": "Employee",
+        "className": "Employee",
+        "collectionName": "Employees",
+        "scope": "public",
+        "dataURI": "/rest/Employee",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "indexed": true,
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "lastName",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "firstName",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "salary",
+            "kind": "storage",
+            "scope": "public",
+            "type": "number"
+          },
+          {
+            "name": "employer",
+            "kind": "relatedEntity",
+            "scope": "public",
+            "type": "Company",
+            "path": "Company"
+          },
+          {
+            "name": "salaryProcessed",
+            "kind": "calculated",
+            "scope": "public",
+            "type": "string",
+            "readOnly": true
+          },
+          {
+            "name": "employerName",
+            "kind": "alias",
+            "scope": "public",
+            "type": "string",
+            "path": "employer.name",
+            "readOnly": true
+          },
+          {
+            "name": "photo",
+            "kind": "storage",
+            "scope": "public",
+            "type": "image"
+          },
+          {
+            "name": "birthDate",
+            "kind": "storage",
+            "matchColumn": "born",
+            "scope": "public",
+            "type": "date",
+            "simpleDate": false
+          },
+          {
+            "name": "hiringDate",
+            "kind": "storage",
+            "scope": "public",
+            "type": "date",
+            "simpleDate": true
+          }
+        ],
+        "methods": [
+          {
+            "name": "firstOfCollection",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Employee.collectionMethods.firstOfCollection",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "lotsOfEmployees",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Employee.methods.lotsOfEmployees",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myCollectionMethod",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Employee.collectionMethods.myCollectionMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myDataClassMethod",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Employee.methods.myDataClassMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myDataClassMethodXHR",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Employee.methods.myDataClassMethodXHR",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myEntityMethod",
+            "applyTo": "entity",
+            "scope": "public",
+            "from": "$mainModel.Employee.entityMethods.myEntityMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "oneEmployee",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Employee.methods.oneEmployee",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "returnSelf",
+            "applyTo": "entity",
+            "scope": "public",
+            "from": "$mainModel.Employee.entityMethods.returnSelf",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "someCompanies",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Employee.collectionMethods.someCompanies",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "className": "Product",
+        "collectionName": "ProductCollection",
+        "scope": "public",
+        "dataURI": "/rest/Product",
+        "attributes": [
+          {
+            "name": "ID",
+            "kind": "storage",
+            "scope": "public",
+            "indexed": true,
+            "type": "long",
+            "identifying": true
+          },
+          {
+            "name": "name",
+            "kind": "storage",
+            "scope": "public",
+            "type": "string"
+          },
+          {
+            "name": "myBoolean",
+            "kind": "storage",
+            "scope": "public",
+            "type": "bool"
+          },
+          {
+            "name": "born",
+            "kind": "storage",
+            "scope": "public",
+            "type": "date",
+            "simpleDate": false
+          },
+          {
+            "name": "spec",
+            "kind": "storage",
+            "scope": "public",
+            "type": "object"
+          },
+          {
+            "name": "photo",
+            "kind": "storage",
+            "scope": "public",
+            "type": "image"
+          },
+          {
+            "name": "myNumber",
+            "kind": "storage",
+            "scope": "public",
+            "type": "number"
+          }
+        ],
+        "events": [
+          {
+            "kind": "init",
+            "from": "$mainModel.Product.events.init",
+            "userDefined": true
+          },
+          {
+            "kind": "clientrefresh",
+            "from": "$mainModel.Product.events.clientrefresh",
+            "userDefined": true
+          }
+        ],
+        "methods": [
+          {
+            "name": "myClassMethod",
+            "applyTo": "dataClass",
+            "scope": "public",
+            "from": "$mainModel.Product.methods.myClassMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myEntityCollectionMethod",
+            "applyTo": "entityCollection",
+            "scope": "public",
+            "from": "$mainModel.Product.collectionMethods.myEntityCollectionMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          },
+          {
+            "name": "myEntityMethod",
+            "applyTo": "entity",
+            "scope": "public",
+            "from": "$mainModel.Product.entityMethods.myEntityMethod",
+            "allowedOnHTTPGET": false,
+            "userDefined": true
+          }
+        ],
+        "key": [
+          {
+            "name": "ID"
+          }
+        ]
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,5 +1,8 @@
 # Wakanda Javascript Client
 
+## v2.0.0
+- [Feature] Update directory methods names from `currentXXX` to `getCurrentXXX`
+
 ## v0.6.0 - Beta
 - [Feature] Update typings dependencies
 - [Bugfix] Remove typings on the module publish
@@ -11,7 +14,7 @@
 - [Bugfix] Use collection dataURI to fetch a collection
 - [Test] Update the test solution *wakanda-solution* to the *new scaffolding*
 - [Test] Add a *new virtual model* to wakanda-solution test
- 
+
 ## v0.4.0 - Beta
 
 - [Feature] Handling `date` and `simple date` attributes

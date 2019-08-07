@@ -1,0 +1,17 @@
+{
+  "requestUrl": "/rest/Product(11)",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 404,
+  "data": {
+    "__ERROR": [
+      {
+        "message": "Cannot load entity# 11 in the \"Product\" datastore class",
+        "componentSignature": "dbmg",
+        "errCode": 1543
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

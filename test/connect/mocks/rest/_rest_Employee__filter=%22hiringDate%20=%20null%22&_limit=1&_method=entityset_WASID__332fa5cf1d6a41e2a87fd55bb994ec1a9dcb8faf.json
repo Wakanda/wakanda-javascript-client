@@ -1,0 +1,37 @@
+{
+  "requestUrl": "/rest/Employee?$filter=%22hiringDate%20=%20null%22&$limit=1&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/33AAFB8DC97F4C06BBABF4C320F3F2C9",
+    "__entityModel": "Employee",
+    "__COUNT": 3,
+    "__SENT": 1,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1001",
+        "__TIMESTAMP": "2019-02-21T22:19:25.579Z",
+        "__STAMP": 1,
+        "ID": 1001,
+        "lastName": "Smith",
+        "firstName": "John",
+        "salary": 80000,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "2588410.3924677256 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": null,
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../.eslintrc",
+  "globals": {
+    "wakClient": true,
+    "wakClientPublication": true,
+    "isBrowser": true
+  },
+  "rules": {
+    "no-unused-expressions": "off",
+    "no-undefined": "off"
+  }
+}

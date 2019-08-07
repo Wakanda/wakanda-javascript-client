@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Wakanda JavaScript Client Tests: Debug Mode</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+
+<body>
+    <div id="mocha"></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>
+        expect = chai.expect;
+        mocha.setup('bdd')
+    </script>
+
+    <!-- load code you want to test here -->
+    <script src="dist/wakanda-client.js"></script>
+    <script src="test/bootstrap.js"></script>
+
+    <!-- load your test files here -->
+    <script src="test/spec/00-wakjsc.spec.js"></script>
+    <script src="test/spec/01-catalog.spec.js"></script>
+    <script src="test/spec/02-dataclass.spec.js"></script>
+    <script src="test/spec/03-entity.spec.js"></script>
+    <script src="test/spec/04-collection.spec.js"></script>
+    <script src="test/spec/05-directory.spec.js"></script>
+    <script src="test/spec/06-polyfills.spec.js"></script>
+    <script src="test/spec/07-multimodel.spec.js"></script>
+
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/Employee/myDataClassMethod",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "result": "This is a call to my dataClass method (Employee) with the following arguments : [\"foo\",\"bar\"]"
+  },
+  "isBase64": false,
+  "headers": {}
+}

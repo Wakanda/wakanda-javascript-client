@@ -1,0 +1,246 @@
+{
+  "requestUrl": "/rest/publication/Book?$filter=%22ID%20%3E%200%22&$limit=40&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Book/$entityset/A12E005321124EDAADD2DFD07CA91426",
+    "__entityModel": "Book",
+    "__COUNT": 18,
+    "__SENT": 18,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 1,
+        "title": "Le dernier jour d'un condamné",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 2,
+        "title": "L'homme qui rit",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "3",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 3,
+        "title": "Les chatiments",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)",
+            "__KEY": "1"
+          }
+        }
+      },
+      {
+        "__KEY": "4",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 4,
+        "title": "L'étranger",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      },
+      {
+        "__KEY": "5",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 5,
+        "title": "La peste",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      },
+      {
+        "__KEY": "6",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 6,
+        "title": "La chute",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      },
+      {
+        "__KEY": "7",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 7,
+        "title": "L'homme révolté",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      },
+      {
+        "__KEY": "8",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 8,
+        "title": "Le père Gorio",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(3)",
+            "__KEY": "3"
+          }
+        }
+      },
+      {
+        "__KEY": "9",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 9,
+        "title": "Illusions perdues",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(3)",
+            "__KEY": "3"
+          }
+        }
+      },
+      {
+        "__KEY": "10",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 10,
+        "title": "L'éducation sentimentale",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(4)",
+            "__KEY": "4"
+          }
+        }
+      },
+      {
+        "__KEY": "11",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 11,
+        "title": "Au bonheur des dames",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(5)",
+            "__KEY": "5"
+          }
+        }
+      },
+      {
+        "__KEY": "12",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 12,
+        "title": "La débacle",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(5)",
+            "__KEY": "5"
+          }
+        }
+      },
+      {
+        "__KEY": "13",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 13,
+        "title": "Les fleurs du mal",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(6)",
+            "__KEY": "6"
+          }
+        }
+      },
+      {
+        "__KEY": "14",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 14,
+        "title": "Albert Camus in the 21st Century",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(7)",
+            "__KEY": "7"
+          }
+        }
+      },
+      {
+        "__KEY": "15",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 15,
+        "title": "Albert Camus, \"La chute\"",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(8)",
+            "__KEY": "8"
+          }
+        }
+      },
+      {
+        "__KEY": "16",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 16,
+        "title": "Les derniers jours de la vie d’Albert Camus",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(9)",
+            "__KEY": "9"
+          }
+        }
+      },
+      {
+        "__KEY": "20",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 20,
+        "title": "JavaScript The Good Parts",
+        "author": null
+      },
+      {
+        "__KEY": "40",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 40,
+        "title": "Le premier homme",
+        "author": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)",
+            "__KEY": "2"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

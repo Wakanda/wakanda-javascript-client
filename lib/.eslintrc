@@ -1,0 +1,8 @@
+{
+    "globals": {
+        "ArrayBufferView": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}

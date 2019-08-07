@@ -1,13 +1,13 @@
-import CatalogBusiness from './business/catalog-business';
-import DirectoryBusiness from './business/directory-business';
-import Entity from './presentation/entity';
-import Collection from './presentation/collection';
-import HttpClient from './data-access/http/http-client';
-import Catalog from './presentation/catalog';
-import BrowserHttpClient from './data-access/http/browser-http-client';
-import NodeHttpClient from './data-access/http/node-http-client';
+/* tslint:disable variable-name */
 
-const packageOptions: any = require('../package.json');
+import CatalogBusiness from "./business/catalog-business";
+import DirectoryBusiness from "./business/directory-business";
+import BrowserHttpClient from "./data-access/http/browser-http-client";
+import HttpClient from "./data-access/http/http-client";
+import NodeHttpClient from "./data-access/http/node-http-client";
+import Catalog from "./presentation/catalog";
+import Collection from "./presentation/collection";
+import Entity from "./presentation/entity";
 
 export interface IDirectory {
   login(username: string, password: string, duration?: number): Promise<boolean>;
@@ -22,26 +22,32 @@ export interface IHelper {
 }
 
 class WakandaClient {
-
-  public static HttpClient: typeof BrowserHttpClient|typeof NodeHttpClient;
+  public static HttpClient: typeof BrowserHttpClient | typeof NodeHttpClient;
 
   public _httpClient: HttpClient;
   public directory: IDirectory;
   public helper: IHelper;
   public catalog: string;
 
-  constructor(params: {host?: string, catalog?: string}|any) {
-    let host = typeof(params) === 'object' ? params.host : undefined;
-    let catalog = typeof(params) === 'object' ? params.catalog : undefined;
+  constructor(
+    params: {
+      host?: string;
+      catalog?: string;
+      client?: HttpClient;
+    } = {},
+  ) {
+    const { host, catalog } = params;
 
-    this._httpClient = new WakandaClient.HttpClient({
-      apiPrefix: (host || '')
-    });
+    this._httpClient =
+      (params && params.client ? params.client : false) ||
+      new WakandaClient.HttpClient({
+        apiPrefix: host || "",
+      });
 
     this.catalog = catalog;
 
-    let directoryBusiness = new DirectoryBusiness({
-      wakJSC: this
+    const directoryBusiness = new DirectoryBusiness({
+      wakJSC: this,
     });
 
     this.directory = {
@@ -56,29 +62,29 @@ class WakandaClient {
       },
       getCurrentUserBelongsTo: (group) => {
         return directoryBusiness.getCurrentUserBelongsTo(group);
-      }
+      },
     };
 
     this.helper = {
-      isEntity: object => {
+      isEntity: (object) => {
         return object instanceof Entity;
       },
-      isCollection: object => {
+      isCollection: (object) => {
         return object instanceof Collection;
-      }
+      },
     };
   }
 
   public getCatalog(dataClasses?: string[]): Promise<Catalog> {
-    let catalogBusiness = new CatalogBusiness({
-      wakJSC: this
+    const catalogBusiness = new CatalogBusiness({
+      wakJSC: this,
     });
 
     return catalogBusiness.get(dataClasses);
   }
 
   public version(): string {
-    return packageOptions.version;
+    return "3.0.0";
   }
 }
 

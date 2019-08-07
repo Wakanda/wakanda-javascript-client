@@ -1,0 +1,18 @@
+{
+    "start": {
+        "fileChanges": [
+          "/package.json$",
+          ".waProject$",
+          ".waSettings$",
+          ".waPerm$",
+          "/tsconfig.json$",
+          "/jsconfig.json$",
+          { "type": "solution", "value": ".waDirectory$" },
+          { "type": "solution", "value": ".waSettings$" },
+          { "type": "solution", "value": ".waSolution$" }
+        ],
+        "events": [
+            "studio.onCatalogUpdate"
+        ]
+    }
+}

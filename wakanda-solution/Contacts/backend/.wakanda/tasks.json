@@ -1,0 +1,52 @@
+[
+  {
+    "taskName": "test",
+    "title": "Test backend",
+    "type": "aggregate",
+    "dependencies": [
+        "package-install",
+        "test-wakanda"
+    ]
+  },
+  {
+    "taskName": "test-wakanda",
+    "title": "Run tests",
+    "type": "aggregate",
+    "noWaitForEnd": true,
+    "dependencies": [
+        "start",
+        "run-tests"
+    ]
+  },
+  {
+    "taskName": "package-install",
+    "title": "Installing dependencies",
+    "type": "package",
+    "options": {
+      "action": "install",
+      "path": "{{componentPath}}",
+      "command": "npm install",
+      "args": []
+    },
+    "stateVerifier" : {
+    	"name" : "package"
+    }
+  },
+  {
+    "taskName": "run-tests",
+    "title": "Running tests",
+    "type": "wakanda",
+    "options": {
+      "command": "sendCommand",
+      "args": ["wakanda-extension-server-tests.runJson"]
+    }
+  },
+  {
+    "taskName": "start",
+    "title": "Running Wakanda Server",
+    "type": "wakanda",
+    "options": {
+      "command": "startServer"
+    }
+  }
+]

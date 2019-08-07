@@ -1,0 +1,197 @@
+{
+  "requestUrl": "/rest/Company(1)/staff?$expand=staff&$limit=40&$method=subentityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/E6A2F79067654917BE703F97424D7048",
+    "__entityModel": "Employee",
+    "__COUNT": 9,
+    "__SENT": 9,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "2019-02-21T22:19:26.433Z",
+        "__STAMP": 2,
+        "ID": 2,
+        "lastName": "DYNEDE",
+        "firstName": "ZACHARY",
+        "salary": 116051,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "3754845.1807034006 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1985-09-16T07:04:11.192Z",
+        "hiringDate": "23!5!2002"
+      },
+      {
+        "__KEY": "3",
+        "__TIMESTAMP": "2019-02-21T22:19:00.279Z",
+        "__STAMP": 1,
+        "ID": 3,
+        "lastName": "TUHEWA",
+        "firstName": "VANCE",
+        "salary": 146970,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "4755233.4422622705 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1956-04-04T19:39:01.200Z",
+        "hiringDate": "11!12!1984"
+      },
+      {
+        "__KEY": "4",
+        "__TIMESTAMP": "2019-02-21T22:19:00.283Z",
+        "__STAMP": 1,
+        "ID": 4,
+        "lastName": "FEUTREOT",
+        "firstName": "KRIS",
+        "salary": 60944,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "1971851.0369819135 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1963-04-08T22:36:34.257Z",
+        "hiringDate": "22!3!2008"
+      },
+      {
+        "__KEY": "5",
+        "__TIMESTAMP": "2019-02-21T22:19:00.283Z",
+        "__STAMP": 1,
+        "ID": 5,
+        "lastName": "CUSISU",
+        "firstName": "QUINCY",
+        "salary": 54554,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "1765101.756883554 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1965-03-28T18:16:31.450Z",
+        "hiringDate": "11!10!1990"
+      },
+      {
+        "__KEY": "6",
+        "__TIMESTAMP": "2019-02-21T22:19:00.284Z",
+        "__STAMP": 1,
+        "ID": 6,
+        "lastName": "CIGANOBO",
+        "firstName": "ALISA",
+        "salary": 7499,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "242631.11916394343 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1904-01-29T09:06:14.156Z",
+        "hiringDate": "6!9!2008"
+      },
+      {
+        "__KEY": "7",
+        "__TIMESTAMP": "2019-02-21T22:19:00.284Z",
+        "__STAMP": 1,
+        "ID": 7,
+        "lastName": "NYQEFECE",
+        "firstName": "ESTELLE",
+        "salary": 41417,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "1340052.4153104473 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1992-08-02T09:03:06.400Z",
+        "hiringDate": "2!11!1997"
+      },
+      {
+        "__KEY": "8",
+        "__TIMESTAMP": "2019-02-21T22:19:00.284Z",
+        "__STAMP": 1,
+        "ID": 8,
+        "lastName": "WYNE",
+        "firstName": "SANTOS",
+        "salary": 100007,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "3235739.476493998 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1995-01-27T09:29:22.288Z",
+        "hiringDate": "25!8!1984"
+      },
+      {
+        "__KEY": "9",
+        "__TIMESTAMP": "2019-02-21T22:19:00.284Z",
+        "__STAMP": 1,
+        "ID": 9,
+        "lastName": "JOMADETI",
+        "firstName": "DAVE",
+        "salary": 30332,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "981395.8003041382 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": "1929-01-07T04:33:06.676Z",
+        "hiringDate": "22!8!2004"
+      },
+      {
+        "__KEY": "1001",
+        "__TIMESTAMP": "2019-02-21T22:19:25.579Z",
+        "__STAMP": 1,
+        "ID": 1001,
+        "lastName": "Smith",
+        "firstName": "John",
+        "salary": 80000,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(1)",
+            "__KEY": "1"
+          }
+        },
+        "salaryProcessed": "2588410.3924677256 baht",
+        "employerName": "Listbox Dolphin Eye",
+        "photo": null,
+        "birthDate": null,
+        "hiringDate": null
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

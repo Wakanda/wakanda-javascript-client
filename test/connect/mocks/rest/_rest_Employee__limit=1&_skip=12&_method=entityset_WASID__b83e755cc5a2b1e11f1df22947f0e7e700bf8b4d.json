@@ -1,0 +1,37 @@
+{
+  "requestUrl": "/rest/Employee?$limit=1&$skip=12&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/272F9F5A0F5843C0ADA69486565BEAB8",
+    "__entityModel": "Employee",
+    "__COUNT": 1001,
+    "__SENT": 1,
+    "__FIRST": 12,
+    "__ENTITIES": [
+      {
+        "__KEY": "13",
+        "__TIMESTAMP": "2019-02-21T22:19:00.285Z",
+        "__STAMP": 1,
+        "ID": 13,
+        "lastName": "SOMIND",
+        "firstName": "WILMER",
+        "salary": 39873,
+        "employer": {
+          "__deferred": {
+            "uri": "/rest/Company(2)",
+            "__KEY": "2"
+          }
+        },
+        "salaryProcessed": "1290096.0947358203 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1953-05-07T16:04:39.724Z",
+        "hiringDate": "29!3!2003"
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

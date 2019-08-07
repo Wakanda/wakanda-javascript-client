@@ -1,0 +1,87 @@
+{
+  "requestUrl": "/rest/publication/Author?$limit=5&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/publication/Author/$entityset/D3520FB97213473F99CC89C2E5D62AF1",
+    "__entityModel": "Author",
+    "__COUNT": 9,
+    "__SENT": 5,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "1",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 1,
+        "firstName": "Victor",
+        "lastName": "Hugo",
+        "birthDate": "1802-02-26T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(1)/books?$expand=books"
+          }
+        }
+      },
+      {
+        "__KEY": "2",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 2,
+        "firstName": "Albert",
+        "lastName": "Camus",
+        "birthDate": "1913-11-07T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(2)/books?$expand=books"
+          }
+        }
+      },
+      {
+        "__KEY": "3",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 3,
+        "firstName": "Honoré",
+        "lastName": "Balzac",
+        "birthDate": "1799-05-20T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(3)/books?$expand=books"
+          }
+        }
+      },
+      {
+        "__KEY": "4",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 4,
+        "firstName": "Gustave",
+        "lastName": "Flaubert",
+        "birthDate": "1821-12-12T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(4)/books?$expand=books"
+          }
+        }
+      },
+      {
+        "__KEY": "5",
+        "__TIMESTAMP": "0000-00-00T00:00:00.000Z",
+        "__STAMP": 0,
+        "ID": 5,
+        "firstName": "Emile",
+        "lastName": "Zola",
+        "birthDate": "1840-04-02T00:00:00.000Z",
+        "books": {
+          "__deferred": {
+            "uri": "/rest/publication/Author(5)/books?$expand=books"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

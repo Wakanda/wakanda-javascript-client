@@ -2,36 +2,54 @@
 
 var http = require('http');
 var connect = require('connect');
-var serveStatic = require('serve-static');
 var chalk = require('chalk');
-var stream = require('stream');
-
+var path = require("path");
 var prism = require('connect-prism');
 var crypto = require('crypto');
-var PrismUtils = require('../../node_modules/connect-prism/lib/services/prism-utils');
+var PrismUtils = require('connect-prism/lib/services/prism-utils');
+var isModule = require.main !== module;
+var server;
+var mode;
 
-
-var mode = process.argv[2] || 'mock';
-if (mode === 'record') {
-  mode = 'mockrecord';
-  console.log(chalk.red('You are on record mode. Do not forget to reset DB before executing test suite.'));
+if (isModule) {
+  mode = 'mock';
+} else {
+  mode = process.argv[2] || 'mock';
 }
 
-console.log(chalk.green('Starting record/mocking test server with mode ' + mode + ' on port 3000'));
+if (mode === 'record') {
+  mode = 'mockrecord';
+  console.log(
+    chalk.red('You are on record mode. Do not forget to reset DB before executing test suite.')
+  );
+}
+
+console.log(chalk.green('Starting test server with mode ' + mode + ' on port 3000'));
 
 var prismUtils = new PrismUtils();
 
-var mockFileName = function (config, req) {
+var mockFileName = function(config, req) {
   var reqData = prismUtils.filterUrl(config, req.url);
-  var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g,'_');
+  var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g, '_');
+  var body = Buffer.isBuffer(req.body) ? req.body.toString('base64') : req.body;
 
   // include request body and cookie in hash
   var cookie = req.headers.cookie || "";
-  reqData = req.body + reqData + cookie;
+  reqData = body + reqData + cookie;
+
+  cookie = cookie.split(';')
+    .filter(c => /^WASID\=/.test(c));
+
+  if(cookie.length > 0){
+    cookie = cookie[0];
+  }
 
   var shasum = crypto.createHash('sha1');
   shasum.update(reqData);
-  return url + '_' + 'WASID_' + cookie + '_' + shasum.digest('hex') + '.json';
+  
+  const result = url + '_' + 'WASID_' + cookie + '_' + shasum.digest('hex') + '.json';
+  
+  return result;
 }
 
 prism.create({
@@ -41,38 +59,37 @@ prism.create({
   port: 8081,
   mode: mode,
   clearOnStart: true,
-  mocksPath: __dirname + '/mocks',
+  mocksPath: path.resolve(__dirname, 'mocks'),
   hashFullRequest: true,
   recordHeaders: ['Set-Cookie', 'WASID'],
-  mockFilenameGenerator: mockFileName
+  mockFilenameGenerator: mockFileName,
+  proxyConfig: {
+    options: {
+      xfwd: true,
+    },
+    onProxyCreated: function(proxyServer, prismConfig) {},
+  },
 });
 
-var app = connect()
-  .use(function (req, res, next) {
-    var buffer = '';
-    req.on('data', function(data) {
-      buffer += data;
+function startServer(callback) {
+  var app = connect().use(prism.middleware);
 
-      // Too much POST data, kill the connection!
-      if (buffer.length > 1e6) {
-        req.connection.destroy();
-      }
-    });
+  server = http.createServer(app);
+  callback && server.on('listening', callback);
 
-    req.on('end', function() {
-      req.body = buffer;
+  server.listen(3000);
+}
 
-      var bufferStream = new stream.PassThrough();
-      bufferStream.end(new Buffer(buffer));
-      req.bodyStream = bufferStream;
+function stopServer(callback) {
+  callback && server.on('close', callback);
+  server.close();
+}
 
-      next();
-    });
-  })
-  .use(prism.middleware)
-  .use(serveStatic('public'))
-  .use(function(req, res){
-    res.end('hello world\n');
-  })
-
-http.createServer(app).listen(3000);
+if (!isModule) {
+  startServer();
+} else {
+  module.exports = {
+    start: startServer,
+    stop: stopServer,
+  };
+}

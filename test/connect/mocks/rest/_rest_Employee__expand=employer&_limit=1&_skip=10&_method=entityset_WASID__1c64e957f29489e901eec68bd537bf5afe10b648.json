@@ -1,0 +1,43 @@
+{
+  "requestUrl": "/rest/Employee?$expand=employer&$limit=1&$skip=10&$method=entityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__ENTITYSET": "/rest/Employee/$entityset/675A61A49CAC4DA3A687C299FCC3D476",
+    "__entityModel": "Employee",
+    "__COUNT": 1001,
+    "__SENT": 1,
+    "__FIRST": 10,
+    "__ENTITIES": [
+      {
+        "__KEY": "11",
+        "__TIMESTAMP": "2019-02-21T22:19:25.681Z",
+        "__STAMP": 2,
+        "ID": 11,
+        "lastName": "MUDIKATU",
+        "firstName": "Arnaud",
+        "salary": 64288,
+        "employer": {
+          "__KEY": "2",
+          "__TIMESTAMP": "2019-02-21T22:19:00.284Z",
+          "__STAMP": 1,
+          "ID": 2,
+          "name": "Blobarray Coolupe Orange",
+          "staff": {
+            "__deferred": {
+              "uri": "/rest/Company(2)/staff?$expand=staff"
+            }
+          }
+        },
+        "salaryProcessed": "2080046.5913870644 baht",
+        "employerName": "Blobarray Coolupe Orange",
+        "photo": null,
+        "birthDate": "1958-09-11T17:44:35.959Z",
+        "hiringDate": "1!8!1989"
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

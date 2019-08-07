@@ -1,0 +1,35 @@
+{
+  "requestUrl": "/rest/Product?$method=update&$refresh=true",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "2",
+    "__STAMP": 1,
+    "uri": "/rest/Product(2)",
+    "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
+    "ID": 2,
+    "name": "Unnamed product",
+    "myBoolean": true,
+    "spec": {
+      "name": "apricot",
+      "myObject": {
+        "myBoolean": "true",
+        "myArray": [
+          {
+            "foo": "bar"
+          },
+          "tata"
+        ]
+      },
+      "myArray": [
+        {
+          "foo": "bar"
+        },
+        "tata"
+      ]
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

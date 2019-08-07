@@ -1,17 +1,17 @@
 {
-  "ecmaFeatures": {
-    "modules": true
-  },
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
-
+  "globals": {
+    "expect": true
+  },
   "rules": {
     //Potential issues
     "strict": 0,
-    "comma-dangle": 2, // disallow or enforce trailing commas
+    "comma-dangle": ["error", "always-multiline"], // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
     "no-console": 1, // disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // disallow use of constant expressions in conditions
@@ -52,7 +52,6 @@
     "no-caller": 2, // disallow use of arguments.caller or arguments.callee
     "no-div-regex": 2, // disallow division operators explicitly at beginning of regular expression (off by default)
     "no-else-return": 0, // disallow else after a return in an if (off by default)
-    "no-empty-label": 2, // disallow use of labels for anything other then loops and switches
     "no-eq-null": 2, // disallow comparisons to null without a type-checking operator (off by default)
     "no-eval": 2, // disallow use of eval()
     "no-extend-native": 2, // disallow adding to native types
