@@ -11,9 +11,6 @@ var isModule = require.main !== module;
 var server;
 var mode;
 
-const { existsSync } = require('fs');
-const { resolve } = require('path');
-
 if (isModule) {
   mode = 'mock';
 } else {
@@ -22,14 +19,16 @@ if (isModule) {
 
 if (mode === 'record') {
   mode = 'mockrecord';
-  console.log(chalk.red('You are on record mode. Do not forget to reset DB before executing test suite.'));
+  console.log(
+    chalk.red('You are on record mode. Do not forget to reset DB before executing test suite.')
+  );
 }
 
 console.log(chalk.green('Starting test server with mode ' + mode + ' on port 3000'));
 
 var prismUtils = new PrismUtils();
 
-var mockFileName = function (config, req) {
+var mockFileName = function(config, req) {
   var reqData = prismUtils.filterUrl(config, req.url);
   var url = req.url.replace(/\/|\$|\_|\?|\<|\>|\\|\:|\*|\||\"/g, '_');
   var body = Buffer.isBuffer(req.body) ? req.body.toString('base64') : req.body;
@@ -66,15 +65,14 @@ prism.create({
   mockFilenameGenerator: mockFileName,
   proxyConfig: {
     options: {
-      xfwd: true
+      xfwd: true,
     },
-    onProxyCreated: function (proxyServer, prismConfig) { }
-  }
+    onProxyCreated: function(proxyServer, prismConfig) {},
+  },
 });
 
 function startServer(callback) {
-  var app = connect()
-    .use(prism.middleware);
+  var app = connect().use(prism.middleware);
 
   server = http.createServer(app);
   callback && server.on('listening', callback);
@@ -92,6 +90,6 @@ if (!isModule) {
 } else {
   module.exports = {
     start: startServer,
-    stop: stopServer
-  }
+    stop: stopServer,
+  };
 }

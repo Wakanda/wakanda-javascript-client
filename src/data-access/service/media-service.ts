@@ -1,14 +1,13 @@
-import WakandaClient from '../../wakanda-client';
-import AbstractService from './abstract-service';
-import Entity from '../../presentation/entity';
-import Media from '../../presentation/media';
-import HttpResponse from '../http/http-response';
-import {MediaBaseService} from './base/media-base-service';
-import MediaBusiness from '../../business/media-business';
-import DataClassBusiness from '../../business/dataclass-business';
+import DataClassBusiness from "../../business/dataclass-business";
+import MediaBusiness from "../../business/media-business";
+import Entity from "../../presentation/entity";
+import Media from "../../presentation/media";
+import WakandaClient from "../../wakanda-client";
+import HttpResponse from "../http/http-response";
+import AbstractService from "./abstract-service";
+import { MediaBaseService } from "./base/media-base-service";
 
 class MediaService extends AbstractService {
-
   private dataClassName: string;
   private entity: Entity;
   private isImage: boolean;
@@ -16,10 +15,20 @@ class MediaService extends AbstractService {
   private attributeName: string;
   private dataURI: string;
 
-  constructor({wakJSC, mediaBusiness, media, attributeName, dataClassBusiness}:
-    {wakJSC: WakandaClient, mediaBusiness: MediaBusiness, media: Media, attributeName: string, dataClassBusiness: DataClassBusiness}) {
-
-    super({wakJSC});
+  constructor({
+    wakJSC,
+    mediaBusiness,
+    media,
+    attributeName,
+    dataClassBusiness,
+  }: {
+    wakJSC: WakandaClient;
+    mediaBusiness: MediaBusiness;
+    media: Media;
+    attributeName: string;
+    dataClassBusiness: DataClassBusiness;
+  }) {
+    super({ wakJSC });
 
     this.dataClassName = dataClassBusiness.dataClass.name;
     this.dataURI = dataClassBusiness.dataURI;
@@ -36,7 +45,7 @@ class MediaService extends AbstractService {
       entityKey: this.entity._key,
       attributeName: this.attributeName,
       isImage: this.isImage,
-      file
+      file,
     });
   }
 
@@ -46,7 +55,7 @@ class MediaService extends AbstractService {
       dataURI: this.dataURI,
       entityKey: this.entity._key,
       entityStamp: this.entity._stamp,
-      attributeName: this.attributeName
+      attributeName: this.attributeName,
     });
   }
 }

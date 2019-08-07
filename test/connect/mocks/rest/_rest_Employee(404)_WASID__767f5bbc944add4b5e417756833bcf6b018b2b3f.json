@@ -2,15 +2,27 @@
   "requestUrl": "/rest/Employee(404)",
   "contentType": "application/json; charset=UTF-8",
   "method": "GET",
-  "statusCode": 401,
+  "statusCode": 200,
   "data": {
-    "__ERROR": [
-      {
-        "message": "Cannot load entity# 404 in the \"Employee\" datastore class",
-        "componentSignature": "dbmg",
-        "errCode": 1543
+    "__entityModel": "Employee",
+    "__KEY": "404",
+    "__TIMESTAMP": "2019-02-21T22:19:00.586Z",
+    "__STAMP": 1,
+    "ID": 404,
+    "lastName": "PEDUCABA",
+    "firstName": "JARRED",
+    "salary": 101365,
+    "employer": {
+      "__deferred": {
+        "uri": "/rest/Company(19)",
+        "__KEY": "19"
       }
-    ]
+    },
+    "salaryProcessed": "3279677.742906138 baht",
+    "employerName": "Paper Driver See",
+    "photo": null,
+    "birthDate": "1941-04-21T17:16:16.919Z",
+    "hiringDate": "30!6!1995"
   },
   "isBase64": false,
   "headers": {}

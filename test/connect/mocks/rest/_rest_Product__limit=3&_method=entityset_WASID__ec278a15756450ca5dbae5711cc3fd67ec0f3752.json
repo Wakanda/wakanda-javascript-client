@@ -4,24 +4,24 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/1542F10DC4F5514D86F1F0D3933AE425",
+    "__ENTITYSET": "/rest/Product/$entityset/74BC657F15624BCDA9A828BA1A3C25DB",
     "__entityModel": "Product",
     "__COUNT": 25,
     "__SENT": 3,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "2801",
-        "__TIMESTAMP": "2017-11-20T16:09:35.113Z",
+        "__KEY": "2",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2801,
+        "ID": 2,
         "name": "apricot",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "apricot",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -40,17 +40,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2802",
-        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__KEY": "3",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2802,
+        "ID": 3,
         "name": "avocado",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "avocado",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"
@@ -69,17 +69,17 @@
         "myNumber": null
       },
       {
-        "__KEY": "2803",
-        "__TIMESTAMP": "2017-11-20T16:09:35.114Z",
+        "__KEY": "4",
+        "__TIMESTAMP": "2019-02-21T22:19:01.004Z",
         "__STAMP": 1,
-        "ID": 2803,
+        "ID": 4,
         "name": "banana",
-        "myBoolean": false,
+        "myBoolean": true,
         "born": null,
         "spec": {
           "name": "banana",
           "myObject": {
-            "myBoolean": "true\r",
+            "myBoolean": "true",
             "myArray": [
               {
                 "foo": "bar"

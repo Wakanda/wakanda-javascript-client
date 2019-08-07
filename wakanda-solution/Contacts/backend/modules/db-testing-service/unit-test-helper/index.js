@@ -10,8 +10,8 @@ function initPublicationCatalogFiles() {
 	let size = {
 		before: {
 			authors: oldAuthors ? Object.keys(oldAuthors).length : 0,
-			books: oldBooks ? Object.keys(oldBooks).length : 0
-		}
+			books: oldBooks ? Object.keys(oldBooks).length : 0,
+		},
 	};
 
 	let authors = require('import-data/contents/authors');
@@ -25,7 +25,7 @@ function initPublicationCatalogFiles() {
 
 	size.after = {
 		authors: Object.keys(newAuthors).length,
-		books: Object.keys(newBooks).length
+		books: Object.keys(newBooks).length,
 	};
 
 	return size;
@@ -63,11 +63,11 @@ function doImportProducts() {
 					name: entry[0],
 					myObject: {
 						myBoolean: entry[1],
-						myArray: [{ foo: 'bar' }, 'tata']
+						myArray: [{ foo: 'bar' }, 'tata'],
 					},
-					myArray: [{ foo: 'bar' }, 'tata']
+					myArray: [{ foo: 'bar' }, 'tata'],
 				},
-				photo: '/PROJECT/Images/' + (entry[1] ? 'apple.jpg' : 'lemon.jpg')
+				photo: '/PROJECT/Images/' + (entry[1] ? 'apple.jpg' : 'lemon.jpg'),
 			});
 			// Save it
 			p.save();
@@ -102,7 +102,7 @@ function doImportEmpsAndComps() {
 		let comp = ds.Company.find("name = :1", entry[0]);
 		if (comp === null) { // Not found => create it
 			comp = new ds.Company({
-				name: entry[0]
+				name: entry[0],
 			});
 			// Save it
 			comp.save();
@@ -117,7 +117,7 @@ function doImportEmpsAndComps() {
 			salary: entry[3],
 			employer: comp,	// This is how you bind two entities with Wakanda!
 			birthDate: new Date(entry[4]),
-			hiringDate: new Date(entry[5])
+			hiringDate: new Date(entry[5]),
 		});
 		emp.save();
 		// } else {
@@ -137,7 +137,7 @@ let testHelpers = {
 				'companies': ds.Company.length,
 				'products': ds.Product.length,
 				'authors': publicationSize.before.authors,
-				'books': publicationSize.before.books
+				'books': publicationSize.before.books,
 			};
 
 			clearDB();
@@ -147,7 +147,7 @@ let testHelpers = {
 				'companies': ds.Company.length,
 				'products': ds.Product.length,
 				'authors': publicationSize.after.authors,
-				'books': publicationSize.after.books
+				'books': publicationSize.after.books,
 			};
 
 			return result;
@@ -161,7 +161,7 @@ let testHelpers = {
 				'companies': ds.Company.length,
 				'products': ds.Product.length,
 				'authors': publicationSize.before.authors,
-				'books': publicationSize.before.books
+				'books': publicationSize.before.books,
 			};
 
 			doImportEmpsAndComps();
@@ -172,7 +172,7 @@ let testHelpers = {
 				'companies': ds.Company.length,
 				'products': ds.Product.length,
 				'authors': publicationSize.after.authors,
-				'books': publicationSize.after.books
+				'books': publicationSize.after.books,
 			};
 
 			return result;
@@ -183,7 +183,7 @@ let testHelpers = {
 			let result = {
 				'before': clearResult.before,
 				'afterClear': clearResult.after,
-				'after': fillResult.after
+				'after': fillResult.after,
 			};
 
 			return result;
@@ -192,12 +192,12 @@ let testHelpers = {
 			let result = {
 				'employees': ds.Employee.length,
 				'companies': ds.Company.length,
-				'products': ds.Product.length
+				'products': ds.Product.length,
 			};
 
 			return result;
-		}
-	}
+		},
+	},
 };
 
 module.exports = testHelpers;

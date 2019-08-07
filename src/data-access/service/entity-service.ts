@@ -1,18 +1,24 @@
-import AbstractService from './abstract-service';
-import Entity from '../../presentation/entity';
-import DataClassBusiness from '../../business/dataclass-business';
-import {IEntityDBO} from '../../business/entity-business';
-import {EntityBaseService} from './base/entity-base-service';
-import WakandaClient from '../../wakanda-client';
+import DataClassBusiness from "../../business/dataclass-business";
+import { IEntityDBO } from "../../business/entity-business";
+import Entity from "../../presentation/entity";
+import WakandaClient from "../../wakanda-client";
+import AbstractService from "./abstract-service";
+import { EntityBaseService } from "./base/entity-base-service";
 
 class EntityService extends AbstractService {
-
   private entity: Entity;
   private dataClassBusiness: DataClassBusiness;
 
-  constructor({wakJSC, entity, dataClassBusiness}:
-  {wakJSC: WakandaClient, entity: Entity, dataClassBusiness: DataClassBusiness}) {
-    super({wakJSC});
+  constructor({
+    wakJSC,
+    entity,
+    dataClassBusiness,
+  }: {
+    wakJSC: WakandaClient;
+    entity: Entity;
+    dataClassBusiness: DataClassBusiness;
+  }) {
+    super({ wakJSC });
 
     this.entity = entity;
     this.dataClassBusiness = dataClassBusiness;
@@ -23,15 +29,15 @@ class EntityService extends AbstractService {
       httpClient: this.httpClient,
       dataURI: this.dataClassBusiness.dataURI,
       expand,
-      data
+      data,
     });
   }
 
   public recompute(data: IEntityDBO) {
-   return EntityBaseService.recompute({
+    return EntityBaseService.recompute({
       httpClient: this.httpClient,
       dataURI: this.dataClassBusiness.dataURI,
-      data
+      data,
     });
   }
 
@@ -41,7 +47,7 @@ class EntityService extends AbstractService {
       dataURI: this.dataClassBusiness.dataURI,
       methodName,
       parameters,
-      entityKey: this.entity._key
+      entityKey: this.entity._key,
     });
   }
 
@@ -49,7 +55,7 @@ class EntityService extends AbstractService {
     return EntityBaseService.delete({
       httpClient: this.httpClient,
       dataURI: this.dataClassBusiness.dataURI,
-      entityKey: this.entity._key
+      entityKey: this.entity._key,
     });
   }
 }

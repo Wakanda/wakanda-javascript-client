@@ -1,0 +1,29 @@
+{
+  "requestUrl": "/rest/Employee/$entityset/E6A2F79067654917BE703F97424D7048/firstOfCollection",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Employee",
+    "__KEY": "2",
+    "__TIMESTAMP": "2019-02-21T22:19:26.433Z",
+    "__STAMP": 2,
+    "ID": 2,
+    "lastName": "DYNEDE",
+    "firstName": "ZACHARY",
+    "salary": 116051,
+    "employer": {
+      "__deferred": {
+        "uri": "/rest/Company(1)",
+        "__KEY": "1"
+      }
+    },
+    "salaryProcessed": "3754845.1807034006 baht",
+    "employerName": "Listbox Dolphin Eye",
+    "photo": null,
+    "birthDate": "1985-09-16T07:04:11.192Z",
+    "hiringDate": "23!5!2002"
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -1,8 +1,0 @@
-{
-    "globals": {
-        "wakClient": true
-    },
-    "rules": {
-        "no-console": 0
-    }
-}

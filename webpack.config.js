@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const { resolve, join } = require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const moment = require('moment');
 
 const packageInfo = require('./package.json');
@@ -32,22 +31,22 @@ fs.readdirSync('node_modules')
  */
 const baseConfig = {
   name: 'base',
-  context: resolve(__dirname, 'src'),
+  context: resolve('src'),
   entry: [
-    "./browser.ts"
+    "./browser.ts",
   ],
   output: {
     filename: "browser.js",
-    path: resolve(__dirname, 'dist'),
+    path: resolve('dist'),
     library: 'WakandaClient',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   devtool: 'source-map',
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
     alias: {
-      'aurelia-http-client': join(__dirname, './lib/aurelia-http-client')
-    }
+      'aurelia-http-client': join(__dirname, './lib/aurelia-http-client'),
+    },
   },
   module: {
     rules: [
@@ -56,43 +55,44 @@ const baseConfig = {
         test: /\.ts$/,
         loader: 'tslint-loader',
         exclude: [
-          /node_modules/
+          /node_modules/,
         ],
         options: {
           emitErrors: false,
-          failOnHint: false
-        }
+          failOnHint: false,
+        },
       },
       {
         test: /\.ts$/,
         exclude: [
-          /node_modules/
+          /node_modules/,
         ],
-        loader: 'ts-loader'
+        loader: 'ts-loader',
       },
       {
         test: /\.js$/,
         exclude: [
-          /node_modules/
+          /node_modules/,
         ],
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/preset-env']
-        }
-      }
-    ]
+          presets: ['@babel/preset-env'],
+        },
+      },
+    ],
   },
   target: 'web',
-  mode: 'development',
+  mode: 'production',
   optimization: {
     minimize: true,
-    namedChunks: true,
-    nodeEnv: 'production'
-  }
+  },
+  performance: {
+    maxEntrypointSize: 600000,
+    maxAssetSize: 600000,
+  },
 };
 baseConfig.plugins = [
-  new CleanWebpackPlugin(baseConfig.output.path),
-  bannerPlugin
+  bannerPlugin,
 ];
 
 /**
@@ -103,7 +103,7 @@ const nodeConfig = _.cloneDeep(baseConfig);
 nodeConfig.name = 'node';
 nodeConfig.output.filename = 'node.js';
 nodeConfig.entry = [
-  "./node.ts"
+  "./node.ts",
 ];
 nodeConfig.target = 'node';
 nodeConfig.externals = nodeModules;
@@ -118,7 +118,7 @@ noPromiseConfig.name = 'node';
 noPromiseConfig.output.filename = 'browser-nopromise.js';
 noPromiseConfig.externals = nodeModules;
 noPromiseConfig.entry = [
-  "./browser-nopromise.ts"
+  "./browser-nopromise.ts",
 ];
 noPromiseConfig.target = 'web';
 noPromiseConfig.plugins = [bannerPlugin];
@@ -132,12 +132,14 @@ karmaConfig.output.filename = 'karma.wakanda-client.js';
 karmaConfig.module.rules.push({
   test: /\.(ts|js)$/,
   use: {
-    loader: 'istanbul-instrumenter-loader'
+    loader: 'istanbul-instrumenter-loader',
   },
   enforce: 'post',
-  exclude: /node_modules|lib/
+  exclude: /node_modules|lib/,
 });
-karmaConfig.plugins = [bannerPlugin];
+karmaConfig.plugins = [
+  bannerPlugin,
+];
 
 /**
  * Exports
@@ -146,5 +148,5 @@ module.exports = [
   baseConfig,
   nodeConfig,
   noPromiseConfig,
-  karmaConfig
+  karmaConfig,
 ];

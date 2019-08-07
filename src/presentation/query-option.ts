@@ -1,4 +1,4 @@
-export interface QueryOption {
+export interface IQueryOption {
   select?: string;
   filter?: string;
   params?: string[];

@@ -1,21 +1,12 @@
-import { QueryOption } from "../presentation/query-option";
+import { IQueryOption } from "../presentation/query-option";
 
 class Util {
-  public static handleOptions(options: QueryOption) {
+  public static handleOptions(options: IQueryOption) {
     if (!options) {
       return "";
     }
 
-    let {
-      select,
-      filter,
-      params,
-      pageSize,
-      start,
-      orderBy,
-      method,
-      emMethod
-    } = options;
+    const { select, filter, params, pageSize, start, orderBy, method, emMethod } = options;
 
     let ret = "?";
 
@@ -39,7 +30,7 @@ class Util {
       if (params.length > 0) {
         let p = "[";
 
-        for (let elt of params) {
+        for (const elt of params) {
           if (typeof elt === "string") {
             p += '"' + elt + '",';
           } else {
@@ -89,11 +80,11 @@ class Util {
   }
 
   public static removeRestInfoFromEntity(entity: any): void {
-    for (let prop in entity) {
+    for (const prop in entity) {
       if (Object.prototype.hasOwnProperty.call(entity, prop)) {
-        let p = entity[prop];
+        const p = entity[prop];
         if (p && p.__deferred && p.__deferred.__KEY) {
-          //Do not remove uri for collection
+          // Do not remove uri for collection
           delete p.__deferred.uri;
         }
       }

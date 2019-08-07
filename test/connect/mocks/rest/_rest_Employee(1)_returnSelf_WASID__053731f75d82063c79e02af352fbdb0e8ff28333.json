@@ -1,0 +1,24 @@
+{
+  "requestUrl": "/rest/Employee(1)/returnSelf",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Employee",
+    "__KEY": "1",
+    "__TIMESTAMP": "2019-02-21T22:19:25.602Z",
+    "__STAMP": 2,
+    "ID": 1,
+    "lastName": "SYNO",
+    "firstName": "INGRID",
+    "salary": 43791,
+    "employer": null,
+    "salaryProcessed": "1416863.4937069272 baht",
+    "employerName": null,
+    "photo": null,
+    "birthDate": "1941-09-24T11:31:07.652Z",
+    "hiringDate": "4!1!2002"
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -4,6 +4,7 @@
 .vscode
 
 **/node_modules/
+dist/
 npm-debug.log
 build/
 dist/tsBuild
@@ -25,3 +26,5 @@ tsBuild/
 *.waIndx
 *.WakTDef
 *.waData
+
+!.gitkeep

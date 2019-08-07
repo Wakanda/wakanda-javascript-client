@@ -1,0 +1,19 @@
+{
+  "requestUrl": "/rest/Employee?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "1002",
+    "__STAMP": 1,
+    "uri": "/rest/Employee(1002)",
+    "__TIMESTAMP": "2019-02-21T22:19:25.738Z",
+    "ID": 1002,
+    "lastName": "Test-1",
+    "firstName": "Image",
+    "salary": 80000,
+    "salaryProcessed": "2588410.3924677256 baht"
+  },
+  "isBase64": false,
+  "headers": {}
+}

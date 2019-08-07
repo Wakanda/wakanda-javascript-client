@@ -4,17 +4,17 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Employee/$entityset/C930CC97E4CDF24A90242CB3D77FE802",
+    "__ENTITYSET": "/rest/Employee/$entityset/C2125681024F4F69A0C3D088F6C7E4F0",
     "__entityModel": "Employee",
     "__COUNT": 1000,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "96009",
-        "__TIMESTAMP": "2017-11-20T16:11:22.505Z",
+        "__KEY": "1",
+        "__TIMESTAMP": "2019-02-21T22:19:25.602Z",
         "__STAMP": 2,
-        "ID": 96009,
+        "ID": 1,
         "lastName": "SYNO",
         "firstName": "INGRID",
         "salary": 43791,
@@ -23,7 +23,7 @@
         "employerName": null,
         "photo": null,
         "birthDate": "1941-09-24T11:31:07.652Z",
-        "hiringDate": null
+        "hiringDate": "4!1!2002"
       }
     ]
   },

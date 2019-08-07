@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-        "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es5",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
-        "declaration": true,
-        "outDir": "./dist"
-    },
-    "files": [
-      "typings/index.d.ts",
-      "src/browser.ts",
-      "src/browser-nopromise.ts",
-      "src/node.ts"
-    ]
+  "compilerOptions": {
+    "rootDir": "./src",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "./dist"
+  },
+  "files": [
+    "src/browser.ts",
+    "src/browser-nopromise.ts",
+    "src/node.ts"
+  ]
 }
