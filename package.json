@@ -1,7 +1,7 @@
 {
   "name": "wakanda-client",
   "main": "dist/node.js",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0",
   "description": "Wakanda Client allows you to easily interact with Wakanda Server on a JavaScript (browser or node) environment",
   "browser": "dist/browser.js",
   "repository": "wakanda/wakanda-javascript-client",
@@ -65,6 +65,7 @@
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.16",
     "prettier": "^1.18.2",
+    "release-it": "^12.3.5",
     "rimraf": "^2.6.3",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
