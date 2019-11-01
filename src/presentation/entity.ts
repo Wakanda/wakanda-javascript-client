@@ -11,10 +11,10 @@ class Entity {
 
   [key: string]: any;
 
-  public save: () => Promise<Entity>;
+  public save: <T extends Entity>() => Promise<T>;
   public delete: () => Promise<void>;
-  public fetch: (options?: IQueryOption) => Promise<Entity>;
-  public recompute: () => Promise<Entity>;
+  public fetch: <T extends Entity>(options?: IQueryOption) => Promise<T>;
+  public recompute: <T extends Entity>() => Promise<T>;
 
   constructor({
     key: entityKey,

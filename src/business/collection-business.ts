@@ -1,5 +1,6 @@
 import Const from "../const";
 import CollectionService from "../data-access/service/collection-service";
+import { Entity } from "../presentation";
 import Collection from "../presentation/collection";
 import { DataClass } from "../presentation/dataclass";
 import { IQueryOption } from "../presentation/query-option";
@@ -23,7 +24,7 @@ export interface ICollectionDBO {
 export interface ICollectionBusinessConstructor {
   wakJSC: WakandaClient;
   dataClass: DataClass;
-  collection: Collection;
+  collection: Collection<Entity>;
   dataClassBusiness: DataClassBusiness;
   collectionUri: string;
   pageSize: number;
@@ -31,7 +32,7 @@ export interface ICollectionBusinessConstructor {
 }
 
 class CollectionBusiness extends AbstractBusiness {
-  private collection: Collection;
+  private collection: Collection<Entity>;
   private dataClass: DataClass;
   private dataClassBusiness: DataClassBusiness;
   private service: CollectionService;
@@ -71,7 +72,7 @@ class CollectionBusiness extends AbstractBusiness {
     this._addUserDefinedMethods();
   }
 
-  public fetch(options?: IQueryOption): Promise<Collection> {
+  public fetch(options?: IQueryOption): Promise<Collection<Entity>> {
     const opt = options || {};
 
     if (opt.method && opt.method.length > 0) {
@@ -99,7 +100,7 @@ class CollectionBusiness extends AbstractBusiness {
     });
   }
 
-  public more(): Promise<Collection> {
+  public more(): Promise<Collection<Entity>> {
     if (this.collection._deferred === true) {
       throw new Error("Collection.more: can not call more on a deferred collection");
     }
@@ -128,7 +129,7 @@ class CollectionBusiness extends AbstractBusiness {
     });
   }
 
-  public nextPage(): Promise<Collection> {
+  public nextPage(): Promise<Collection<Entity>> {
     if (this.collection._deferred === true) {
       throw new Error("Collection.nextPage: can not call nextPage on a deferred collection");
     }
@@ -145,7 +146,7 @@ class CollectionBusiness extends AbstractBusiness {
     return this.fetch(options);
   }
 
-  public prevPage(): Promise<Collection> {
+  public prevPage(): Promise<Collection<Entity>> {
     if (this.collection._deferred === true) {
       throw new Error("Collection.prevPage: can not call prevPage on a deferred collection");
     }
@@ -179,7 +180,7 @@ class CollectionBusiness extends AbstractBusiness {
     });
   }
 
-  private _refreshCollection({ fresherCollection }: { fresherCollection: Collection }) {
+  private _refreshCollection({ fresherCollection }: { fresherCollection: Collection<Entity> }) {
     for (const prop in fresherCollection) {
       if (Object.prototype.hasOwnProperty.call(fresherCollection, prop)) {
         if (typeof fresherCollection[prop] !== "function") {

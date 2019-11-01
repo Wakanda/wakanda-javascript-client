@@ -1,5 +1,6 @@
 import { ICollectionDBO } from "../../business/collection-business";
 import DataClassBusiness from "../../business/dataclass-business";
+import { Entity } from "../../presentation";
 import Collection from "../../presentation/collection";
 import { IQueryOption } from "../../presentation/query-option";
 import WakandaClient from "../../wakanda-client";
@@ -7,7 +8,7 @@ import AbstractService from "./abstract-service";
 import { CollectionBaseService, isEntitySetUri } from "./base/collection-base-service";
 
 class CollectionService extends AbstractService {
-  private collection: Collection;
+  private collection: Collection<Entity>;
   private dataClassBusiness: DataClassBusiness;
   private collectionUri: string;
   private isEntitySet: boolean;
@@ -19,7 +20,7 @@ class CollectionService extends AbstractService {
     collectionUri,
   }: {
     wakJSC: WakandaClient;
-    collection: Collection;
+    collection: Collection<Entity>;
     dataClassBusiness: DataClassBusiness;
     collectionUri: string;
   }) {

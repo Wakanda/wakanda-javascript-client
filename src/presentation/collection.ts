@@ -4,20 +4,20 @@ import { DataClass } from "./dataclass";
 import Entity from "./entity";
 import { IQueryOption } from "./query-option";
 
-class Collection {
+class Collection<T extends Entity> {
 
   [key: string]: any;
-  public entities: Entity[];
+  public entities: T[];
   public _deferred: boolean;
   public _count: number;
   public _first: number;
   public _sent: number;
   public _pageSize: number;
 
-  public fetch: (options?: IQueryOption) => Promise<Collection>;
-  public nextPage: () => Promise<Collection>;
-  public prevPage: () => Promise<Collection>;
-  public more: () => Promise<Collection>;
+  public fetch: (options?: IQueryOption) => Promise<Collection<T>>;
+  public nextPage: () => Promise<Collection<T>>;
+  public prevPage: () => Promise<Collection<T>>;
+  public more: () => Promise<Collection<T>>;
 
   private _dataClass: DataClass;
 

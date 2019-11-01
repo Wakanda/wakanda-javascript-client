@@ -9,19 +9,35 @@ import { DataClassBaseService } from "./data-access/service/base/dataclass-base-
 import { DirectoryBaseService } from "./data-access/service/base/directory-base-service";
 import { EntityBaseService } from "./data-access/service/base/entity-base-service";
 import { MediaBaseService } from "./data-access/service/base/media-base-service";
+import {
+  Attribute,
+  Catalog,
+  Collection,
+  DataClass,
+  Entity,
+  IQueryOption,
+  Media,
+} from "./presentation";
 
 WakandaClient.HttpClient = NodeHttpClient;
 
 export {
+  Media,
+  Entity,
+  Catalog,
+  DataClass,
+  Attribute,
+  Collection,
+  HttpClient,
+  IQueryOption,
+  HttpResponse,
   WakandaClient,
+  MediaBaseService,
+  EntityBaseService,
+  IGetRequestOption,
+  IPostRequestOption,
   CatalogBaseService,
   CollectionBaseService,
   DataClassBaseService,
   DirectoryBaseService,
-  EntityBaseService,
-  MediaBaseService,
-  HttpClient,
-  IGetRequestOption,
-  IPostRequestOption,
-  HttpResponse,
 };
