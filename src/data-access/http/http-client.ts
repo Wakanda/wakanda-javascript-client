@@ -1,3 +1,4 @@
+import { EventEmitter } from "events";
 import HttpResponse from "./http-response";
 
 export interface IRequestOption {
@@ -19,7 +20,7 @@ export type ResponseInterceptor = (
   promise: Promise<HttpResponse>,
 ) => Promise<HttpResponse>;
 
-export abstract class HttpClient {
+export abstract class HttpClient extends EventEmitter {
   public prefix: string;
 
   private getRequestInterceptors: Array<RequestInterceptor<IGetRequestOption>>;
@@ -28,6 +29,7 @@ export abstract class HttpClient {
   private postResponseInterceptors: ResponseInterceptor[];
 
   constructor({ apiPrefix }: { apiPrefix: string }) {
+    super();
     this.prefix = apiPrefix;
 
     this.getRequestInterceptors = [];

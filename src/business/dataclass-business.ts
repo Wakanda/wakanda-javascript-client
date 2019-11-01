@@ -70,7 +70,7 @@ class DataClassBusiness extends AbstractBusiness {
     this._addUserDefinedMethods();
   }
 
-  public callMethod(methodName: string, parameters: any[]): Promise<Entity | Collection | any> {
+  public callMethod(methodName: string, parameters: any[]): Promise<Entity | Collection<Entity> | any> {
     return this.service.callMethod(methodName, parameters).then((obj) => {
       return MethodAdapter.transform(obj, this._dataClassBusinessMap);
     });
@@ -98,7 +98,7 @@ class DataClassBusiness extends AbstractBusiness {
     });
   }
 
-  public query(options?: IQueryOption): Promise<Collection> {
+  public query(options?: IQueryOption): Promise<Collection<Entity>> {
     const opt = options || {};
     const initialSelect = opt.select;
 
@@ -199,8 +199,8 @@ class DataClassBusiness extends AbstractBusiness {
     dbo: ICollectionDBO;
     pageSize?: number;
     initialSelect?: string;
-  }): Collection {
-    let collection: Collection;
+  }): Collection<Entity> {
+    let collection: Collection<Entity>;
 
     if (!dbo) {
       collection = null;
@@ -281,7 +281,7 @@ class DataClassBusiness extends AbstractBusiness {
     deferred?: boolean;
     pageSize?: number;
     initialSelect?: string;
-  }): Collection {
+  }): Collection<Entity> {
     const collection = new Collection({
       deferred,
       dataClass: this.dataClass,

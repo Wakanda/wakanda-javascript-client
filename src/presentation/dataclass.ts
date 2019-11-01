@@ -14,9 +14,9 @@ export class DataClass {
     dataClass: string[];
   };
 
-  public find: (id: string | number, options?: IQueryOption) => Promise<Entity>;
-  public query: (options?: IQueryOption) => Promise<Collection>;
-  public create: (pojo?: any) => Entity;
+  public find: <T extends Entity>(id: string | number, options?: IQueryOption) => Promise<T>;
+  public query: <T extends Entity>(options?: IQueryOption) => Promise<Collection<T>>;
+  public create: <T extends Entity>(pojo?: any) => T;
 
   [key: string]: any;
 
