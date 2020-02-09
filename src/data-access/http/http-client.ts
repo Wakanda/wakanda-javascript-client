@@ -23,8 +23,8 @@ export type ResponseInterceptor = (
 export abstract class HttpClient extends EventEmitter {
   public prefix: string;
 
-  private getRequestInterceptors: Array<RequestInterceptor<IGetRequestOption>>;
-  private postRequestInterceptors: Array<RequestInterceptor<IPostRequestOption>>;
+  private getRequestInterceptors: RequestInterceptor<IGetRequestOption>[];
+  private postRequestInterceptors: RequestInterceptor<IPostRequestOption>[];
   private getResponseInterceptors: ResponseInterceptor[];
   private postResponseInterceptors: ResponseInterceptor[];
 

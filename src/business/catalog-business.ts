@@ -13,17 +13,17 @@ export interface IDataClassDBO {
   name: string;
   collectionName: string;
   dataURI: string;
-  attributes: Array<{
+  attributes: {
     name: string;
     type: string;
     kind: string;
     readOnly: boolean;
     simpleDate: boolean;
-  }>;
-  methods: Array<{
+  }[];
+  methods: {
     name: string;
     applyTo: string;
-  }>;
+  }[];
 }
 
 class CatalogBusiness extends AbstractBusiness {
