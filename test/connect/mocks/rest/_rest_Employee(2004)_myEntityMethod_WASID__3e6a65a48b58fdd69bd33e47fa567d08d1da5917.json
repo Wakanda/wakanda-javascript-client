@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/Employee(2004)/myEntityMethod",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "result": "Hello from INGRID SYNO"
+  },
+  "isBase64": false,
+  "headers": {}
+}

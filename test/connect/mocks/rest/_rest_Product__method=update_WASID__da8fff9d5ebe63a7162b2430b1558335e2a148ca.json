@@ -1,0 +1,35 @@
+{
+  "requestUrl": "/rest/Product?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "55",
+    "__STAMP": 2,
+    "uri": "/rest/Product(55)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.479Z",
+    "ID": 55,
+    "name": "apple",
+    "myBoolean": false,
+    "spec": {
+      "name": "apple",
+      "myObject": {
+        "myBoolean": "true",
+        "myArray": [
+          {
+            "foo": "bar"
+          },
+          "tata"
+        ]
+      },
+      "myArray": [
+        {
+          "foo": "bar"
+        },
+        "tata"
+      ]
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

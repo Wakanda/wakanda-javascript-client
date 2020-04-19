@@ -4,17 +4,17 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/C3A24444852A4F7D9231CC6C4EE075ED",
+    "__ENTITYSET": "/rest/Product/$entityset/4746F7BBC1F24FDFB291BAF74908059A",
     "__entityModel": "Product",
     "__COUNT": 26,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "1",
-        "__TIMESTAMP": "2019-02-21T22:19:01.003Z",
+        "__KEY": "55",
+        "__TIMESTAMP": "2020-04-19T01:04:16.356Z",
         "__STAMP": 1,
-        "ID": 1,
+        "ID": 55,
         "name": "apple",
         "myBoolean": true,
         "born": null,

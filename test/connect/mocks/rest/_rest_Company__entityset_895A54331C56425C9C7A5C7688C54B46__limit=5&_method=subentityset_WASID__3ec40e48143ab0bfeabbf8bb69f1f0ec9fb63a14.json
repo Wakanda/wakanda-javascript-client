@@ -1,0 +1,76 @@
+{
+  "requestUrl": "/rest/Company/$entityset/895A54331C56425C9C7A5C7688C54B46?$limit=5&$method=subentityset",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Company",
+    "__COUNT": 62,
+    "__SENT": 5,
+    "__FIRST": 0,
+    "__ENTITIES": [
+      {
+        "__KEY": "126",
+        "__TIMESTAMP": "2020-04-19T01:04:16.072Z",
+        "__STAMP": 1,
+        "ID": 126,
+        "name": "Listbox Dolphin Eye",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(126)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "127",
+        "__TIMESTAMP": "2020-04-19T01:04:16.073Z",
+        "__STAMP": 1,
+        "ID": 127,
+        "name": "Blobarray Coolupe Orange",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(127)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "128",
+        "__TIMESTAMP": "2020-04-19T01:04:16.074Z",
+        "__STAMP": 1,
+        "ID": 128,
+        "name": "Path Best Fabric",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(128)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "129",
+        "__TIMESTAMP": "2020-04-19T01:04:16.075Z",
+        "__STAMP": 1,
+        "ID": 129,
+        "name": "Parking Power Sand",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(129)/staff?$expand=staff"
+          }
+        }
+      },
+      {
+        "__KEY": "130",
+        "__TIMESTAMP": "2020-04-19T01:04:16.078Z",
+        "__STAMP": 1,
+        "ID": 130,
+        "name": "Hotel Apple Feet",
+        "staff": {
+          "__deferred": {
+            "uri": "/rest/Company(130)/staff?$expand=staff"
+          }
+        }
+      }
+    ]
+  },
+  "isBase64": false,
+  "headers": {}
+}

@@ -4,7 +4,7 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Product/$entityset/C0BAF5A0DEB6489F960D1D2BC9C6B9D6",
+    "__ENTITYSET": "/rest/Product/$entityset/A18617D58E514E4EAEFA1C0C3F579FCD",
     "__entityModel": "Product",
     "__COUNT": 0,
     "__SENT": 0,

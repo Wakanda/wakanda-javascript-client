@@ -1,0 +1,28 @@
+{
+  "requestUrl": "/rest/Employee?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "2005",
+    "__STAMP": 2,
+    "uri": "/rest/Employee(2005)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.826Z",
+    "ID": 2005,
+    "lastName": "DYNEDE",
+    "firstName": "ZACHARY",
+    "salary": 116051,
+    "salaryProcessed": "3754845.1807034006 baht",
+    "employerName": "Listbox Dolphin Eye",
+    "birthDate": "1985-09-16T07:04:11.192Z",
+    "hiringDate": "23!5!2002",
+    "employer": {
+      "__deferred": {
+        "uri": "/rest/Company(126)",
+        "__KEY": "126"
+      }
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

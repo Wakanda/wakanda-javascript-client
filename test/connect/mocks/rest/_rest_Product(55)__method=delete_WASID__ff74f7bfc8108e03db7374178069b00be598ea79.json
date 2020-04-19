@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/Product(55)?$method=delete",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "ok": true
+  },
+  "isBase64": false,
+  "headers": {}
+}

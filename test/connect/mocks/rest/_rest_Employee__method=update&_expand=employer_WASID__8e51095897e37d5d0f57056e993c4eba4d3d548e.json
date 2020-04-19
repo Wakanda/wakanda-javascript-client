@@ -1,0 +1,32 @@
+{
+  "requestUrl": "/rest/Employee?$method=update&$expand=employer",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "3004",
+    "__STAMP": 1,
+    "uri": "/rest/Employee(3004)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.497Z",
+    "ID": 3004,
+    "lastName": "Smith",
+    "firstName": "John",
+    "salary": 80000,
+    "salaryProcessed": "2588410.3924677256 baht",
+    "employerName": "Listbox Dolphin Eye",
+    "employer": {
+      "__KEY": "126",
+      "__STAMP": 1,
+      "__TIMESTAMP": "2020-04-19T01:04:16.072Z",
+      "ID": 126,
+      "name": "Listbox Dolphin Eye",
+      "staff": {
+        "__deferred": {
+          "uri": "/rest/Company(126)/staff?$expand=staff"
+        }
+      }
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

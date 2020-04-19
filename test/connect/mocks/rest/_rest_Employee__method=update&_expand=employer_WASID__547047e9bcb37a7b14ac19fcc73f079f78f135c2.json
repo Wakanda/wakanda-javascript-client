@@ -1,0 +1,34 @@
+{
+  "requestUrl": "/rest/Employee?$method=update&$expand=employer",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "2014",
+    "__STAMP": 2,
+    "uri": "/rest/Employee(2014)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.547Z",
+    "ID": 2014,
+    "lastName": "MUDIKATU",
+    "firstName": "Arnaud",
+    "salary": 64288,
+    "salaryProcessed": "2080046.5913870644 baht",
+    "employerName": "Blobarray Coolupe Orange",
+    "birthDate": "1958-09-11T17:44:35.959Z",
+    "hiringDate": "1!8!1989",
+    "employer": {
+      "__KEY": "127",
+      "__STAMP": 1,
+      "__TIMESTAMP": "2020-04-19T01:04:16.073Z",
+      "ID": 127,
+      "name": "Blobarray Coolupe Orange",
+      "staff": {
+        "__deferred": {
+          "uri": "/rest/Company(127)/staff?$expand=staff"
+        }
+      }
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

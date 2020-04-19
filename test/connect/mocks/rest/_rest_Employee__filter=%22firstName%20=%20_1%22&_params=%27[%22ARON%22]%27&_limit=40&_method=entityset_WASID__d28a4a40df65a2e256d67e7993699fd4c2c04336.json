@@ -1,27 +1,27 @@
 {
-  "requestUrl": "/rest/Employee?$filter=%22firstName%20=%20:1%22&$params='[%22ARON%22]'&$limit=40&$method=entityset",
+  "requestUrl": "/rest/Employee?$filter=%22firstName%20=%20:1%22&$params=%27[%22ARON%22]%27&$limit=40&$method=entityset",
   "contentType": "application/json; charset=UTF-8",
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/Employee/$entityset/2D51B8252DC341019F5B9D7D2A6D6466",
+    "__ENTITYSET": "/rest/Employee/$entityset/CFC5E9057E5843C28A6C618847FA4C7E",
     "__entityModel": "Employee",
     "__COUNT": 1,
     "__SENT": 1,
     "__FIRST": 0,
     "__ENTITIES": [
       {
-        "__KEY": "993",
-        "__TIMESTAMP": "2019-02-21T22:19:00.986Z",
+        "__KEY": "2996",
+        "__TIMESTAMP": "2020-04-19T01:04:16.353Z",
         "__STAMP": 1,
-        "ID": 993,
+        "ID": 2996,
         "lastName": "GIBAMOWO",
         "firstName": "ARON",
         "salary": 60631,
         "employer": {
           "__deferred": {
-            "uri": "/rest/Company(61)",
-            "__KEY": "61"
+            "uri": "/rest/Company(186)",
+            "__KEY": "186"
           }
         },
         "salaryProcessed": "1961723.8813213834 baht",

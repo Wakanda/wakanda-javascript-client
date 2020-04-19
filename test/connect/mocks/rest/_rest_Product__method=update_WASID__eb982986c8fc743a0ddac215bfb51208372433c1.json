@@ -1,0 +1,20 @@
+{
+  "requestUrl": "/rest/Product?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "60",
+    "__STAMP": 2,
+    "uri": "/rest/Product(60)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.521Z",
+    "ID": 60,
+    "name": "cherry",
+    "myBoolean": true,
+    "spec": {
+      "foo": "bar"
+    }
+  },
+  "isBase64": false,
+  "headers": {}
+}

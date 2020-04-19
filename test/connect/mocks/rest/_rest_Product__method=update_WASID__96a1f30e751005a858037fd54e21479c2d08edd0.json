@@ -4,11 +4,11 @@
   "method": "POST",
   "statusCode": 200,
   "data": {
-    "__KEY": "30",
+    "__KEY": "84",
     "__STAMP": 3,
-    "uri": "/rest/Product(30)",
-    "__TIMESTAMP": "2019-02-21T22:19:26.261Z",
-    "ID": 30,
+    "uri": "/rest/Product(84)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.790Z",
+    "ID": 84,
     "name": "Exotic value",
     "myBoolean": false,
     "myNumber": 0

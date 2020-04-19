@@ -9,8 +9,8 @@
   "isBase64": false,
   "headers": {
     "set-cookie": [
-      "WASID=BC3033DEB7C34F8789DC94B4D74FB99D; Path=/; Max-Age=31536000; Expires=Fri, 21-Feb-2020 22:19:27 GMT; HttpOnly; Version=1"
+      "WASID=A965B3AD52374907B5459004D22A76EE; Path=/; Max-Age=31536000; Expires=Mon, 19-Apr-2021 02:05:11 GMT; HttpOnly; Version=1"
     ],
-    "wasid": "BC3033DEB7C34F8789DC94B4D74FB99D"
+    "wasid": "A965B3AD52374907B5459004D22A76EE"
   }
 }

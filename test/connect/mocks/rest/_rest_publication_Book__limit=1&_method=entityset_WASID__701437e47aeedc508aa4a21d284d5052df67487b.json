@@ -4,7 +4,7 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "__ENTITYSET": "/rest/publication/Book/$entityset/E53286804FD84720ACC60A03B835A2AC",
+    "__ENTITYSET": "/rest/publication/Book/$entityset/7FF5CA6FDDBE4DAA96F55BCA57CC41C9",
     "__entityModel": "Book",
     "__COUNT": 18,
     "__SENT": 1,

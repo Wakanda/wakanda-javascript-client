@@ -1,0 +1,21 @@
+{
+  "requestUrl": "/rest/Employee?$method=update",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "__KEY": "2004",
+    "__STAMP": 2,
+    "uri": "/rest/Employee(2004)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.510Z",
+    "ID": 2004,
+    "lastName": "SYNO",
+    "firstName": "INGRID",
+    "salary": 43791,
+    "salaryProcessed": "1416863.4937069272 baht",
+    "birthDate": "1941-09-24T11:31:07.652Z",
+    "hiringDate": "4!1!2002"
+  },
+  "isBase64": false,
+  "headers": {}
+}

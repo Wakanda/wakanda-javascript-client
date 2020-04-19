@@ -4,11 +4,11 @@
   "method": "POST",
   "statusCode": 200,
   "data": {
-    "__KEY": "26",
+    "__KEY": "80",
     "__STAMP": 1,
-    "uri": "/rest/Product(26)",
-    "__TIMESTAMP": "2019-02-21T22:19:25.502Z",
-    "ID": 26,
+    "uri": "/rest/Product(80)",
+    "__TIMESTAMP": "2020-04-19T01:05:10.453Z",
+    "ID": 80,
     "myBoolean": true
   },
   "isBase64": false,

@@ -1,0 +1,11 @@
+{
+  "requestUrl": "/rest/Employee(3005)/photo?$rawPict=image/png",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "POST",
+  "statusCode": 200,
+  "data": {
+    "ok": true
+  },
+  "isBase64": false,
+  "headers": {}
+}

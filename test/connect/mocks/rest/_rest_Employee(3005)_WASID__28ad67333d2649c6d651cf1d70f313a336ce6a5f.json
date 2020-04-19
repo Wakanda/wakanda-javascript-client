@@ -1,0 +1,29 @@
+{
+  "requestUrl": "/rest/Employee(3005)",
+  "contentType": "application/json; charset=UTF-8",
+  "method": "GET",
+  "statusCode": 200,
+  "data": {
+    "__entityModel": "Employee",
+    "__KEY": "3005",
+    "__TIMESTAMP": "2020-04-19T01:05:10.596Z",
+    "__STAMP": 2,
+    "ID": 3005,
+    "lastName": "Test-0",
+    "firstName": "Image",
+    "salary": 80000,
+    "employer": null,
+    "salaryProcessed": "2588410.3924677256 baht",
+    "employerName": null,
+    "photo": {
+      "__deferred": {
+        "uri": "/rest/Employee(3005)/photo?$imageformat=best&$version=2&$expand=photo",
+        "image": true
+      }
+    },
+    "birthDate": null,
+    "hiringDate": null
+  },
+  "isBase64": false,
+  "headers": {}
+}
