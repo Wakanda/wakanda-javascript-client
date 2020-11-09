@@ -4,10 +4,10 @@
 
 const express = require('express');
 const { green } = require('chalk');
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-const PORT = 1136;
+const PORT = process.env.PORT || 1136;
 
 const wakandaApp = {
   host: 'localhost',
@@ -16,7 +16,7 @@ const wakandaApp = {
 
 app.use(
   '/rest',
-  proxy('/rest', {
+  createProxyMiddleware('/rest', {
     target: 'http://' + wakandaApp.host + ':' + wakandaApp.port,
     ws: true,
   })
