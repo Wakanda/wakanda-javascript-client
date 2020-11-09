@@ -39,6 +39,7 @@ class BrowserHttpClient extends HttpClient {
     const request = this.client
       .createRequest(this.prefix + uri)
       .asPost()
+      .withHeader('Content-type', 'application/json')
       .withContent(data)
       .withCredentials(true)
       .send();
