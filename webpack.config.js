@@ -53,7 +53,7 @@ const baseConfig = {
       {
         enforce: 'pre',
         test: /\.ts$/,
-        loader: 'tslint-loader',
+        loader: 'eslint-loader',
         exclude: [
           /node_modules/,
         ],
