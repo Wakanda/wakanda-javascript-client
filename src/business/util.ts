@@ -18,13 +18,10 @@ class Util {
   }
 
   public static wakToStringSimpleDate(date: Date): string {
-    let wakSimpleDate: string;
-
     if (!(date instanceof Date)) {
       return null;
     }
-
-    wakSimpleDate =
+    const wakSimpleDate:string =
       date.getUTCDate() + "!" + (date.getUTCMonth() + 1) + "!" + date.getUTCFullYear();
     return wakSimpleDate;
   }

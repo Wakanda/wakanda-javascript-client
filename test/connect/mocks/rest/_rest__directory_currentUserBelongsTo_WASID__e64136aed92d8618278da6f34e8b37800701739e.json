@@ -1,0 +1,8 @@
+{
+  "requestUrl": "/rest/$directory/currentUserBelongsTo",
+  "contentType": "application/javascript",
+  "statusCode": 200,
+  "data": {
+    "result":true
+  }
+}

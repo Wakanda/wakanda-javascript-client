@@ -4,6 +4,8 @@ const fs = require('fs');
 const _ = require('lodash');
 const moment = require('moment');
 
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 const packageInfo = require('./package.json');
 
 process.traceDeprecation = true;
@@ -50,18 +52,18 @@ const baseConfig = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: [
-          /node_modules/,
-        ],
-        options: {
-          emitErrors: false,
-          failOnHint: false,
-        },
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.ts$/,
+      //   loader: 'eslint-loader',
+      //   exclude: [
+      //     /node_modules/,
+      //   ],
+      //   options: {
+      //     emitErrors: false,
+      //     failOnHint: false,
+      //   },
+      // },
       {
         test: /\.ts$/,
         exclude: [
@@ -93,6 +95,9 @@ const baseConfig = {
 };
 baseConfig.plugins = [
   bannerPlugin,
+  new ESLintPlugin({
+    extensions: ['ts']
+  })
 ];
 
 /**
