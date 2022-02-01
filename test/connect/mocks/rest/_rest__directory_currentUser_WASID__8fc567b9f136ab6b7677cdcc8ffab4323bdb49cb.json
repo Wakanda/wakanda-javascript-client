@@ -4,7 +4,11 @@
   "method": "GET",
   "statusCode": 200,
   "data": {
-    "result": null
+    "result": {
+      "userName": "bar",
+      "fullName": "bar",
+      "ID": "A01029CC4AF84BFB9755549F65275FD9"
+    }
   },
   "isBase64": false,
   "headers": {}
