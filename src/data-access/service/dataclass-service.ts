@@ -1,10 +1,10 @@
-import { ICollectionDBO } from "../../business/collection-business";
-import DataClassBusiness from "../../business/dataclass-business";
-import { IEntityDBO } from "../../business/entity-business";
-import { IQueryOption } from "../../presentation/query-option";
-import WakandaClient from "../../wakanda-client";
-import AbstractService from "./abstract-service";
-import { DataClassBaseService } from "./base/dataclass-base-service";
+import { ICollectionDBO } from '../../business/collection-business';
+import DataClassBusiness from '../../business/dataclass-business';
+import { IEntityDBO } from '../../business/entity-business';
+import { IQueryOption } from '../../presentation/query-option';
+import WakandaClient from '../../wakanda-client';
+import AbstractService from './abstract-service';
+import { DataClassBaseService } from './base/dataclass-base-service';
 
 class DataClassService extends AbstractService {
   private dataClassBusiness: DataClassBusiness;

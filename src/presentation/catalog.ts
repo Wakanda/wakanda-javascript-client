@@ -1,4 +1,4 @@
-import { DataClass } from "./dataclass";
+import { DataClass } from './dataclass';
 
 class Catalog {
   [key: string]: DataClass;

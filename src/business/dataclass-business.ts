@@ -1,22 +1,22 @@
 /* tslint:disable variable-name */
 
-import Const from "../const";
-import DataClassService from "../data-access/service/dataclass-service";
-import Collection from "../presentation/collection";
-import { AttributeCollection, AttributeRelated } from "../presentation/dataclass";
-import { DataClass } from "../presentation/dataclass";
-import Entity from "../presentation/entity";
-import Media from "../presentation/media";
-import { IQueryOption } from "../presentation/query-option";
-import WakandaClient from "../wakanda-client";
-import AbstractBusiness from "./abstract-business";
-import { ICollectionDBO } from "./collection-business";
-import CollectionBusiness from "./collection-business";
-import EntityBusiness from "./entity-business";
-import { IEntityDBO } from "./entity-business";
-import MediaBusiness from "./media-business";
-import { MethodAdapter } from "./method-adapter";
-import Util from "./util";
+import Const from '../const';
+import DataClassService from '../data-access/service/dataclass-service';
+import Collection from '../presentation/collection';
+import { AttributeCollection, AttributeRelated } from '../presentation/dataclass';
+import { DataClass } from '../presentation/dataclass';
+import Entity from '../presentation/entity';
+import Media from '../presentation/media';
+import { IQueryOption } from '../presentation/query-option';
+import WakandaClient from '../wakanda-client';
+import AbstractBusiness from './abstract-business';
+import { ICollectionDBO } from './collection-business';
+import CollectionBusiness from './collection-business';
+import EntityBusiness from './entity-business';
+import { IEntityDBO } from './entity-business';
+import MediaBusiness from './media-business';
+import { MethodAdapter } from './method-adapter';
+import Util from './util';
 
 // This map stores all DataClassBusiness instances of existing dataClasses
 const _dataClassBusinessMap = new Map<string, DataClassBusiness>();
@@ -70,7 +70,10 @@ class DataClassBusiness extends AbstractBusiness {
     this._addUserDefinedMethods();
   }
 
-  public callMethod(methodName: string, parameters: any[]): Promise<Entity | Collection<Entity> | any> {
+  public callMethod(
+    methodName: string,
+    parameters: any[]
+  ): Promise<Entity | Collection<Entity> | any> {
     return this.service.callMethod(methodName, parameters).then((obj) => {
       return MethodAdapter.transform(obj, this._dataClassBusinessMap);
     });
@@ -87,7 +90,7 @@ class DataClassBusiness extends AbstractBusiness {
       opt.orderBy !== undefined
     ) {
       throw new Error(
-        "Dataclass.find: options filter, params, pageSize, start and orderBy are not allowed",
+        'Dataclass.find: options filter, params, pageSize, start and orderBy are not allowed'
       );
     }
 
@@ -103,7 +106,7 @@ class DataClassBusiness extends AbstractBusiness {
     const initialSelect = opt.select;
 
     if (opt.method && opt.method.length > 0) {
-      throw new Error("Dataclass.query: option method is not allowed");
+      throw new Error('Dataclass.query: option method is not allowed');
     }
 
     if (!opt.pageSize) {
@@ -224,7 +227,7 @@ class DataClassBusiness extends AbstractBusiness {
         collection.entities.push(
           this._presentationEntityFromDbo({
             dbo: dboEntity,
-          }),
+          })
         );
       }
     }
@@ -318,7 +321,7 @@ class DataClassBusiness extends AbstractBusiness {
           entity[attr.name] = business._presentationCollectionFromDbo({
             dbo: dboAttribute,
           });
-        } else if (attr.type === "image" || attr.type === "blob") {
+        } else if (attr.type === 'image' || attr.type === 'blob') {
           let uri: string;
 
           if (dboAttribute && dboAttribute.__deferred && dboAttribute.__deferred.uri) {
@@ -328,11 +331,11 @@ class DataClassBusiness extends AbstractBusiness {
           }
           entity[attr.name] = this._createMedia({
             uri,
-            isImage: attr.type === "image",
+            isImage: attr.type === 'image',
             attributeName: attr.name,
             entity,
           });
-        } else if (attr.type === "date") {
+        } else if (attr.type === 'date') {
           if (!dboAttribute) {
             entity[attr.name] = null;
           } else {
@@ -346,10 +349,10 @@ class DataClassBusiness extends AbstractBusiness {
       } else {
         // Even if the property is null, we need a media for this kind of attributes
         // to handle the upload part
-        if (attr.type === "image" || attr.type === "blob") {
+        if (attr.type === 'image' || attr.type === 'blob') {
           entity[attr.name] = this._createMedia({
             uri: null,
-            isImage: attr.type === "image",
+            isImage: attr.type === 'image',
             attributeName: attr.name,
             entity,
           });

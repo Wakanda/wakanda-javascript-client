@@ -1,5 +1,5 @@
-import { ICurrentUserDBO } from "../../../business/directory-business";
-import HttpClient from "../../http/http-client";
+import { ICurrentUserDBO } from '../../../business/directory-business';
+import HttpClient from '../../http/http-client';
 
 export interface ILoginParams {
   httpClient: HttpClient;
@@ -27,7 +27,7 @@ export class DirectoryBaseService {
   }): Promise<boolean> {
     return httpClient
       .post({
-        uri: "/rest/$directory/login",
+        uri: '/rest/$directory/login',
         data: [username, password, duration],
       })
       .then(() => {
@@ -38,7 +38,7 @@ export class DirectoryBaseService {
   public static logout({ httpClient }: { httpClient: HttpClient }): Promise<boolean> {
     return httpClient
       .get({
-        uri: "/rest/$directory/logout",
+        uri: '/rest/$directory/logout',
       })
       .then((res) => {
         const obj = JSON.parse(res.body);
@@ -57,7 +57,7 @@ export class DirectoryBaseService {
   }): Promise<ICurrentUserDBO> {
     return httpClient
       .get({
-        uri: "/rest/$directory/currentUser",
+        uri: '/rest/$directory/currentUser',
       })
       .then((res) => {
         const obj = JSON.parse(res.body);
@@ -76,7 +76,7 @@ export class DirectoryBaseService {
   }: ICurrentUserBelongsToParams): Promise<boolean> {
     return httpClient
       .post({
-        uri: "/rest/$directory/currentUserBelongsTo",
+        uri: '/rest/$directory/currentUserBelongsTo',
         data: [group],
       })
       .then((res) => {

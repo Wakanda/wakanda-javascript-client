@@ -1,11 +1,10 @@
 /* tslint:disable variable-name */
 
-import { DataClass } from "./dataclass";
-import Entity from "./entity";
-import { IQueryOption } from "./query-option";
+import { DataClass } from './dataclass';
+import Entity from './entity';
+import { IQueryOption } from './query-option';
 
 class Collection<T extends Entity> {
-
   [key: string]: any;
   public entities: T[];
   public _deferred: boolean;
@@ -25,7 +24,7 @@ class Collection<T extends Entity> {
     this.entities = [];
     this._deferred = deferred === true;
 
-    Object.defineProperty(this, "_dataClass", {
+    Object.defineProperty(this, '_dataClass', {
       enumerable: false,
       configurable: false,
       writable: false,

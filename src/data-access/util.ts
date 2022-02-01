@@ -1,17 +1,17 @@
-import { IQueryOption } from "../presentation/query-option";
+import { IQueryOption } from '../presentation/query-option';
 
 class Util {
   public static handleOptions(options: IQueryOption) {
     if (!options) {
-      return "";
+      return '';
     }
 
     const { select, filter, params, pageSize, start, orderBy, method, emMethod } = options;
 
-    let ret = "?";
+    let ret = '?';
 
     if (select) {
-      ret += "&$expand=" + select;
+      ret += '&$expand=' + select;
     }
 
     if (filter) {
@@ -19,64 +19,64 @@ class Util {
     }
 
     if (orderBy) {
-      ret += "&$orderby=" + orderBy;
+      ret += '&$orderby=' + orderBy;
     }
 
     if (params) {
       if (!Array.isArray(params)) {
-        throw new Error("params option must be an array");
+        throw new Error('params option must be an array');
       }
 
       if (params.length > 0) {
-        let p = "[";
+        let p = '[';
 
         for (const elt of params) {
-          if (typeof elt === "string") {
+          if (typeof elt === 'string') {
             p += '"' + elt + '",';
           } else {
-            p += (typeof elt === "string" ? elt : JSON.stringify(elt)) + ",";
+            p += (typeof elt === 'string' ? elt : JSON.stringify(elt)) + ',';
           }
         }
 
         p = p.slice(0, -1);
-        p += "]";
+        p += ']';
         ret += "&$params='" + p + "'";
       }
     }
 
     if (pageSize) {
       if (!this.isInteger(pageSize)) {
-        throw new Error("pageSize option must be an integer");
+        throw new Error('pageSize option must be an integer');
       }
 
-      ret += "&$limit=" + pageSize;
+      ret += '&$limit=' + pageSize;
     }
 
     if (start) {
       if (!this.isInteger(start)) {
-        throw new Error("start option must be an integer");
+        throw new Error('start option must be an integer');
       }
 
-      ret += "&$skip=" + start;
+      ret += '&$skip=' + start;
     }
 
     if (method) {
-      ret += "&$method=" + method;
+      ret += '&$method=' + method;
     }
 
     if (emMethod) {
-      ret += "&$emMethod=" + emMethod;
+      ret += '&$emMethod=' + emMethod;
     }
 
-    if (ret.length > 1 && ret[1] === "&") {
-      ret = ret.replace("?&", "?");
+    if (ret.length > 1 && ret[1] === '&') {
+      ret = ret.replace('?&', '?');
     }
 
-    return ret === "?" ? "" : ret;
+    return ret === '?' ? '' : ret;
   }
 
   public static isInteger(n: any): boolean {
-    return typeof n === "number" && !isNaN(n) && n % 1 === 0;
+    return typeof n === 'number' && !isNaN(n) && n % 1 === 0;
   }
 
   public static removeRestInfoFromEntity(entity: any): void {

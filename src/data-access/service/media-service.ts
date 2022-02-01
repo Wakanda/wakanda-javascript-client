@@ -1,11 +1,11 @@
-import DataClassBusiness from "../../business/dataclass-business";
-import MediaBusiness from "../../business/media-business";
-import Entity from "../../presentation/entity";
-import Media from "../../presentation/media";
-import WakandaClient from "../../wakanda-client";
-import HttpResponse from "../http/http-response";
-import AbstractService from "./abstract-service";
-import { MediaBaseService } from "./base/media-base-service";
+import DataClassBusiness from '../../business/dataclass-business';
+import MediaBusiness from '../../business/media-business';
+import Entity from '../../presentation/entity';
+import Media from '../../presentation/media';
+import WakandaClient from '../../wakanda-client';
+import HttpResponse from '../http/http-response';
+import AbstractService from './abstract-service';
+import { MediaBaseService } from './base/media-base-service';
 
 class MediaService extends AbstractService {
   private dataClassName: string;

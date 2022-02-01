@@ -1,8 +1,8 @@
-import { HttpClient, IGetRequestOption, IPostRequestOption } from "./http-client";
-import HttpResponse from "./http-response";
+import { HttpClient, IGetRequestOption, IPostRequestOption } from './http-client';
+import HttpResponse from './http-response';
 
 // tslint:disable-next-line
-const { HttpClient: AureliaHttpClient } = require("aurelia-http-client");
+const { HttpClient: AureliaHttpClient } = require('aurelia-http-client');
 
 class BrowserHttpClient extends HttpClient {
   private client: any;
@@ -68,11 +68,14 @@ class BrowserHttpClient extends HttpClient {
         });
       })
       .catch((res: any) => {
-        this.emit("http-error", new HttpResponse({
-          statusCode: res.statusCode,
-          headers: res.headers || {},
-          body: res.response,
-        }));
+        this.emit(
+          'http-error',
+          new HttpResponse({
+            statusCode: res.statusCode,
+            headers: res.headers || {},
+            body: res.response,
+          })
+        );
         return Promise.reject(res);
       });
   }

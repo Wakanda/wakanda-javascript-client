@@ -6,13 +6,13 @@ class Util {
       return null;
     }
 
-    const arr = stringDate.split("!");
+    const arr = stringDate.split('!');
     if (arr.length !== 3) {
       // return null or throw an error, simple date format is ko
       return null;
     }
     const date: Date = new Date(
-      Date.UTC(parseInt(arr[2], 10), parseInt(arr[1], 10) - 1, parseInt(arr[0], 10)),
+      Date.UTC(parseInt(arr[2], 10), parseInt(arr[1], 10) - 1, parseInt(arr[0], 10))
     );
     return date;
   }
@@ -21,8 +21,8 @@ class Util {
     if (!(date instanceof Date)) {
       return null;
     }
-    const wakSimpleDate:string =
-      date.getUTCDate() + "!" + (date.getUTCMonth() + 1) + "!" + date.getUTCFullYear();
+    const wakSimpleDate: string =
+      date.getUTCDate() + '!' + (date.getUTCMonth() + 1) + '!' + date.getUTCFullYear();
     return wakSimpleDate;
   }
 }

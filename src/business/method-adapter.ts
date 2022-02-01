@@ -1,4 +1,4 @@
-import DataClassBusiness from "./dataclass-business";
+import DataClassBusiness from './dataclass-business';
 
 export class MethodAdapter {
   public static transform(object: any, dcBusinessMap: Map<string, DataClassBusiness>): any {
@@ -8,10 +8,10 @@ export class MethodAdapter {
       if (business) {
         // Returned object is a collection
         if (
-          typeof object.__COUNT !== "undefined" &&
-          typeof object.__ENTITIES !== "undefined" &&
-          typeof object.__FIRST !== "undefined" &&
-          typeof object.__SENT !== "undefined"
+          typeof object.__COUNT !== 'undefined' &&
+          typeof object.__ENTITIES !== 'undefined' &&
+          typeof object.__FIRST !== 'undefined' &&
+          typeof object.__SENT !== 'undefined'
         ) {
           return business._presentationCollectionFromDbo({
             dbo: object,

@@ -1,7 +1,7 @@
 {
   "name": "wakanda-client",
   "main": "dist/node.js",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Wakanda Client allows you to easily interact with Wakanda Server on a JavaScript (browser or node) environment",
   "browser": "dist/browser.js",
   "repository": "wakanda/wakanda-javascript-client",
@@ -23,7 +23,7 @@
     "test-server:record": "node test/connect/server.js record",
     "test:node": "mocha --exit test/bootstrap.js test/spec/**/*.spec.js",
     "serve": "concurrently -r \"npm run watch\" \"npm run serve:proxy\"",
-    "prettier": "prettier --config .prettierrc --write  \"{lib,test,scripts,src}/**/*.{j,t}s\"",
+    "format": "prettier --config .prettierrc --write  \"{lib,test,scripts,src}/**/*.{j,t}s\"",
     "prepublishOnly": "npm test",
     "preversion": "npm run lint",
     "release:major": "release-it major",
@@ -86,7 +86,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm test",
+      "pre-commit": "npm run format && npm run lint && npm test",
       "post-merge": "npm i",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }

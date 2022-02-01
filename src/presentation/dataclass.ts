@@ -1,8 +1,8 @@
 /* tslint:disable max-classes-per-file */
 
-import Collection from "./collection";
-import Entity from "./entity";
-import { IQueryOption } from "./query-option";
+import Collection from './collection';
+import Entity from './entity';
+import { IQueryOption } from './query-option';
 
 export class DataClass {
   public name: string;

@@ -1,13 +1,13 @@
-import CatalogService from "../data-access/service/catalog-service";
-import Catalog from "../presentation/catalog";
+import CatalogService from '../data-access/service/catalog-service';
+import Catalog from '../presentation/catalog';
 import {
   Attribute,
   AttributeCollection,
   AttributeRelated,
   DataClass,
-} from "../presentation/dataclass";
-import AbstractBusiness from "./abstract-business";
-import DataClassBusiness from "./dataclass-business";
+} from '../presentation/dataclass';
+import AbstractBusiness from './abstract-business';
+import DataClassBusiness from './dataclass-business';
 
 export interface IDataClassDBO {
   name: string;
@@ -49,20 +49,20 @@ class CatalogBusiness extends AbstractBusiness {
 
         for (const attr of dcDBO.attributes) {
           switch (attr.kind) {
-            case "relatedEntity":
+            case 'relatedEntity':
               attributes.push(
                 new AttributeRelated({
                   name: attr.name,
                   type: attr.type,
                   kind: attr.kind,
-                }),
+                })
               );
               this.needDataClass(attr.type);
               break;
-            case "storage":
-            case "calculated":
-            case "alias":
-              const readOnly = attr.readOnly || (attr.type === "image" || attr.type === "blob");
+            case 'storage':
+            case 'calculated':
+            case 'alias':
+              const readOnly = attr.readOnly || attr.type === 'image' || attr.type === 'blob';
               const simpleDate = attr.simpleDate !== undefined ? attr.simpleDate : undefined;
               attributes.push(
                 new Attribute({
@@ -71,10 +71,10 @@ class CatalogBusiness extends AbstractBusiness {
                   readOnly,
                   kind: attr.kind,
                   simpleDate,
-                }),
+                })
               );
               break;
-            case "relatedEntities":
+            case 'relatedEntities':
               let entityType: string;
               dataClassDBOArray.some((dc) => {
                 if (dc.collectionName === attr.type) {
@@ -92,7 +92,7 @@ class CatalogBusiness extends AbstractBusiness {
               this.needDataClass(attrCollection.entityType);
               break;
             default:
-              throw new Error("[WakandaClient] Unhandled " + attr.kind + " attribute type");
+              throw new Error('[WakandaClient] Unhandled ' + attr.kind + ' attribute type');
           }
         }
 
@@ -108,17 +108,17 @@ class CatalogBusiness extends AbstractBusiness {
 
         for (const method of dcDBO.methods) {
           switch (method.applyTo) {
-            case "entity":
+            case 'entity':
               methods.entity.push(method.name);
               break;
-            case "entityCollection":
+            case 'entityCollection':
               methods.collection.push(method.name);
               break;
-            case "dataClass":
+            case 'dataClass':
               methods.dataClass.push(method.name);
               break;
             default:
-              throw new Error("[WakandaClient] Unrecognized " + method.applyTo + " method type");
+              throw new Error('[WakandaClient] Unrecognized ' + method.applyTo + ' method type');
           }
         }
 
@@ -148,7 +148,7 @@ class CatalogBusiness extends AbstractBusiness {
       // Check if we have all needed dataClasses on the catalog
       for (const dcName of this.seenDataClasses) {
         if (!catalog[dcName]) {
-          throw new Error("Needed " + dcName + " dataClass is not present on catalog");
+          throw new Error('Needed ' + dcName + ' dataClass is not present on catalog');
         }
       }
 

@@ -1,5 +1,5 @@
-import { IDataClassDBO } from "../../../business/catalog-business";
-import HttpClient from "../../http/http-client";
+import { IDataClassDBO } from '../../../business/catalog-business';
+import HttpClient from '../../http/http-client';
 
 export class CatalogBaseService {
   public static get({
@@ -11,19 +11,19 @@ export class CatalogBaseService {
     dataClasses?: string | string[];
     catalog: string;
   }) {
-    let strDataclasses = "/";
+    let strDataclasses = '/';
 
     if (Array.isArray(dataClasses)) {
       strDataclasses += dataClasses.join();
-    } else if (typeof dataClasses === "undefined") {
-      strDataclasses += "$all";
+    } else if (typeof dataClasses === 'undefined') {
+      strDataclasses += '$all';
     } else {
-      throw new Error("Catalog.get: first parameter should be an array");
+      throw new Error('Catalog.get: first parameter should be an array');
     }
 
-    const strCatalog = catalog ? "/" + catalog : "";
+    const strCatalog = catalog ? '/' + catalog : '';
 
-    return httpClient.get({ uri: "/rest/$catalog" + strCatalog + strDataclasses }).then((res) => {
+    return httpClient.get({ uri: '/rest/$catalog' + strCatalog + strDataclasses }).then((res) => {
       const catalogContent: IDataClassDBO[] = [];
       const rawObj = JSON.parse(res.body);
 

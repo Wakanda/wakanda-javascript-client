@@ -46,15 +46,14 @@ if (!isBrowser()) {
   window.b64toBlob = b64toBlob;
 }
 
-beforeEach(function() {
+beforeEach(function () {
   if (isBrowser()) {
-    if(typeof window.top.callPhantom === 'function') {
+    if (typeof window.top.callPhantom === 'function') {
       window.top.callPhantom({
-        type: 'clearCookies'
+        type: 'clearCookies',
       });
     }
-  }
-  else {
+  } else {
     wakClient._httpClient._clearCookie();
     wakClientPublication._httpClient._clearCookie();
   }

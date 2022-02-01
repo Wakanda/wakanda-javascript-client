@@ -1,9 +1,9 @@
-import DataClassBusiness from "../../business/dataclass-business";
-import { IEntityDBO } from "../../business/entity-business";
-import Entity from "../../presentation/entity";
-import WakandaClient from "../../wakanda-client";
-import AbstractService from "./abstract-service";
-import { EntityBaseService } from "./base/entity-base-service";
+import DataClassBusiness from '../../business/dataclass-business';
+import { IEntityDBO } from '../../business/entity-business';
+import Entity from '../../presentation/entity';
+import WakandaClient from '../../wakanda-client';
+import AbstractService from './abstract-service';
+import { EntityBaseService } from './base/entity-base-service';
 
 class EntityService extends AbstractService {
   private entity: Entity;

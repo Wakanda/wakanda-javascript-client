@@ -1,7 +1,7 @@
 /* tslint:disable variable-name */
 
-import { DataClass } from "./dataclass";
-import { IQueryOption } from "./query-option";
+import { DataClass } from './dataclass';
+import { IQueryOption } from './query-option';
 
 class Entity {
   public _key: string;
@@ -28,7 +28,7 @@ class Entity {
     this._key = entityKey;
     this._deferred = deferred === true;
 
-    Object.defineProperty(this, "_dataClass", {
+    Object.defineProperty(this, '_dataClass', {
       enumerable: false,
       configurable: false,
       writable: false,

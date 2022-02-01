@@ -1,7 +1,7 @@
-import * as request from "request";
+import * as request from 'request';
 
-import { HttpClient, IGetRequestOption, IPostRequestOption } from "./http-client";
-import HttpResponse from "./http-response";
+import { HttpClient, IGetRequestOption, IPostRequestOption } from './http-client';
+import HttpResponse from './http-response';
 
 class NodeHttpClient extends HttpClient {
   private request: any;
@@ -44,20 +44,20 @@ class NodeHttpClient extends HttpClient {
 
     const options: any = {
       url: this.prefix + uri,
-      method: "POST",
+      method: 'POST',
       jar: this.cookieJar,
     };
 
-    options[binary ? "body" : "form"] = data;
+    options[binary ? 'body' : 'form'] = data;
 
     try {
       if (binary) {
         options.headers = {
-          "Content-Type": "application/octet-stream",
+          'Content-Type': 'application/octet-stream',
         };
       } else {
         options.headers = {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         };
         options.form = JSON.stringify(data);
       }
@@ -72,7 +72,7 @@ class NodeHttpClient extends HttpClient {
   private _getWithoutInterceptor({ uri, params }: IGetRequestOption): Promise<HttpResponse> {
     const options = {
       url: this.prefix + uri,
-      method: "GET",
+      method: 'GET',
       qs: params,
       jar: this.cookieJar,
     };
@@ -84,11 +84,14 @@ class NodeHttpClient extends HttpClient {
     return new Promise((resolve, reject) => {
       this.request(requestOptions, (error: any, response: any, body: string) => {
         if (error || response.statusCode >= 400) {
-          this.emit("http-error", new HttpResponse({
-            statusCode: response.statusCode,
-            headers: response.headers || {},
-            body,
-          }));
+          this.emit(
+            'http-error',
+            new HttpResponse({
+              statusCode: response.statusCode,
+              headers: response.headers || {},
+              body,
+            })
+          );
           reject(error || { statusMessage: response.statusMessage, body });
         } else {
           resolve(
@@ -96,7 +99,7 @@ class NodeHttpClient extends HttpClient {
               statusCode: response.statusCode,
               headers: response.headers || {},
               body,
-            }),
+            })
           );
         }
       });

@@ -1,14 +1,14 @@
-import EntityService from "../data-access/service/entity-service";
-import { AttributeCollection, AttributeRelated } from "../presentation/dataclass";
-import { DataClass } from "../presentation/dataclass";
-import Entity from "../presentation/entity";
-import Media from "../presentation/media";
-import { IQueryOption } from "../presentation/query-option";
-import WakandaClient from "../wakanda-client";
-import AbstractBusiness from "./abstract-business";
-import DataClassBusiness from "./dataclass-business";
-import { MethodAdapter } from "./method-adapter";
-import Util from "./util";
+import EntityService from '../data-access/service/entity-service';
+import { AttributeCollection, AttributeRelated } from '../presentation/dataclass';
+import { DataClass } from '../presentation/dataclass';
+import Entity from '../presentation/entity';
+import Media from '../presentation/media';
+import { IQueryOption } from '../presentation/query-option';
+import WakandaClient from '../wakanda-client';
+import AbstractBusiness from './abstract-business';
+import DataClassBusiness from './dataclass-business';
+import { MethodAdapter } from './method-adapter';
+import Util from './util';
 
 export interface IEntityDBO {
   __KEY?: string;
@@ -72,14 +72,14 @@ class EntityBusiness extends AbstractBusiness {
         data[attr.name] = objAttr ? objAttr._key : null;
       } else {
         switch (attr.type) {
-          case "image":
-          case "blob":
+          case 'image':
+          case 'blob':
             data[attr.name] = { uri: objAttr.uri };
             break;
-          case "object":
+          case 'object':
             data[attr.name] = JSON.stringify(objAttr);
             break;
-          case "date":
+          case 'date':
             if (!objAttr) {
               data[attr.name] = null;
             } else {
@@ -108,7 +108,7 @@ class EntityBusiness extends AbstractBusiness {
       opt.orderBy !== undefined
     ) {
       throw new Error(
-        "Entity.fetch: options filter, params, pageSize, start and orderBy are not allowed",
+        'Entity.fetch: options filter, params, pageSize, start and orderBy are not allowed'
       );
     }
 
@@ -121,7 +121,7 @@ class EntityBusiness extends AbstractBusiness {
 
   public callMethod(methodName: string, parameters: any[]): Promise<any> {
     if (!this.entity._key) {
-      throw new Error("Entity." + methodName + ": can not be called on an unsaved entity");
+      throw new Error('Entity.' + methodName + ': can not be called on an unsaved entity');
     }
 
     return this.service.callMethod(methodName, parameters).then((obj) => {
@@ -131,7 +131,7 @@ class EntityBusiness extends AbstractBusiness {
 
   public delete(): Promise<void> {
     if (!this.entity._key) {
-      throw new Error("Entity.delete: can not delete unsaved entity");
+      throw new Error('Entity.delete: can not delete unsaved entity');
     }
 
     return this.service.delete().then(() => {
@@ -200,7 +200,7 @@ class EntityBusiness extends AbstractBusiness {
         data[attr.name] = objAttr ? objAttr._key : null;
       } else if (attr.readOnly) {
         continue;
-      } else if (attr.type === "date") {
+      } else if (attr.type === 'date') {
         if (!objAttr) {
           data[attr.name] = objAttr;
         } else {
@@ -211,7 +211,7 @@ class EntityBusiness extends AbstractBusiness {
       } else if (!(attr instanceof AttributeCollection)) {
         // Don't send null value for a newly created attribute (to don't override value eventually set on init event)
         // except for ID (which is null), because if an empty object is send, save is ignored
-        if (!entityIsNew || objAttr !== null || attr.name === "ID") {
+        if (!entityIsNew || objAttr !== null || attr.name === 'ID') {
           data[attr.name] = objAttr;
         }
       }
@@ -220,18 +220,18 @@ class EntityBusiness extends AbstractBusiness {
     if (!entityIsNew) {
       const oldData = this.oldEntityValues || {};
       for (const attr of this.dataClass.attributes) {
-        if (data[attr.name] === undefined || attr.name === "ID") {
+        if (data[attr.name] === undefined || attr.name === 'ID') {
           continue;
         }
 
         switch (attr.type) {
-          case "image":
-          case "blob":
+          case 'image':
+          case 'blob':
             if (data[attr.name].uri === oldData[attr.name].uri) {
               delete data[attr.name];
             }
             break;
-          case "object":
+          case 'object':
             if (JSON.stringify(data[attr.name]) === oldData[attr.name]) {
               delete data[attr.name];
             }
@@ -249,7 +249,7 @@ class EntityBusiness extends AbstractBusiness {
 
   private _refreshEntity({ fresherEntity }: { fresherEntity: Entity }) {
     for (const prop in fresherEntity) {
-      if (fresherEntity.hasOwnProperty(prop) && typeof fresherEntity[prop] !== "function") {
+      if (fresherEntity.hasOwnProperty(prop) && typeof fresherEntity[prop] !== 'function') {
         if (fresherEntity[prop] instanceof Media) {
           this.entity[prop].uri = fresherEntity[prop].uri;
         } else {
@@ -260,11 +260,11 @@ class EntityBusiness extends AbstractBusiness {
   }
 
   private _getExpandString(): string {
-    let expand = "";
+    let expand = '';
     for (const attr of this.dataClass.attributes) {
       if (attr instanceof AttributeRelated || attr instanceof AttributeCollection) {
         if (this.entity[attr.name] instanceof Entity && !this.entity[attr.name]._deferred) {
-          expand += attr.name + ",";
+          expand += attr.name + ',';
         }
       }
     }

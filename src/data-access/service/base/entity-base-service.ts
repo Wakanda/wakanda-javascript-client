@@ -1,6 +1,6 @@
-import { IEntityDBO } from "../../../business/entity-business";
-import HttpClient from "../../http/http-client";
-import Util from "../../util";
+import { IEntityDBO } from '../../../business/entity-business';
+import HttpClient from '../../http/http-client';
+import Util from '../../util';
 
 export interface ISaveParams {
   httpClient: HttpClient;
@@ -31,14 +31,14 @@ export interface IDeleteParams {
 
 export class EntityBaseService {
   public static save({ httpClient, data, expand, dataURI }: ISaveParams) {
-    let expandStr = "";
+    let expandStr = '';
     if (expand) {
-      expandStr = "&$expand=" + expand;
+      expandStr = '&$expand=' + expand;
     }
 
     return httpClient
       .post({
-        uri: dataURI + "?$method=update" + expandStr,
+        uri: dataURI + '?$method=update' + expandStr,
         data,
       })
       .then((res) => {
@@ -53,7 +53,7 @@ export class EntityBaseService {
   public static recompute({ httpClient, dataURI, data }: IRecomputeParams) {
     return httpClient
       .post({
-        uri: dataURI + "?$method=update&$refresh=true",
+        uri: dataURI + '?$method=update&$refresh=true',
         data,
       })
       .then((res) => {
@@ -74,7 +74,7 @@ export class EntityBaseService {
   }: ICallMethodParams) {
     return httpClient
       .post({
-        uri: dataURI + "(" + entityKey + ")/" + methodName,
+        uri: dataURI + '(' + entityKey + ')/' + methodName,
         data: parameters,
       })
       .then((res) => {
@@ -86,7 +86,7 @@ export class EntityBaseService {
   public static delete({ httpClient, dataURI, entityKey }: IDeleteParams): Promise<boolean> {
     return httpClient
       .post({
-        uri: dataURI + "(" + entityKey + ")?$method=delete",
+        uri: dataURI + '(' + entityKey + ')?$method=delete',
       })
       .then((res) => {
         const obj = JSON.parse(res.body);

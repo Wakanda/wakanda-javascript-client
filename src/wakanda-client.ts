@@ -1,13 +1,13 @@
 /* tslint:disable variable-name */
 
-import CatalogBusiness from "./business/catalog-business";
-import DirectoryBusiness from "./business/directory-business";
-import BrowserHttpClient from "./data-access/http/browser-http-client";
-import HttpClient from "./data-access/http/http-client";
-import NodeHttpClient from "./data-access/http/node-http-client";
-import Catalog from "./presentation/catalog";
-import Collection from "./presentation/collection";
-import Entity from "./presentation/entity";
+import CatalogBusiness from './business/catalog-business';
+import DirectoryBusiness from './business/directory-business';
+import BrowserHttpClient from './data-access/http/browser-http-client';
+import HttpClient from './data-access/http/http-client';
+import NodeHttpClient from './data-access/http/node-http-client';
+import Catalog from './presentation/catalog';
+import Collection from './presentation/collection';
+import Entity from './presentation/entity';
 
 export interface IDirectory {
   login(username: string, password: string, duration?: number): Promise<boolean>;
@@ -34,14 +34,14 @@ class WakandaClient {
       host?: string;
       catalog?: string;
       client?: HttpClient;
-    } = {},
+    } = {}
   ) {
     const { host, catalog } = params;
 
     this._httpClient =
       (params && params.client ? params.client : false) ||
       new WakandaClient.HttpClient({
-        apiPrefix: host || "",
+        apiPrefix: host || '',
       });
 
     this.catalog = catalog;
@@ -84,7 +84,7 @@ class WakandaClient {
   }
 
   public version(): string {
-    return "3.0.0";
+    return '3.0.0';
   }
 }
 

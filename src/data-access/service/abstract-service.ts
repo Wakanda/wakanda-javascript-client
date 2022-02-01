@@ -1,5 +1,5 @@
-import WakandaClient from "../../wakanda-client";
-import HttpClient from "../http/http-client";
+import WakandaClient from '../../wakanda-client';
+import HttpClient from '../http/http-client';
 
 abstract class AbstractService {
   protected httpClient: HttpClient;

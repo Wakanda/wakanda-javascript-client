@@ -1,8 +1,8 @@
-import { ICollectionDBO } from "../../../business/collection-business";
-import { IEntityDBO } from "../../../business/entity-business";
-import { IQueryOption } from "../../../presentation/query-option";
-import HttpClient from "../../http/http-client";
-import Util from "../../util";
+import { ICollectionDBO } from '../../../business/collection-business';
+import { IEntityDBO } from '../../../business/entity-business';
+import { IQueryOption } from '../../../presentation/query-option';
+import HttpClient from '../../http/http-client';
+import Util from '../../util';
 
 export interface IFindParams {
   httpClient: HttpClient;
@@ -26,15 +26,15 @@ export interface ICallMethodParams {
 
 export class DataClassBaseService {
   public static find({ httpClient, key, options, dataURI }: IFindParams) {
-    if (typeof key !== "string" && typeof key !== "number") {
-      throw new Error("DataClass.find: Invalid id type");
+    if (typeof key !== 'string' && typeof key !== 'number') {
+      throw new Error('DataClass.find: Invalid id type');
     }
 
     const optString = Util.handleOptions(options);
 
     return httpClient
       .get({
-        uri: dataURI + "(" + key + ")" + optString,
+        uri: dataURI + '(' + key + ')' + optString,
       })
       .then((res) => {
         const entity = JSON.parse(res.body);
@@ -47,7 +47,7 @@ export class DataClassBaseService {
   }
 
   public static query({ httpClient, options, dataURI }: IQueryParams) {
-    options.method = "entityset";
+    options.method = 'entityset';
 
     if (Array.isArray(options.params)) {
       options.params = this._sanitizeOptionParams(options.params);
@@ -74,7 +74,7 @@ export class DataClassBaseService {
   public static callMethod({ httpClient, methodName, parameters, dataURI }: ICallMethodParams) {
     return httpClient
       .post({
-        uri: dataURI + "/" + methodName,
+        uri: dataURI + '/' + methodName,
         data: parameters,
       })
       .then((res) => {

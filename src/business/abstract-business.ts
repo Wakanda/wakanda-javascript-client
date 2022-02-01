@@ -1,4 +1,4 @@
-import WakandaClient from "../wakanda-client";
+import WakandaClient from '../wakanda-client';
 
 abstract class AbstractBusiness {
   public wakJSC: WakandaClient;

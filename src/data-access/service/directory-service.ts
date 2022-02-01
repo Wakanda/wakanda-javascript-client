@@ -1,6 +1,6 @@
-import { ICurrentUserDBO } from "../../business/directory-business";
-import AbstractService from "./abstract-service";
-import { DirectoryBaseService } from "./base/directory-base-service";
+import { ICurrentUserDBO } from '../../business/directory-business';
+import AbstractService from './abstract-service';
+import { DirectoryBaseService } from './base/directory-base-service';
 
 class DirectoryService extends AbstractService {
   public login(username: string, password: string, duration: number): Promise<boolean> {
