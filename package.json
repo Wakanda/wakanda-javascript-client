@@ -95,6 +95,7 @@
     "/dist/*",
     "/src/*",
     "/lib/*",
-    "!karma.wakanda-client.js*"
+    "!karma.wakanda-client.js*",
+    "package-lock.json"
   ]
 }
