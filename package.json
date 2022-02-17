@@ -6,7 +6,7 @@
   "browser": "dist/browser.js",
   "repository": "wakanda/wakanda-javascript-client",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
+    "preinstall": "npx force-resolutions",
     "tsc": "tsc",
     "lint": "eslint -c ./.eslintrc.js ./src --ext .ts,.tsx",
     "test": "node runTests.js",
@@ -79,7 +79,10 @@
     "webpack-cli": "^4.9.1"
   },
   "resolutions": {
-    "glob-parent": "5.1.2"
+    "glob-parent": "5.1.2",
+    "ajv": "6.12.3",
+    "follow-redirects": "1.14.8",
+    "karma": "6.3.14"
   },
   "dependencies": {
     "core-js": "^3.19.3"
