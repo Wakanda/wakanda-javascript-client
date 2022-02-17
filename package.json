@@ -1,7 +1,7 @@
 {
   "name": "wakanda-client",
   "main": "dist/node.js",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Wakanda Client allows you to easily interact with Wakanda Server on a JavaScript (browser or node) environment",
   "browser": "dist/browser.js",
   "repository": "wakanda/wakanda-javascript-client",
